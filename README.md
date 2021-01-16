@@ -13,3 +13,10 @@ $ npm run dev
 the CSS library this storefront uses:
 - https://materializecss.com/getting-started.html
 
+adding backend graphql saleor api:
+```bash
+$ export SNOWPACK_PUBLIC_API_URI=https://api.printedbasics.com/graphql/
+# -- or --
+$ export SNOWPACK_PUBLIC_API_URI=https://api.oldneckties.com/graphql/
+```
+

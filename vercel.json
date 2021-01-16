@@ -1,0 +1,7 @@
+{
+  "name": "svelte-storefront",
+  "version": 2,
+  "env": {
+    "API_URI": "@my-api-uri"
+  }
+}

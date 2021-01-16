@@ -1,6 +1,8 @@
 <script>
-	import Counter from '$components/Counter.svelte';
-	import Navigation from '$components/Navigation.svelte';
+	import Counter from '$components/Counter.svelte'
+	import Navigation from '$components/Navigation.svelte'
+	
+	console.log('API_URI', import.meta.env.SNOWPACK_PUBLIC_API_URI)
 </script>
 
 <Navigation />

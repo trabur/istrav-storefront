@@ -1,7 +1,9 @@
 <script>
 	import Counter from '$components/Counter.svelte';
+	import Navigation from '$components/Navigation.svelte';
 </script>
 
+<Navigation />
 <main>
 	<h1>Hello world!</h1>
 

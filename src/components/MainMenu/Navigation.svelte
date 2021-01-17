@@ -3,7 +3,7 @@
   
   // navigation center text
   export let name = ''
-  let extendNav = true
+  let extendNav = false
   let categoryId = ''
   let items = []
   let subItems = []

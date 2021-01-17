@@ -1,11 +1,14 @@
 <script>
 	import Counter from '$components/Counter.svelte'
-	import Navigation from '$components/Navigation.svelte'
+	import Navigation from '$components/MainMenu/Navigation.svelte'
 	
-	console.log('API_URI', import.meta.env.SNOWPACK_PUBLIC_API_URI)
+	let name = import.meta.env.SNOWPACK_PUBLIC_NAME
+	let apiUri = import.meta.env.SNOWPACK_PUBLIC_API_URI
+	console.log('NAME', name)
+	console.log('API_URI', apiUri)
 </script>
 
-<Navigation />
+<Navigation name={name} />
 <main>
 	<h1>Hello world!</h1>
 

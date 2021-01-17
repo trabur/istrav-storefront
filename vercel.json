@@ -2,6 +2,7 @@
   "name": "svelte-storefront",
   "version": 2,
   "env": {
-    "API_URI": "@my-api-uri"
+    "SNOWPACK_PUBLIC_NAME": "STOREFRONT",
+    "SNOWPACK_PUBLIC_API_URI": "https://api.printedbasics.com/graphql/",
   }
 }

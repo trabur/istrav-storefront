@@ -15,6 +15,8 @@ the CSS library this storefront uses:
 
 adding backend graphql saleor api:
 ```bash
+$ export SNOWPACK_PUBLIC_NAME=PRINTEDBASICS
+# -- then --
 $ export SNOWPACK_PUBLIC_API_URI=https://api.printedbasics.com/graphql/
 # -- or --
 $ export SNOWPACK_PUBLIC_API_URI=https://api.oldneckties.com/graphql/

@@ -1,6 +1,7 @@
 <script>
 	import Counter from '$components/Counter.svelte'
 	import Navigation from '$components/MainMenu/Navigation.svelte'
+	import FrontPageBanner from '$components/Banner/FrontPage.svelte'
 	
 	let name = import.meta.env.SNOWPACK_PUBLIC_NAME
 	let apiUri = import.meta.env.SNOWPACK_PUBLIC_API_URI
@@ -9,6 +10,7 @@
 </script>
 
 <Navigation name={name} />
+<FrontPageBanner />
 <main>
 	<h1>Hello world!</h1>
 

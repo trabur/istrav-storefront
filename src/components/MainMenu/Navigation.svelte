@@ -46,7 +46,7 @@
 
 <nav class={extendNav ? `nav-extended` : ''} on:mouseleave={() => extendNav = false}>
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo center">{name}</a>
+    <a href="#" class="brand-logo center" on:mouseenter={() => extendNav = true}>{name}</a>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
       {#each items as item (item.id)}
         <li><a href={`/category/${item.category.slug}/${atob(item.id).split(':')[1]}`} on:mouseover={setCategoryId(item.id)}>{item.name}</a></li>

@@ -53,13 +53,15 @@
       {/each}
     </ul>
   </div>
-  <div class="nav-content">
-    <ul class="tabs tabs-transparent">
-      {#each subItems as item (item.id)}
-        <li class="tab"><a href={`/category/${item.category.slug}/${atob(item.id).split(':')[1]}`}>{item.name}</a></li>
-      {/each}
-    </ul>
-  </div>
+  {#if extendNav}
+    <div class="nav-content">
+      <ul class="tabs tabs-transparent">
+        {#each subItems as item (item.id)}
+          <li class="tab"><a href={`/category/${item.category.slug}/${atob(item.id).split(':')[1]}`}>{item.name}</a></li>
+        {/each}
+      </ul>
+    </div>
+  {/if}
 </nav>
       
 

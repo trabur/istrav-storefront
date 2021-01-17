@@ -5,11 +5,13 @@
 	
 	let name = import.meta.env.SNOWPACK_PUBLIC_NAME
 	let apiUri = import.meta.env.SNOWPACK_PUBLIC_API_URI
+	let announce = import.meta.env.SNOWPACK_PUBLIC_ANNOUNCE
 	console.log('NAME', name)
 	console.log('API_URI', apiUri)
+	console.log('ANNOUNCE', announce)
 </script>
 
-<Navigation name={name} />
+<Navigation />
 <FrontPageBanner />
 <main>
 	<h1>Hello world!</h1>

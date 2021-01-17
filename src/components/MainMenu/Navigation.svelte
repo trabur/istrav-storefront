@@ -2,7 +2,6 @@
   import { onMount } from 'svelte';
   
   // navigation center text
-  export let name = ''
   let extendNav = false
   let categoryId = ''
   let items = []
@@ -10,6 +9,7 @@
   
   // navigation query
   import { GET_MAIN_MENU } from "./queries"
+	let name = import.meta.env.SNOWPACK_PUBLIC_NAME
 	let apiUri = import.meta.env.SNOWPACK_PUBLIC_API_URI
   
   function setCategoryId (id) {
@@ -21,7 +21,17 @@
     // console.log('subItems', subItems)
   }
 
-  onMount(() => {
+  let instance;
+  // sidebar opts
+  let options = {
+    edge: 'left'
+  }
+
+	onMount(() => {
+    // main sidebar
+    var elem = document.querySelector('#main');
+    instance = M.Sidenav.init(elem, options);
+    
     // navigation request
     fetch(apiUri, {
       method: 'POST',
@@ -46,6 +56,9 @@
 
 <nav class={extendNav ? `nav-extended` : ''} on:mouseleave={() => extendNav = false}>
   <div class="nav-wrapper">
+    <ul class="left">
+      <li><a href="#" on:click={() => instance.open()} data-target="slide-out"><i class="material-icons">menu</i></a></li>
+    </ul>
     <a href="#" class="brand-logo center" on:mouseenter={() => extendNav = true}>{name}</a>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
       {#each items as item (item.id)}
@@ -63,7 +76,23 @@
     </div>
   {/if}
 </nav>
-      
+
+
+<ul id="main" class="sidenav">
+  <li>
+    <h5 style="text-align: center;">{name}</h5>
+  </li>
+  <!-- <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+  <li><a href="#!">Second Link</a></li>
+  <li><div class="divider"></div></li>
+  <li><a class="subheader">Subheader</a></li> -->
+  {#each items as item (item.id)}
+    <li class="waves-effect" style="width: 100%;"><a href={`/category/${item.category.slug}/${atob(item.id).split(':')[1]}`} on:click={() => instance.close()}>{item.name}</a></li>
+    {#each item.children as item (item.id)}
+      <li class="waves-effect" style="width: 100%; padding-left: 1em;"><a href={`/category/${item.category.slug}/${atob(item.id).split(':')[1]}`} on:click={() => instance.close()}>{item.name}</a></li>
+    {/each}
+  {/each}
+</ul>
 
 <!-- <ul>
   {#if $mainMenu.loading}

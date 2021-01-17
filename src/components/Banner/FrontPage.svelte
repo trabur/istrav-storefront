@@ -31,10 +31,10 @@
 }
 
 .announce {
-  margin-top: -450px;
+  margin-top: -400px;
   height: 200px;
   text-align: center;
-  margin-bottom: 250px;
+  margin-bottom: 300px;
 }
 
 .first,

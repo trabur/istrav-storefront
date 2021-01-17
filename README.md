@@ -28,5 +28,11 @@ $ export SNOWPACK_PUBLIC_ANNOUNCE="{
   \"buttonName\": \"SHOP SALE\",
   \"buttonUrl\": \"/category/accessories/7/\"
 }"
+
+$ export AWS_ACCESS_KEY_ID=AKIAU4DF7JZBKVCEPNNA
+$ export AWS_SECRET_ACCESS_KEY=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
+$ export AWS_MEDIA_BUCKET_NAME=printedbasics-saleor
+$ export AWS_MEDIA_CUSTOM_DOMAIN=https://printedbasics-saleor.s3.us-east-2.amazonaws.com
+
 ```
 

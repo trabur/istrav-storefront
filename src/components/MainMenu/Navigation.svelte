@@ -22,15 +22,21 @@
   }
 
   let instance;
-  // sidebar opts
-  let options = {
-    edge: 'left'
-  }
+  let instancePerson;
+  let instanceCart;
+  let instanceSearch;
 
 	onMount(() => {
     // main sidebar
-    var elem = document.querySelector('#main');
-    instance = M.Sidenav.init(elem, options);
+    var elem = document.querySelector('#main')
+    instance = M.Sidenav.init(elem, { edge: 'left' })
+    // right sidebars
+    var elemPerson = document.querySelector('#person')
+    instancePerson = M.Sidenav.init(elemPerson, { edge: 'right' })
+    var elemCart = document.querySelector('#cart')
+    instanceCart = M.Sidenav.init(elemCart, { edge: 'right' })
+    var elemSearch = document.querySelector('#search')
+    instanceSearch = M.Sidenav.init(elemSearch, { edge: 'right' })
     
     // navigation request
     fetch(apiUri, {
@@ -60,6 +66,11 @@
       <li><a href="#" on:click={() => instance.open()} data-target="slide-out"><i class="material-icons">menu</i></a></li>
     </ul>
     <a href="#" class="brand-logo center" on:mouseenter={() => extendNav = true}>{name}</a>
+    <ul class="right">
+      <li><a href="#" on:click={() => instancePerson.open()} data-target="slide-out"><i class="material-icons">person</i></a></li>
+      <li><a href="#" on:click={() => instanceCart.open()} data-target="slide-out"><i class="material-icons">shopping_cart</i></a></li>
+      <li><a href="#" on:click={() => instanceSearch.open()} data-target="slide-out"><i class="material-icons">search</i></a></li>
+    </ul>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
       {#each items as item (item.id)}
         <li><a href={`/category/${item.category.slug}/${atob(item.id).split(':')[1]}`} on:mouseover={setCategoryId(item.id)}>{item.name}</a></li>
@@ -94,6 +105,23 @@
   {/each}
 </ul>
 
+<ul id="person" class="sidenav">
+  <li>
+    <h5 style="text-align: center;">person</h5>
+  </li>
+</ul>
+
+<ul id="cart" class="sidenav">
+  <li>
+    <h5 style="text-align: center;">cart</h5>
+  </li>
+</ul>
+
+<ul id="search" class="sidenav">
+  <li>
+    <h5 style="text-align: center;">search</h5>
+  </li>
+</ul>
 <!-- <ul>
   {#if $mainMenu.loading}
     <li>Loading...</li>

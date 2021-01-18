@@ -1,8 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import Navigation from '$components/MainMenu/Navigation.svelte'
-  import NavigationLinks from '$components/Footer/NavigationLinks.svelte'
-  import SocialLinks from '$components/Footer/SocialLinks.svelte'
+  import Footer from '$components/Footer/Main.svelte'
 
 
   onMount(() => {
@@ -37,19 +36,11 @@
     </div>
   </div>
 </div>
-<br />
-<br />
-<nav class="teal lighten-2" style="position: absolute;">
-  <div class="row">
-    <div class="col s0 m1"></div>
-    <div class="col s12 m10">
-      <a href="/" class="breadcrumb">Home</a>
-      <a href="/account" class="breadcrumb">My Account</a>
-      <SocialLinks />
-    </div>
-  </div>
-</nav>
-<NavigationLinks />
+
+<Footer>
+	<a href="/" class="breadcrumb">Home</a>
+	<a href="/account" class="breadcrumb">My Account</a>
+</Footer>
 
 
 <style>

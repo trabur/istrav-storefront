@@ -2,6 +2,7 @@
 	import Counter from '$components/Counter.svelte'
 	import Navigation from '$components/MainMenu/Navigation.svelte'
 	import FrontPageBanner from '$components/Banner/FrontPage.svelte'
+  import Footer from '$components/Footer/Main.svelte'
 	
 	let name = import.meta.env.SNOWPACK_PUBLIC_NAME
 	let apiUri = import.meta.env.SNOWPACK_PUBLIC_API_URI
@@ -19,6 +20,11 @@
 	<Counter/>
 	<p>Visit the <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte apps.</p>
 </main>
+
+<Footer>
+	<a href="/" class="breadcrumb">Home</a>
+	<a href="/" class="breadcrumb">Welcome</a>
+</Footer>
 
 <style>
 	:root {

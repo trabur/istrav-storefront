@@ -16,6 +16,7 @@ export const basicProductFragment = `
 fragment BasicProductFields on Product {
   id
   name
+  slug
   thumbnail {
     url
     alt
@@ -86,6 +87,7 @@ export const GET_CATEGORIES = `
         node {
           id
           name
+          slug
           backgroundImage {
             url
           }

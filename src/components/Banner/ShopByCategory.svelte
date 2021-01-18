@@ -34,7 +34,7 @@
     <div class="masonry">
       {#each items as item (item.node.id)}
         <div class="item">
-          <a href={`/category/${item.node.name.toLowerCase()}/${atob(item.node.id).split(':')[1]}`}>
+          <a href={`/category/${item.node.slug}/${atob(item.node.id).split(':')[1]}`}>
             <div class="image" style={`background-image: url(${item.node.backgroundImage.url});`}></div>
             <h5 class="subtitle">{item.node.name}</h5>
           </a>

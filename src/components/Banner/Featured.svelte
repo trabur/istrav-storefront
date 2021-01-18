@@ -35,9 +35,11 @@
     <div class="masonry">
       {#each items as item (item.node.id)}
         <div class="item">
-          <div class="image" style={`background-image: url(${item.node.thumbnail2x.url});`}>
-          </div>
-          <h5 style="margin: 0;">{item.node.name}</h5>
+          <a href={`/product/${item.node.slug}/${atob(item.node.id).split(':')[1]}`}>
+            <div class="image" style={`background-image: url(${item.node.thumbnail2x.url});`}>
+            </div>
+            <h5 style="margin-top: 0.5em;">{item.node.name}</h5>
+          </a>
           <p style="margin: 0; color: #aaa;">{item.node.category.name}</p>
         </div>
       {/each}

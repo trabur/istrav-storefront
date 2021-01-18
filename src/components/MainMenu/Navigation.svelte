@@ -65,7 +65,8 @@
     <ul class="left">
       <li><a href="#" on:click={() => instance.open()} data-target="slide-out"><i class="material-icons">menu</i></a></li>
     </ul>
-    <a href="/" class="brand-logo center">{name}</a>
+    <a href="/" class="brand-logo left hide-on-large-only" style="margin-left: 1.75em;">{name}</a>
+    <a href="/" class="brand-logo center hide-on-med-and-down">{name}</a>
     <ul class="right">
       <li><a href="#" on:click={() => instancePerson.open()} data-target="slide-out"><i class="material-icons">person</i></a></li>
       <li><a href="#" on:click={() => instanceCart.open()} data-target="slide-out"><i class="material-icons">shopping_cart</i></a></li>

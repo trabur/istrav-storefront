@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import { GET_FEATURED_PRODUCTS } from "./queries"
+  import { GET_CATEGORIES } from "./queries"
   
   let apiUri = import.meta.env.SNOWPACK_PUBLIC_API_URI
   let items = []
@@ -14,7 +14,7 @@
         'Accept': 'application/json',
       },
       body: JSON.stringify({
-        query: GET_FEATURED_PRODUCTS,
+        query: GET_CATEGORIES,
         variables: {
           "channel": "default-channel"
         },
@@ -23,7 +23,7 @@
       .then(r => r.json())
       .then(value => {
         console.log('shop by category:', value)
-        items = value.data.collection.products.edges
+        items = value.data.categories.edges
       })
   })
 </script>
@@ -34,7 +34,7 @@
     <div class="masonry">
       {#each items as item (item.node.id)}
         <div class="item">
-          <div class="image" style={`background-image: url(${item.node.thumbnail2x.url});`}>
+          <div class="image" style={`background-image: url(${item.node.backgroundImage.url});`}>
           </div>
           <h5 class="subtitle">{item.node.name}</h5>
         </div>

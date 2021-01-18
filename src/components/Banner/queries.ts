@@ -72,3 +72,25 @@ export const GET_FEATURED_PRODUCTS = `
     }
   }
 `;
+
+export const GET_CATEGORIES = `
+  query ProductsList($channel: String) {
+    collection(slug: "featured-products", channel: $channel) {
+      backgroundImage {
+        url
+        alt
+      }
+    }
+    categories(level: 0, first: 8) {
+      edges {
+        node {
+          id
+          name
+          backgroundImage {
+            url
+          }
+        }
+      }
+    }
+  }
+`;

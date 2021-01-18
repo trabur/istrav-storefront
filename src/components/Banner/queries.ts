@@ -65,6 +65,7 @@ export const GET_FEATURED_PRODUCTS = `
             ...ProductPricingField
             category {
               id
+              slug
               name
             }
           }

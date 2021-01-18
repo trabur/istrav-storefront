@@ -38,9 +38,11 @@
           <a href={`/product/${item.node.slug}/${atob(item.node.id).split(':')[1]}`}>
             <div class="image" style={`background-image: url(${item.node.thumbnail2x.url});`}>
             </div>
-            <h5 style="margin-top: 0.5em;">{item.node.name}</h5>
+            <h5 style="color: #111; margin: 0.5em 0 0 0;">{item.node.name}</h5>
           </a>
-          <p style="margin: 0; color: #aaa;">{item.node.category.name}</p>
+          <a href={`/category/${item.node.category.slug}/${atob(item.node.category.id).split(':')[1]}`}>
+            <p style="margin: 0; color: #aaa;">{item.node.category.name}</p>
+          </a>
         </div>
       {/each}
     </div>

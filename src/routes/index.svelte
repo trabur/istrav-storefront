@@ -15,8 +15,12 @@
 
 <Navigation />
 <FrontPageBanner />
+<br />
+<br />
+<br />
 <Featured />
 <ShopByCategory />
+<br />
 <Footer>
 	<a href="/" class="breadcrumb">Home</a>
 	<a href="/" class="breadcrumb">Welcome</a>

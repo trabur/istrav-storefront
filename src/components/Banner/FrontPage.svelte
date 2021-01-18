@@ -19,8 +19,10 @@
 </div>
 
 <div class="announce">
-  <span class="first"><h1 class="text">{announce.line1}</h1></span><br />
-  <span class="second"><h1 class="text">{announce.line2}</h1></span><br />
+  <span class="first hide-on-med-and-down"><h1 class="text">{announce.line1}</h1></span><br />
+  <span class="second hide-on-med-and-down"><h1 class="text">{announce.line2}</h1></span><br />
+  <span class="first hide-on-large-only"><h1 class="text small">{announce.line1}</h1></span><br />
+  <span class="second hide-on-large-only"><h1 class="text small">{announce.line2}</h1></span><br />
   <a href={`${announce.buttonUrl}`} class="waves-effect waves-light btn-large" style="margin-top: 0.5em;">{announce.buttonName}</a>
 </div>
 
@@ -51,6 +53,11 @@
   transform: skew(-45deg);
   margin: 0;
   font-size: 4rem;
+  font-weight: 900;
+}
+
+.small {
+  font-size: 2rem;
   font-weight: 900;
 }
 </style>

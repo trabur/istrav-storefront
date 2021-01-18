@@ -54,7 +54,7 @@
     })
       .then(r => r.json())
       .then(value => {
-        // console.log('data returned:', value)
+        console.log('navigation main:', value)
         items = value.data.menu.items
       })
   })
@@ -65,7 +65,7 @@
     <ul class="left">
       <li><a href="#" on:click={() => instance.open()} data-target="slide-out"><i class="material-icons">menu</i></a></li>
     </ul>
-    <a href="#" class="brand-logo center" on:mouseenter={() => extendNav = true}>{name}</a>
+    <a href="/" class="brand-logo center">{name}</a>
     <ul class="right">
       <li><a href="#" on:click={() => instancePerson.open()} data-target="slide-out"><i class="material-icons">person</i></a></li>
       <li><a href="#" on:click={() => instanceCart.open()} data-target="slide-out"><i class="material-icons">shopping_cart</i></a></li>
@@ -122,14 +122,3 @@
     <h5 style="text-align: center;">search</h5>
   </li>
 </ul>
-<!-- <ul>
-  {#if $mainMenu.loading}
-    <li>Loading...</li>
-  {:else if $mainMenu.error}
-    <li>ERROR: {$mainMenu.error.message}</li>
-  {:else}
-    {#each $mainMenu.data.menu.items as item (item.id)}
-      <li>{item.name} by {item.category.name}</li>
-    {/each}
-  {/if}
-</ul> -->

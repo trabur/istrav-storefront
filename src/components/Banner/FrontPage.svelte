@@ -34,7 +34,7 @@
   margin-top: -400px;
   height: 200px;
   text-align: center;
-  margin-bottom: 300px;
+  margin-bottom: 200px;
 }
 
 .first,

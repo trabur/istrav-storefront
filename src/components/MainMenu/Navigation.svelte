@@ -75,7 +75,7 @@
       {#if token}
         <li><a href="/account" data-target="slide-out"><i class="material-icons">person</i></a></li>
       {:else}
-        <li><a href="#" on:click={() => instancePerson.open()} data-target="slide-out"><i class="material-icons">person</i></a></li>
+        <li><a href="/login" data-target="slide-out"><i class="material-icons">person</i></a></li>
       {/if}
       <li><a href="#" on:click={() => instanceCart.open()} data-target="slide-out"><i class="material-icons">shopping_cart</i></a></li>
       <li><a href="#" on:click={() => instanceSearch.open()} data-target="slide-out"><i class="material-icons">search</i></a></li>

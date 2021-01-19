@@ -1,22 +1,25 @@
 <script>
   import { onMount, onDestroy } from 'svelte';
-  import { login } from './methods'
+  import { login, register } from './methods'
 
 	let email = '';
   let password = '';
+  let passwordRepeat = '';
 
 	function auth() {
     if (email === '') return alert('Email must be defined.')
     if (password === '') return alert('Password must be defined.')
+    if (passwordRepeat === '') return alert('Password repeat must be defined.')
+    if (password !== passwordRepeat) return alert('Password should be the same as password confirm.')
   
-    login(email, password)
+    register(email, password)
   }
 </script>
 
 <div class="row">
   <div class="col s12 m4"></div>
   <div class="col s12 m4">
-    <h3 class="title">LOGIN</h3>
+    <h3 class="title">REGISTER</h3>
     <div class="card" style="padding: 1em; background: #eee;">
       <div class="row">
         <div class="input-field col s12">
@@ -27,12 +30,16 @@
           <input id="password" type="password" class="validate" bind:value={password}>
           <label for="password">Password</label>
         </div>
+        <div class="input-field col s12">
+          <input id="passwordRepeat" type="password" class="validate" bind:value={passwordRepeat}>
+          <label for="passwordRepeat">Password Confirm</label>
+        </div>
         <br />
         <button style="margin-left: 1em;" type='submit' class="waves-effect btn" on:click={() => auth()}>Submit</button>
       </div>
     </div>
     <div style="text-align: right;">
-      <a href="/register" class="waves-effect red lighten-2 btn">REGISTER</a>
+      <a href="/login" class="waves-effect red lighten-2 btn">LOGIN</a>
     </div>
   </div>
   <div class="col s12 m4"></div>

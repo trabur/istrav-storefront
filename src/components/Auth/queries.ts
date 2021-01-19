@@ -20,3 +20,21 @@ mutation Login($email: String!, $password: String!) {
   }
 }
 `;
+
+export const GET_REGISTER = `
+mutation RegisterAccount(
+  $email: String!
+  $password: String!
+  $redirectUrl: String!
+) {
+  accountRegister(
+    input: { email: $email, password: $password, redirectUrl: $redirectUrl }
+  ) {
+    errors {
+      field
+      message
+    }
+    requiresConfirmation
+  }
+}
+`;

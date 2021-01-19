@@ -6,6 +6,7 @@
   let categoryId = ''
   let items = []
   let subItems = []
+  let token = null
   
   // navigation query
   import { GET_MAIN_MENU } from "./queries"
@@ -21,12 +22,15 @@
     // console.log('subItems', subItems)
   }
 
+  // sidebars
   let instance;
   let instancePerson;
   let instanceCart;
   let instanceSearch;
 
 	onMount(() => {
+    // user
+		token = localStorage.getItem('token')
     // main sidebar
     var elem = document.querySelector('#main')
     instance = M.Sidenav.init(elem, { edge: 'left' })
@@ -68,7 +72,11 @@
     <a href="/" class="brand-logo left hide-on-large-only" style="margin-left: 1.75em;">{name}</a>
     <a href="/" class="brand-logo center hide-on-med-and-down">{name}</a>
     <ul class="right">
-      <li><a href="#" on:click={() => instancePerson.open()} data-target="slide-out"><i class="material-icons">person</i></a></li>
+      {#if token}
+        <li><a href="/account" data-target="slide-out"><i class="material-icons">person</i></a></li>
+      {:else}
+        <li><a href="#" on:click={() => instancePerson.open()} data-target="slide-out"><i class="material-icons">person</i></a></li>
+      {/if}
       <li><a href="#" on:click={() => instanceCart.open()} data-target="slide-out"><i class="material-icons">shopping_cart</i></a></li>
       <li><a href="#" on:click={() => instanceSearch.open()} data-target="slide-out"><i class="material-icons">search</i></a></li>
     </ul>
@@ -110,6 +118,7 @@
   <li>
     <h5 style="text-align: center;">person</h5>
   </li>
+  
 </ul>
 
 <ul id="cart" class="sidenav">

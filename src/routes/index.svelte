@@ -1,9 +1,9 @@
 <script>
 	import Navigation from '$components/Header/Navigation.svelte'
-	import FrontPageBanner from '$components/Banner/FrontPage.svelte'
+	import FrontPageBanner from '$components/Home/FrontPage.svelte'
   import Footer from '$components/Footer/Main.svelte'
-  import Featured from '$components/Banner/Featured.svelte'
-  import ShopByCategory from '$components/Banner/ShopByCategory.svelte'
+  import Featured from '$components/Home/Featured.svelte'
+  import ShopByCategory from '$components/Home/ShopByCategory.svelte'
 	
 	let name = import.meta.env.SNOWPACK_PUBLIC_NAME
 	let apiUri = import.meta.env.SNOWPACK_PUBLIC_API_URI

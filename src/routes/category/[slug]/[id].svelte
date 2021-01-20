@@ -3,6 +3,7 @@
 
 	import Navigation from '$components/Header/Navigation.svelte'
   import Footer from '$components/Footer/Main.svelte'
+  import ListProducts from '$components/Category/ListProducts.svelte'
 
   onMount(() => {
     let folders = window.location.pathname.split('/')
@@ -16,6 +17,10 @@
 </script>
 
 <Navigation />
+<br />
+<br />
+<br />
+<ListProducts />
 <br />
 <br />
 <br />

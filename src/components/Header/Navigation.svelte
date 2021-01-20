@@ -82,7 +82,7 @@
     </ul>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
       {#each items as item (item.id)}
-        <li><a href={`/category/${item.category.slug}/${atob(item.id).split(':')[1]}`} on:mouseover={setCategoryId(item.id)}>{item.name}</a></li>
+        <li><a href={`/category/${item.category.slug}/${atob(item.category.id).split(':')[1]}`} on:mouseover={setCategoryId(item.id)}>{item.name}</a></li>
       {/each}
     </ul>
   </div>
@@ -90,7 +90,7 @@
     <div class="nav-content">
       <ul class="tabs tabs-transparent">
         {#each subItems as item (item.id)}
-          <li class="tab"><a href={`/category/${item.category.slug}/${atob(item.id).split(':')[1]}`}>{item.name}</a></li>
+          <li class="tab"><a href={`/category/${item.category.slug}/${atob(item.category.id).split(':')[1]}`}>{item.name}</a></li>
         {/each}
       </ul>
     </div>
@@ -107,9 +107,9 @@
   <li><div class="divider"></div></li>
   <li><a class="subheader">Subheader</a></li> -->
   {#each items as item (item.id)}
-    <li class="waves-effect" style="width: 100%;"><a href={`/category/${item.category.slug}/${atob(item.id).split(':')[1]}`} on:click={() => instance.close()}>{item.name}</a></li>
+    <li class="waves-effect" style="width: 100%;"><a href={`/category/${item.category.slug}/${atob(item.category.id).split(':')[1]}`} on:click={() => instance.close()}>{item.name}</a></li>
     {#each item.children as item (item.id)}
-      <li class="waves-effect" style="width: 100%; padding-left: 1em;"><a href={`/category/${item.category.slug}/${atob(item.id).split(':')[1]}`} on:click={() => instance.close()}>{item.name}</a></li>
+      <li class="waves-effect" style="width: 100%; padding-left: 1em;"><a href={`/category/${item.category.slug}/${atob(item.category.id).split(':')[1]}`} on:click={() => instance.close()}>{item.name}</a></li>
     {/each}
   {/each}
 </ul>

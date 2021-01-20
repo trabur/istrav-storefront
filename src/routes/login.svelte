@@ -1,5 +1,5 @@
 <script>
-	import Navigation from '$components/MainMenu/Navigation.svelte'
+	import Navigation from '$components/Header/Navigation.svelte'
 	import Login from '$components/Auth/Login.svelte'
   import Footer from '$components/Footer/Main.svelte'
 </script>

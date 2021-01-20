@@ -1,5 +1,5 @@
 <script>
-	import Navigation from '$components/MainMenu/Navigation.svelte'
+	import Navigation from '$components/Header/Navigation.svelte'
 	import FrontPageBanner from '$components/Banner/FrontPage.svelte'
   import Footer from '$components/Footer/Main.svelte'
   import Featured from '$components/Banner/Featured.svelte'

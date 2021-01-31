@@ -29,10 +29,10 @@ $ export SNOWPACK_PUBLIC_ANNOUNCE="{
   \"buttonUrl\": \"/category/accessories/7/\"
 }"
 
-$ export AWS_ACCESS_KEY_ID=AKIAU4DF7JZBKVCEPNNA
-$ export AWS_SECRET_ACCESS_KEY=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
-$ export AWS_MEDIA_BUCKET_NAME=printedbasics-saleor
-$ export AWS_MEDIA_CUSTOM_DOMAIN=https://printedbasics-saleor.s3.us-east-2.amazonaws.com
+$ export AWS_ACCESS_KEY_ID=
+$ export AWS_SECRET_ACCESS_KEY=
+$ export AWS_MEDIA_BUCKET_NAME=
+$ export AWS_MEDIA_CUSTOM_DOMAIN=https://istrav-saleor.s3.us-east-2.amazonaws.com
 
 ```
 

@@ -1,4 +1,4 @@
-svelte-storefront
+istrav-storefront
 ========
 
 ### init project

@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import { GET_FEATURED_PRODUCTS } from "./queries"
+  import { GET_FEATURED_PRODUCTS } from "./queries.ts"
   
   let items = []
   let masonry

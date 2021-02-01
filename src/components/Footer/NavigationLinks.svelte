@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
 
   // navigation query
-  import { GET_MAIN_FOOTER } from "./queries"
+  import { GET_MAIN_FOOTER } from "./queries.ts"
   
   // objects
   let items = []

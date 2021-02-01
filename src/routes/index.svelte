@@ -1,9 +1,9 @@
 <script>
-	import Navigation from '$components/Header/Navigation.svelte'
-	import FrontPageBanner from '$components/Home/FrontPage.svelte'
-  import Footer from '$components/Footer/Main.svelte'
-  import Featured from '$components/Home/Featured.svelte'
-  import ShopByCategory from '$components/Home/ShopByCategory.svelte'
+	import Navigation from '../components/Header/Navigation.svelte'
+	import FrontPageBanner from '../components/Home/FrontPage.svelte'
+  import Footer from '../components/Footer/Main.svelte'
+  import Featured from '../components/Home/Featured.svelte'
+  import ShopByCategory from '../components/Home/ShopByCategory.svelte'
 </script>
 
 <Navigation />

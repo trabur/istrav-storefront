@@ -1,9 +1,9 @@
 <script>
   import { onMount } from 'svelte';
 
-	import Navigation from '$components/Header/Navigation.svelte'
-  import Footer from '$components/Footer/Main.svelte'
-  import View from '$components/Product/View.svelte'
+	import Navigation from '../../../components/Header/Navigation.svelte'
+  import Footer from '../../../components/Footer/Main.svelte'
+  import View from '../../../components/Product/View.svelte'
 
   onMount(() => {
     let folders = window.location.pathname.split('/')

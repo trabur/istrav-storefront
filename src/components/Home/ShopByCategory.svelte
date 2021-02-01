@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import { GET_CATEGORIES } from "./queries"
+  import { GET_CATEGORIES } from "./queries.ts"
   
   let items = []
   let media 

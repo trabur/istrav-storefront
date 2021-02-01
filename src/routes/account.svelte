@@ -1,8 +1,8 @@
 <script>
   import { onMount } from 'svelte';
-  import Navigation from '$components/Header/Navigation.svelte'
-  import Footer from '$components/Footer/Main.svelte'
-  import Account from '$components/Auth/Account.svelte'
+  import Navigation from '../components/Header/Navigation.svelte'
+  import Footer from '../components/Footer/Main.svelte'
+  import Account from '../components/Auth/Account.svelte'
 </script>
 
 <Navigation />

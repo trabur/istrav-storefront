@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["/Users/travisburandt/Projects/istrav-storefront/src/components/Auth/queries.ts"],
-  "sourcesContent": ["\nexport const GET_LOGIN = `\nmutation Login($email: String!, $password: String!) {\n  tokenCreate(\n    email: $email\n    password: $password\n  ) {\n    token\n    csrfToken\n    refreshToken\n    user {\n      id\n      \n    }\n    accountErrors {\n      field\n      message\n      code\n    }\n  }\n}\n`;\n\nexport const GET_REGISTER = `\nmutation RegisterAccount(\n  $email: String!\n  $password: String!\n  $redirectUrl: String!\n) {\n  accountRegister(\n    input: { email: $email, password: $password, redirectUrl: $redirectUrl }\n  ) {\n    errors {\n      field\n      message\n    }\n    requiresConfirmation\n  }\n}\n`;"],
-  "mappings": "AACO,aAAM,YAAY;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAsBlB,aAAM,eAAe;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;",
-  "names": []
-}

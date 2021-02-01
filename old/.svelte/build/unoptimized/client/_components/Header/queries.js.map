@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["/Users/travisburandt/Projects/istrav-storefront/src/components/Header/queries.ts"],
-  "sourcesContent": ["\nexport const GET_MAIN_MENU = `fragment MainMenuSubItem on MenuItem {\n  id\n  name\n  category {\n    id\n    name\n    slug\n  }\n  url\n  collection {\n    id\n    name\n  }\n  page {\n    slug\n  }\n  parent {\n    id\n  }\n}\n\nquery MainMenu($slug: String!) {\n  menu(slug: $slug) {\n    id\n    items {\n      ...MainMenuSubItem\n      children {\n        ...MainMenuSubItem\n        children {\n          ...MainMenuSubItem\n        }\n      }\n    }\n  }\n}`"],
-  "mappings": "AACO,aAAM,gBAAgB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;",
-  "names": []
-}

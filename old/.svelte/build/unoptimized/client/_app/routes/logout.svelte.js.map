@@ -1,1 +1,0 @@
-{"version":3,"names":[],"sources":["logout.svelte"],"sourcesContent":["<script>\n\timport { onMount } from 'svelte';\n\t\n\tonMount(() => {\n\t\tlocalStorage.removeItem('token')\n\t\twindow.location.href = `/`\n\t})\n</script>"],"mappings":";;;SACU,OAAO,QAAQ,QAAQ;;;CAEhC,OAAO;EACN,YAAY,CAAC,UAAU,CAAC,OAAO;EAC/B,MAAM,CAAC,QAAQ,CAAC,IAAI;;;;;;;;;;;;;"}

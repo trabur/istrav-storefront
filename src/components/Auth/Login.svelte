@@ -1,6 +1,6 @@
 <script>
   import { onMount, onDestroy } from 'svelte';
-  import { login } from './methods'
+  // import { login } from './methods'
 
 	let email = '';
   let password = '';

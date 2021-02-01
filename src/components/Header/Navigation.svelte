@@ -8,6 +8,7 @@
   let subItems = []
   let token = null
   let name = ''
+  let short = ''
   
   function setCategoryId (id) {
     extendNav = true
@@ -53,6 +54,7 @@
         console.log('navigation main:', value)
         items = value.menu
         name = value.name
+        short = value.short
       })
   })
 </script>
@@ -62,7 +64,7 @@
     <ul class="left">
       <li><a href="#" on:click={() => instance.open()} data-target="slide-out"><i class="material-icons">menu</i></a></li>
     </ul>
-    <a href="/" class="brand-logo left hide-on-large-only" style="margin-left: 1.75em;">{name}</a>
+    <a href="/" class="brand-logo left hide-on-large-only" style="margin-left: 1.75em;">{short}</a>
     <a href="/" class="brand-logo center hide-on-med-and-down">{name}</a>
     <ul class="right">
       {#if token}

@@ -32,7 +32,9 @@
 
 <div class="parallax-container">
   <div class="parallax">
-    <img style={`opacity: 1; height: 600px;`} src={`./media/${media}/${image}`}  alt="background" />
+    {#if image && media}
+      <img style={`opacity: 1; height: 600px;`} src={`./media/${media}/${image}`}  alt="background" />
+    {/if}
   </div>
 </div>
 

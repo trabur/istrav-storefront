@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["/Users/travisburandt/Projects/istrav-storefront/src/components/Product/queries.ts"],
+  "sourcesContent": ["\nexport const GET_LOGIN = ``"],
+  "mappings": "AACO,aAAM,YAAY;",
+  "names": []
+}

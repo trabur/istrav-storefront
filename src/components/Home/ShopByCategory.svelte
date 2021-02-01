@@ -10,7 +10,7 @@
 
     // data request
     fetch(`./media/${media}/data.json`, {
-      method: 'POST',
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',

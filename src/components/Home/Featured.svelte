@@ -8,23 +8,17 @@
 
 	onMount(() => {
     // data request
-    fetch(apiUri, {
-      method: 'POST',
+    fetch('./media/data.json', {
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-      },
-      body: JSON.stringify({
-        query: GET_FEATURED_PRODUCTS,
-        variables: {
-          "channel": "default-channel"
-        },
-      })
+      }
     })
       .then(r => r.json())
       .then(value => {
         console.log('featured products:', value)
-        items = value.data.collection.products.edges
+        items = value.featured
       })
   })
 </script>
@@ -33,15 +27,15 @@
   <div class="col s12 m10">
     <h3 class="title">FEATURED</h3>
     <div class="masonry">
-      {#each items as item (item.node.id)}
+      {#each items as item}
         <div class="item">
-          <a href={`/product/${item.node.slug}/${atob(item.node.id).split(':')[1]}`}>
-            <div class="image" style={`background-image: url(${item.node.thumbnail2x.url});`}>
+          <a href={`/product/${item.slug}`}>
+            <div class="image" style={`background-image: url(${item.image});`}>
             </div>
-            <h5 style="color: #111; margin: 0.5em 0 0 0;">{item.node.name}</h5>
+            <h5 style="color: #111; margin: 0.5em 0 0 0;">{item.name}</h5>
           </a>
-          <a href={`/category/${item.node.category.slug}/${atob(item.node.category.id).split(':')[1]}`}>
-            <p style="margin: 0; color: #aaa;">{item.node.category.name}</p>
+          <a href={`/category/${item.category.slug}`}>
+            <p style="margin: 0; color: #aaa;">{item.category.name}</p>
           </a>
         </div>
       {/each}

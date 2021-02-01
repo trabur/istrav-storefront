@@ -1,15 +1,30 @@
 <script>
   import { onMount } from 'svelte';
 
-	let announce = JSON.parse(import.meta.env.SNOWPACK_PUBLIC_ANNOUNCE) || {
+	let announce = {
     line1: 'Final reduction',
     line2: 'Up to 70% off sale',
     buttonName: 'SHOP SALE',
     buttonUrl: '/category/accessories/7/'
   }
 
-  // onMount(() => {
-  // })
+	onMount(() => {
+    let media = window.location.host
+
+    // data request
+    fetch(`./media/${media}/data.json`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }
+    })
+      .then(r => r.json())
+      .then(value => {
+        console.log('announce:', value.announce)
+        announce = value.announce
+      })
+  })
 </script>
 
 <div class="parallax-container">

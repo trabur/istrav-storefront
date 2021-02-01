@@ -7,11 +7,7 @@
   let items = []
   let subItems = []
   let token = null
-  
-  // navigation query
-  import { GET_MAIN_MENU } from "./queries"
-	let name = import.meta.env.SNOWPACK_PUBLIC_NAME
-	let apiUri = import.meta.env.SNOWPACK_PUBLIC_API_URI
+  let name = ''
   
   function setCategoryId (id) {
     extendNav = true
@@ -42,24 +38,21 @@
     var elemSearch = document.querySelector('#search')
     instanceSearch = M.Sidenav.init(elemSearch, { edge: 'right' })
     
+    let media = window.location.host
+
     // navigation request
-    fetch(apiUri, {
-      method: 'POST',
+    fetch(`./media/${media}/data.json`, {
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-      },
-      body: JSON.stringify({
-        query: GET_MAIN_MENU,
-        variables: {
-          "slug": "navbar"
-        },
-      })
+      }
     })
       .then(r => r.json())
       .then(value => {
         console.log('navigation main:', value)
-        items = value.data.menu.items
+        items = value.menu
+        name = value.name
       })
   })
 </script>
@@ -81,16 +74,16 @@
       <li><a href="#" on:click={() => instanceSearch.open()} data-target="slide-out"><i class="material-icons">search</i></a></li>
     </ul>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
-      {#each items as item (item.id)}
-        <li><a href={`/category/${item.category.slug}/${atob(item.category.id).split(':')[1]}`} on:mouseover={setCategoryId(item.id)}>{item.name}</a></li>
+      {#each items as item (item.url)}
+        <li><a href={item.url} on:mouseover={setCategoryId(item.slug)}>{item.name}</a></li>
       {/each}
     </ul>
   </div>
   {#if extendNav}
     <div class="nav-content">
       <ul class="tabs tabs-transparent">
-        {#each subItems as item (item.id)}
-          <li class="tab"><a href={`/category/${item.category.slug}/${atob(item.category.id).split(':')[1]}`}>{item.name}</a></li>
+        {#each subItems as item (item.url)}
+          <li class="tab"><a href={item.url}>{item.name}</a></li>
         {/each}
       </ul>
     </div>
@@ -106,10 +99,10 @@
   <li><a href="#!">Second Link</a></li>
   <li><div class="divider"></div></li>
   <li><a class="subheader">Subheader</a></li> -->
-  {#each items as item (item.id)}
-    <li class="waves-effect" style="width: 100%;"><a href={`/category/${item.category.slug}/${atob(item.category.id).split(':')[1]}`} on:click={() => instance.close()}>{item.name}</a></li>
-    {#each item.children as item (item.id)}
-      <li class="waves-effect" style="width: 100%; padding-left: 1em;"><a href={`/category/${item.category.slug}/${atob(item.category.id).split(':')[1]}`} on:click={() => instance.close()}>{item.name}</a></li>
+  {#each items as item (item.url)}
+    <li class="waves-effect" style="width: 100%;"><a href={item.url} on:click={() => instance.close()}>{item.name}</a></li>
+    {#each item.children as item (item.url)}
+      <li class="waves-effect" style="width: 100%; padding-left: 1em;"><a href={item.url} on:click={() => instance.close()}>{item.name}</a></li>
     {/each}
   {/each}
 </ul>

@@ -2,13 +2,15 @@
   import { onMount } from 'svelte';
   import { GET_FEATURED_PRODUCTS } from "./queries"
   
-  let apiUri = import.meta.env.SNOWPACK_PUBLIC_API_URI
   let items = []
   let masonry
+  let media
 
 	onMount(() => {
+    media = window.location.host
+    
     // data request
-    fetch('./media/data.json', {
+    fetch(`./media/${media}/data.json`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -27,10 +29,10 @@
   <div class="col s12 m10">
     <h3 class="title">FEATURED</h3>
     <div class="masonry">
-      {#each items as item}
+      {#each items as item (item.slug)}
         <div class="item">
           <a href={`/product/${item.slug}`}>
-            <div class="image" style={`background-image: url(${item.image});`}>
+            <div class="image" style={`background-image: url(./media/${media}/${item.image});`}>
             </div>
             <h5 style="color: #111; margin: 0.5em 0 0 0;">{item.name}</h5>
           </a>

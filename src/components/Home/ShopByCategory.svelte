@@ -2,28 +2,24 @@
   import { onMount } from 'svelte';
   import { GET_CATEGORIES } from "./queries"
   
-  let apiUri = import.meta.env.SNOWPACK_PUBLIC_API_URI
   let items = []
+  let media 
 
 	onMount(() => {
+    media = window.location.host
+
     // data request
-    fetch(apiUri, {
+    fetch(`./media/${media}/data.json`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-      },
-      body: JSON.stringify({
-        query: GET_CATEGORIES,
-        variables: {
-          "channel": "default-channel"
-        },
-      })
+      }
     })
       .then(r => r.json())
       .then(value => {
-        console.log('shop by category:', value)
-        items = value.data.categories.edges
+        console.log('value.categories:', value)
+        items = value.shopByCategory
       })
   })
 </script>
@@ -32,11 +28,11 @@
   <div class="col s12 m10">
     <h3 class="title">SHOP BY CATEGORY</h3>
     <div class="masonry">
-      {#each items as item (item.node.id)}
+      {#each items as item (item.slug)}
         <div class="item">
-          <a href={`/category/${item.node.slug}/${atob(item.node.id).split(':')[1]}`}>
-            <div class="image" style={`background-image: url(${item.node.backgroundImage.url});`}></div>
-            <h5 class="subtitle">{item.node.name}</h5>
+          <a href={`/category/${item.slug}`}>
+            <div class="image" style={`background-image: url(./media/${media}/${item.image});`}>
+            <h5 class="subtitle">{item.name}</h5>
           </a>
         </div>
       {/each}

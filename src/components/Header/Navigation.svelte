@@ -10,13 +10,16 @@
   let name = ''
   let short = ''
   
-  function setCategoryId (id) {
-    extendNav = true
-    categoryId = id
+  function setId (id) {
     subItems = items.filter((value, index) => {
-      return value.id === categoryId
+      return value.id === id
     })[0].children
-    // console.log('subItems', subItems)
+
+    console.log('subItems', subItems)
+    if (subItems !== undefined) {
+      console.log('extendNav', true)
+      extendNav = true
+    }
   }
 
   // sidebars
@@ -76,8 +79,8 @@
       <li><a href="#" on:click={() => instanceSearch.open()} data-target="slide-out"><i class="material-icons">search</i></a></li>
     </ul>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
-      {#each items as item (item.url)}
-        <li><a href={item.url} on:mouseover={setCategoryId(item.slug)}>{item.name}</a></li>
+      {#each items as item (item.id)}
+        <li><a href={item.url} on:mouseover={setId(item.id)}>{item.name}</a></li>
       {/each}
     </ul>
   </div>
@@ -101,12 +104,16 @@
   <li><a href="#!">Second Link</a></li>
   <li><div class="divider"></div></li>
   <li><a class="subheader">Subheader</a></li> -->
-  {#each items as item (item.url)}
-    <li class="waves-effect" style="width: 100%;"><a href={item.url} on:click={() => instance.close()}>{item.name}</a></li>
-    {#each item.children as item (item.url)}
-      <li class="waves-effect" style="width: 100%; padding-left: 1em;"><a href={item.url} on:click={() => instance.close()}>{item.name}</a></li>
+  {#if items}
+    {#each items as item (item.id)}
+      <li class="waves-effect" style="width: 100%;"><a href={item.url} on:click={() => instance.close()}>{item.name}</a></li>
+      {#if item.children}
+        {#each item.children as item (item.id)}
+          <li class="waves-effect" style="width: 100%; padding-left: 1em;"><a href={item.url} on:click={() => instance.close()}>{item.name}</a></li>
+        {/each}
+      {/if}
     {/each}
-  {/each}
+  {/if}
 </ul>
 
 <ul id="person" class="sidenav">

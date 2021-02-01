@@ -3,30 +3,38 @@
   "short": "ISTRAV",
   "image": "heic1901a.jpg",
   "announce": {
-    "line1": "Final reduction",
-    "line2": "Up to 70% off sale",
-    "buttonName": "SHOP SALE",
-    "buttonUrl": "/category/my-category"
+    "line1": "full stack developer",
+    "line2": "* as a service",
+    "buttonName": "DASHBOARD",
+    "buttonUrl": "https://dashboard.istrav.com"
   },
   "menu": [
     {
-      "name": "thing",
-      "url": "/category/thing",
+      "name": "storefronts",
+      "url": "/category/storefronts",
       "children": [
-        { "name": "one", "url": "/category/one" },
-        { "name": "two", "url": "/category/two" },
-        { "name": "three", "url": "/category/three" }
+        { "name": "oldneckties.com", "url": "/product/oldneckties-com" },
+        { "name": "printedbasics.com", "url": "/product/printedbasics-com" },
+        { "name": "istrav.com", "url": "/product/istrav-com" }
       ]
+    },
+    {
+      "name": "api",
+      "url": "https://api.istrav.com"
+    },
+    {
+      "name": "dashboard",
+      "url": "https://dashboard.istrav.com"
     }
   ],
   "footer": [
     {
-      "name": "thing2",
-      "url": "/category/thing",
+      "name": "storefronts",
+      "url": "/category/storefronts",
       "children": [
-        { "name": "one2", "url": "/category/one" },
-        { "name": "two2", "url": "/category/two" },
-        { "name": "three2", "url": "/category/three" }
+        { "name": "oldneckties.com", "url": "/product/oldneckties-com" },
+        { "name": "printedbasics.com", "url": "/product/printedbasics-com" },
+        { "name": "istrav.com", "url": "/product/istrav-com" }
       ]
     }
   ],

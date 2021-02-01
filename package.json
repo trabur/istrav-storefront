@@ -6,7 +6,7 @@
 		"build": "svelte-kit build",
 		"start": "svelte-kit start"
 	},
-	"type": "module",
+	"type": "commonjs",
 	"dependencies": {
 		"@apollo/client": "^3.3.7",
 		"@snowpack/plugin-typescript": "^1.0.0",

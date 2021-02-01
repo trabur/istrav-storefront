@@ -48,10 +48,11 @@
 }
 
 .announce {
-  margin-top: -400px;
-  height: 200px;
+  overflow: hidden;
+  margin-top: -450px;
+  height: 300px;
   text-align: center;
-  margin-bottom: 200px;
+  margin-bottom: 150px;
 }
 
 .first,

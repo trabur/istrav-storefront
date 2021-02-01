@@ -48,7 +48,7 @@
   ],
   "shopByCategory": [
     { "slug": "plain", "name": "plain", "image": "./IMG-0695.jpg" },
-    { "slug": "simpleh", "name": "simple", "image": "./IMG-0695.jpg" },
+    { "slug": "simple", "name": "simple", "image": "./IMG-0695.jpg" },
     { "slug": "generic", "name": "generic", "image": "./IMG-0695.jpg" }
   ]
 }

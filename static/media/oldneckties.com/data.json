@@ -29,6 +29,12 @@
       ]
     }
   ],
+  "socialLinks": {
+    "instagram": "https://instagram.com",
+    "facebook": "https://facebook.com",
+    "youtube": "https://youtube.com",
+    "twitter": "https:/twitter.com"
+  },
   "featured": [
     { 
       "slug": "first", "name": "first", "image": "./IMG-0695.jpg",

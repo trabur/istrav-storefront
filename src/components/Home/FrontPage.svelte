@@ -1,6 +1,8 @@
 <script>
   import { onMount } from 'svelte';
 
+  let media
+  let image = ''
 	let announce = {
     line1: 'Final reduction',
     line2: 'Up to 70% off sale',
@@ -9,7 +11,7 @@
   }
 
 	onMount(() => {
-    let media = window.location.host
+    media = window.location.host
 
     // data request
     fetch(`./media/${media}/data.json`, {
@@ -23,13 +25,14 @@
       .then(value => {
         console.log('announce:', value.announce)
         announce = value.announce
+        image = value.image
       })
   })
 </script>
 
 <div class="parallax-container">
   <div class="parallax">
-    <img style={`opacity: 1; height: 600px;`} src="./clothing.jpg">
+    <img style={`opacity: 1; height: 600px;`} src={`./media/${media}/${image}`}  alt="background" />
   </div>
 </div>
 
@@ -49,10 +52,10 @@
 
 .announce {
   overflow: hidden;
-  margin-top: -450px;
+  margin-top: -425px;
   height: 300px;
   text-align: center;
-  margin-bottom: 150px;
+  margin-bottom: 125px;
 }
 
 .first,

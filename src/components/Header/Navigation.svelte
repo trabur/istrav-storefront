@@ -48,6 +48,7 @@
     fetch(`./media/${media}/data.json`, {
       method: 'GET',
       headers: {
+        'Cache-Control': 'no-cache',
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       }

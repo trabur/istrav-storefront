@@ -10,25 +10,23 @@
   },
   "menu": [
     {
-      "id": 1, 
       "name": "thing",
       "url": "/category/thing",
       "children": [
-        { "id": 1, "name": "one", "url": "/category/one" },
-        { "id": 2, "name": "two", "url": "/category/two" },
-        { "id": 3, "name": "three", "url": "/category/three" }
+        { "name": "one", "url": "/category/one" },
+        { "name": "two", "url": "/category/two" },
+        { "name": "three", "url": "/category/three" }
       ]
     }
   ],
   "footer": [
     {
-      "id": 1, 
       "name": "thing2",
       "url": "/category/thing",
       "children": [
-        { "id": 1, "name": "one2", "url": "/category/one" },
-        { "id": 2, "name": "two2", "url": "/category/two" },
-        { "id": 3, "name": "three2", "url": "/category/three" }
+        { "name": "one2", "url": "/category/one" },
+        { "name": "two2", "url": "/category/two" },
+        { "name": "three2", "url": "/category/three" }
       ]
     }
   ],

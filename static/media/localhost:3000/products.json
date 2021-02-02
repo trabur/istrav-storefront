@@ -1,15 +1,15 @@
 [
   {
-    "id": 1,
-    "categoryId": "plain",
     "name": "first product",
+    "slug": "first-product",
+    "categoryId": "plain",
     "image": "IMG-0695.jpg",
     "price": 30000
   },
   {
-    "id": 2,
-    "categoryId": "plain",
     "name": "second product",
+    "slug": "second-product",
+    "categoryId": "plain",
     "image": "IMG-0695.jpg",
     "price": 35000
   }

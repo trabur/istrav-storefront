@@ -10,30 +10,26 @@
   },
   "menu": [
     {
-      "id": 1,
       "name": "thing",
       "url": "/category/thing",
       "children": [
-        { "id": 1, "name": "one", "url": "/category/one" },
-        { "id": 2, "name": "two", "url": "/category/two" },
-        { "id": 3, "name": "three", "url": "/category/three" }
+        { "name": "one", "url": "/category/one" },
+        { "name": "two", "url": "/category/two" },
+        { "name": "three", "url": "/category/three" }
       ]
     },
     {
-      "id": 2,
       "name": "api",
       "url": "https://api.istrav.com"
     },
     {
 
-      "id": 3,
       "name": "dashboard",
       "url": "https://dashboard.istrav.com"
     }
   ],
   "footer": [
     {
-      "id": 1,
       "name": "thing2",
       "url": "/category/thing",
       "children": [

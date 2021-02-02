@@ -80,8 +80,8 @@
       <li><a href="/" on:click={(e) => instanceSearch.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">search</i></a></li>
     </ul>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
-      {#each items as item (item.id)}
-        <li><a href={item.url} on:mouseover={setId(item.id)}>{item.name}</a></li>
+      {#each items as item (item.url)}
+        <li><a href={item.url} on:mouseover={setId(item.url)}>{item.name}</a></li>
       {/each}
     </ul>
   </div>
@@ -106,10 +106,10 @@
   <li><div class="divider"></div></li>
   <li><a class="subheader">Subheader</a></li> -->
   {#if items}
-    {#each items as item (item.id)}
+    {#each items as item (item.url)}
       <li class="waves-effect" style="width: 100%;"><a href={item.url} on:click={() => instance.close()}>{item.name}</a></li>
       {#if item.children}
-        {#each item.children as item (item.id)}
+        {#each item.children as item (item.url)}
           <li class="waves-effect" style="width: 100%; padding-left: 1em;"><a href={item.url} on:click={() => instance.close()}>{item.name}</a></li>
         {/each}
       {/if}

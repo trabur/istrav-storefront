@@ -10,35 +10,31 @@
   },
   "menu": [
     {
-      "id": 1,
       "name": "storefronts",
       "url": "/category/storefronts",
       "children": [
-        { "id": 1, "name": "oldneckties.com", "url": "https://oldneckties.com" },
-        { "id": 2, "name": "printedbasics.com", "url": "https://printedbasics.com" },
-        { "id": 3, "name": "istrav.com", "url": "https://istrav.com" }
+        { "name": "oldneckties.com", "url": "https://oldneckties.com" },
+        { "name": "printedbasics.com", "url": "https://printedbasics.com" },
+        { "name": "istrav.com", "url": "https://istrav.com" }
       ]
     },
     {
-      "id": 2,
       "name": "api",
       "url": "https://api.istrav.com"
     },
     {
-      "id": 3,
       "name": "dashboard",
       "url": "https://dashboard.istrav.com"
     }
   ],
   "footer": [
     {
-      "id": 1,
       "name": "storefronts",
       "url": "/category/storefronts",
       "children": [
-        { "id": 1, "name": "oldneckties.com", "url": "/product/oldneckties-com" },
-        { "id": 2, "name": "printedbasics.com", "url": "/product/printedbasics-com" },
-        { "id": 3, "name": "istrav.com", "url": "/product/istrav-com" }
+        { "name": "oldneckties.com", "url": "/product/oldneckties-com" },
+        { "name": "printedbasics.com", "url": "/product/printedbasics-com" },
+        { "name": "istrav.com", "url": "/product/istrav-com" }
       ]
     }
   ],

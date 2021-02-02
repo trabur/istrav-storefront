@@ -12,7 +12,7 @@
   
   function setId (id) {
     subItems = items.filter((value, index) => {
-      return value.id === id
+      return value.url === id
     })[0].children
 
     console.log('subItems', subItems)
@@ -81,7 +81,7 @@
     </ul>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
       {#each items as item (item.url)}
-        <li><a href={item.url} on:mouseover={setId(item.url)}>{item.name}</a></li>
+        <li><a href={item.url} on:mouseover={item.children.length ? setId(item.url) : () => extendNav = false}>{item.name}</a></li>
       {/each}
     </ul>
   </div>

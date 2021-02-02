@@ -32,12 +32,12 @@
     <div class="masonry">
       {#each items as item (item.slug)}
         <div class="item">
-          <a href={`/product/${item.slug}`}>
-            <div class="image" style={`background-image: url(./media/${media}/${item.image});`}>
+          <a href={`/products/${item.slug}`}>
+            <div class="image" style={`background-image: url(./media/${media}/products/${item.slug}/${item.image});`}>
             </div>
             <h5 style="color: #111; margin: 0.5em 0 0 0;">{item.name}</h5>
           </a>
-          <a href={`/category/${item.category.slug}`}>
+          <a href={`/categories/${item.category.slug}`}>
             <p style="margin: 0; color: #aaa;">{item.category.name}</p>
           </a>
         </div>

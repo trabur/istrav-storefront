@@ -31,7 +31,7 @@
     <div class="masonry">
       {#each items as item (item.slug)}
         <div class="item">
-          <a href={`/category/${item.slug}`}>
+          <a href={`/categories/${item.slug}`}>
             <div class="image" style={`background-image: url(./media/${media}/${item.image});`}></div>
             <h5 class="subtitle">{item.name}</h5>
           </a>

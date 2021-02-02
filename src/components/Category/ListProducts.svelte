@@ -4,14 +4,14 @@
 
   // objects
   export let categoryId
-  let items = []
+  let products = []
   let media
 
 	onMount(() => {
     media = window.location.host
 
     // navigation request
-    fetch(`./media/${media}/products.json`, {
+    fetch(`./media/${media}/categories/${categoryId}.json`, {
       method: 'GET',
       headers: {
         'Cache-Control': 'no-cache',
@@ -22,11 +22,9 @@
       .then(r => r.json())
       .then(value => {
         console.log('products:', value)
-        items = value.filter((value) => {
-          return value.categoryId === categoryId
-        })
+        products = value
       })
   })
 </script>
 
-hello list products {JSON.stringify(items, null, 2)}
+hello list products {JSON.stringify(products, null, 2)}

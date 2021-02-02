@@ -38,7 +38,7 @@
             <h5 style="color: #111; margin: 0.5em 0 0 0;">{item.name}</h5>
           </a>
           <a href={`/categories/${item.category.slug}`}>
-            <p style="margin: 0; color: #aaa;">{item.category.name}</p>
+            <p style="margin: 0; color: #aaa;">{item.category.name.toUpperCase()}</p>
           </a>
         </div>
       {/each}

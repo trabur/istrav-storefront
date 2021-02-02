@@ -54,24 +54,24 @@
   "featured": [
     { 
       "slug": "first", "name": "first", "image": "./IMG-0695.jpg",
-      "category": { "slug": "my-category", "name": "My Cateogry" }
+      "category": { "slug": "plain", "name": "plain" }
     },
     { 
       "slug": "second", "name": "second", "image": "./IMG-0695.jpg",
-      "category": { "slug": "my-category", "name": "My Cateogry" }
+      "category": { "slug": "plain", "name": "plain" }
     },
     { 
       "slug": "third", "name": "third", "image": "./IMG-0695.jpg",
-      "category": { "slug": "my-category", "name": "My Cateogry" }
+      "category": { "slug": "plain", "name": "plain" }
     },
     { 
       "slug": "fourth", "name": "fourth", "image": "./IMG-0695.jpg",
-      "category": { "slug": "my-category", "name": "My Cateogry" }
+      "category": { "slug": "plain", "name": "plain" }
     }
   ],
   "shopByCategory": [
-    { "slug": "plain", "name": "plain", "image": "./categories/plain.jpg" },
-    { "slug": "simple", "name": "simple", "image": "./categories/simple.jpg" },
-    { "slug": "generic", "name": "generic", "image": "./categories/generic.jpg" }
+    { "slug": "plain", "name": "plain", "image": "categories/plain.jpg" },
+    { "slug": "simple", "name": "simple", "image": "categories/simple.jpg" },
+    { "slug": "generic", "name": "generic", "image": "categories/generic.jpg" }
   ]
 }

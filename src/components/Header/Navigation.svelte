@@ -77,7 +77,7 @@
         <li><a href="/login" data-target="slide-out"><i class="material-icons">person</i></a></li>
       {/if}
       <li><a href="/" on:click={(e) => instanceCart.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">shopping_cart</i></a></li>
-      <li><a href="/" on:click={(e) => instanceCart.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">search</i></a></li>
+      <li><a href="/" on:click={(e) => instanceSearch.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">search</i></a></li>
     </ul>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
       {#each items as item (item.id)}

@@ -4,10 +4,10 @@
   let media
   let image = ''
 	let announce = {
-    line1: 'Final reduction',
-    line2: 'Up to 70% off sale',
-    buttonName: 'SHOP SALE',
-    buttonUrl: '/category/accessories/7/'
+    line1: '',
+    line2: '',
+    buttonName: '',
+    buttonUrl: ''
   }
 
 	onMount(() => {

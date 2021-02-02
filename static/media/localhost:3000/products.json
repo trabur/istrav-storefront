@@ -4,13 +4,13 @@
     "slug": "first-product",
     "categoryId": "plain",
     "image": "IMG-0695.jpg",
-    "price": 30000
+    "price": 30.00
   },
   {
     "name": "second product",
     "slug": "second-product",
     "categoryId": "plain",
     "image": "IMG-0695.jpg",
-    "price": 35000
+    "price": 35.00
   }
 ]

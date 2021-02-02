@@ -65,7 +65,7 @@
 <nav class={extendNav ? `nav-extended` : ''} on:mouseleave={() => extendNav = false}>
   <div class="nav-wrapper">
     <ul class="left">
-      <li><a href="#" on:click={() => instance.open()} data-target="slide-out"><i class="material-icons">menu</i></a></li>
+      <li><a href="/" on:click={(e) => instance.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">menu</i></a></li>
     </ul>
     <a href="/" class="brand-logo left hide-on-large-only" style="margin-left: 1.75em;">{short}</a>
     <a href="/" class="brand-logo center hide-on-med-and-down">{name}</a>
@@ -75,8 +75,8 @@
       {:else}
         <li><a href="/login" data-target="slide-out"><i class="material-icons">person</i></a></li>
       {/if}
-      <li><a href="#" on:click={() => instanceCart.open()} data-target="slide-out"><i class="material-icons">shopping_cart</i></a></li>
-      <li><a href="#" on:click={() => instanceSearch.open()} data-target="slide-out"><i class="material-icons">search</i></a></li>
+      <li><a href="/" on:click={(e) => instanceCart.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">shopping_cart</i></a></li>
+      <li><a href="/" on:click={(e) => instanceCart.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">search</i></a></li>
     </ul>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
       {#each items as item (item.id)}

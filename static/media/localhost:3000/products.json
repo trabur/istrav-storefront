@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "categoryId": "plain",
+    "name": "first product",
+    "image": "IMG-0695.jpg",
+    "price": 30000
+  },
+  {
+    "id": 2,
+    "categoryId": "plain",
+    "name": "second product",
+    "image": "IMG-0695.jpg",
+    "price": 35000
+  }
+]

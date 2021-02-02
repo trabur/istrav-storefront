@@ -5,22 +5,18 @@
   import Footer from '../../components/Footer/Main.svelte'
   import ListProducts from '../../components/Category/ListProducts.svelte'
 
-  onMount(() => {
-    let folders = window.location.pathname.split('/')
-    let app = folders[1]
-    let slug = folders[2]
-    let id = folders[3]
-    console.log('app', app)
-    console.log('slug', slug)
-    console.log('id', id)
-  })
+  import { stores } from "@sapper/app";
+
+  const { page } = stores();
+  const { id } = $page.params;
+
 </script>
 
 <Navigation />
 <br />
 <br />
 <br />
-<ListProducts />
+<ListProducts categoryId={id} />
 <br />
 <br />
 <br />

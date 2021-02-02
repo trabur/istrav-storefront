@@ -1,6 +1,5 @@
 {
   "rewrites": [
-    { "source": "/about", "destination": "/about-our-company.html" },
     { "source": "/categories/:id", "destination": "/" },
     { "source": "/products/:id", "destination": "/" }
   ]

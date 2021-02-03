@@ -1,0 +1,20 @@
+[
+  {
+    "name": "oldneckties.com",
+    "slug": "oldneckties",
+    "image": "IMG-0695.jpg",
+    "price": 30.00
+  },
+  {
+    "name": "printedbasics.com",
+    "slug": "printedbasics",
+    "image": "IMG-0695.jpg",
+    "price": 35.00
+  },
+  {
+    "name": "istrav.com",
+    "slug": "istrav",
+    "image": "IMG-0695.jpg",
+    "price": 35.00
+  }
+]

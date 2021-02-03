@@ -34,7 +34,7 @@
 <div class="parallax-container">
   <div class="parallax">
     {#if image && media}
-      <img style={`opacity: 1; height: 700px;`} src={`./media/${media}/${image}`}  alt="background" />
+      <div class="image" style={`background-image: url(./media/${media}/${image});`}></div>
     {/if}
   </div>
 </div>
@@ -49,6 +49,15 @@
 
 
 <style>
+
+.image {
+  width: 100%;
+  height: 700px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .parallax-container {
   height: 700px;
 }

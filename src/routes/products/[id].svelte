@@ -21,7 +21,7 @@
 <br />
 <br />
 <Footer>
-	<a href="/" class="breadcrumb">Home</a>
+	<a href="/" class="breadcrumb hide-on-med-and-down">Home</a>
 	<a href="/" class="breadcrumb">Products</a>
 	<a href={`/products/${id}`} class="breadcrumb">{id.toUpperCase()}</a>
 </Footer>

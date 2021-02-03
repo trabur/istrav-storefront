@@ -4,6 +4,7 @@
   import Footer from '../components/Footer/Main.svelte'
   import Featured from '../components/Home/Featured.svelte'
   import ShopByCategory from '../components/Home/ShopByCategory.svelte'
+  import About from '../components/Home/About.svelte'
 </script>
 
 <Navigation />
@@ -13,6 +14,7 @@
 <br />
 <Featured />
 <ShopByCategory />
+<About />
 <br />
 <Footer>
 	<a href="/" class="breadcrumb">Home</a>

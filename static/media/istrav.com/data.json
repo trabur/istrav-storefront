@@ -56,7 +56,7 @@
       "category": { "slug": "storefronts", "name": "storefronts" }
     },
     { 
-      "slug": "oldneckties.com", "name": "oldneckties.", "image": "./IMG-0695.jpg",
+      "slug": "oldneckties.com", "name": "oldneckties.com", "image": "./IMG-0695.jpg",
       "category": { "slug": "storefronts", "name": "storefronts" }
     }
   ],

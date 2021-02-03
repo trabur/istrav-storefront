@@ -11,7 +11,7 @@
   "menu": [
     {
       "name": "storefronts",
-      "url": "/category/storefronts",
+      "url": "/categories/storefronts",
       "children": [
         { "name": "oldneckties.com", "url": "https://oldneckties.com" },
         { "name": "printedbasics.com", "url": "https://printedbasics.com" },
@@ -32,7 +32,7 @@
   "footer": [
     {
       "name": "storefronts",
-      "url": "/category/storefronts",
+      "url": "/categories/storefronts",
       "children": [
         { "name": "oldneckties.com", "url": "/product/oldneckties-com" },
         { "name": "printedbasics.com", "url": "/product/printedbasics-com" },

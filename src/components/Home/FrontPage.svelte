@@ -37,11 +37,11 @@
       <div class="announce">
         <div class="hide-on-med-and-down">
           <span class="first"><h1 class="text">{announce.line1}</h1></span><br />
-          <span class="second"><h1 class="text">{announce.line2}</h1></span>
+          <span class="second"><h1 class="text" style="font-size: 2rem;">{announce.line2}</h1></span>
         </div>
         <div class="hide-on-large-only">
           <span class="first"><h1 class="text small">{announce.line1}</h1></span><br />
-          <span class="second"><h1 class="text small">{announce.line2}</h1></span>
+          <span class="second"><h1 class="text small" style="font-size: 1rem;">{announce.line2}</h1></span>
         </div>
         <a href={`${announce.buttonUrl}`} class="waves-effect waves-light btn-large" style="margin-top: 0.5em;">{announce.buttonName}</a>
       </div>

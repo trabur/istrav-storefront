@@ -4,78 +4,78 @@
   "image": "ties-in-boxes.jpg",
   "about": "Our old neckties are ideal for inspiration for clothing designers, authentic movie props & vintage & antique clothing enthusiasts. Although we try to source vintage & antique ties in the best of condition & quality these are old ties that have been subjected to wear, age & other factors that may affect the qualities of a necktie like being constructed by hand.",
   "announce": {
-    "line1": "Final reduction",
-    "line2": "Up to 70% off sale",
-    "buttonName": "SHOP SALE",
-    "buttonUrl": "/category/my-category"
+    "line1": "Old Neck Ties.",
+    "line2": "Accessories from the past.",
+    "buttonName": "SHOP",
+    "buttonUrl": "/categories/neckties"
   },
   "menu": [
     {
       "name": "Bowties",
       "url": "/categories/bowties",
       "children": [
-        { "name": "retro", "url": "/categories/retro-bowties" },
-        { "name": "vintage", "url": "/categories/vintage-bowties" },
-        { "name": "antique", "url": "/categories/antique-bowties" }
+        { "name": "Retro", "url": "/categories/retro-bowties" },
+        { "name": "Vintage", "url": "/categories/vintage-bowties" },
+        { "name": "Antique", "url": "/categories/antique-bowties" }
       ]
     },
     {
       "name": "Neckties",
       "url": "/categories/neckties",
       "children": [
-        { "name": "retro", "url": "/categories/retro-neckties" },
-        { "name": "vintage", "url": "/categories/vintage-neckties" },
-        { "name": "antique", "url": "/categories/antique-neckties" },
-        { "name": "skinny", "url": "/categories/skinny-neckties" },
-        { "name": "wide", "url": "/categories/wide-neckties" },
-        { "name": "hand decordated", "url": "/categories/hand-decordated-neckties" },
-        { "name": "silk", "url": "/categories/silk-neckties" },
-        { "name": "synthetics", "url": "/categories/synthetics-neckties" },
-        { "name": "woven", "url": "/categories/woven-neckties" },
-        { "name": "jacquard", "url": "/categories/jacquard-neckties" }
+        { "name": "Retro", "url": "/categories/retro-neckties" },
+        { "name": "Vintage", "url": "/categories/vintage-neckties" },
+        { "name": "Antique", "url": "/categories/antique-neckties" },
+        { "name": "Skinny", "url": "/categories/skinny-neckties" },
+        { "name": "Wide", "url": "/categories/wide-neckties" },
+        { "name": "Hand Decordated", "url": "/categories/hand-decordated-neckties" },
+        { "name": "Silk", "url": "/categories/silk-neckties" },
+        { "name": "Synthetics", "url": "/categories/synthetics-neckties" },
+        { "name": "Woven", "url": "/categories/woven-neckties" },
+        { "name": "Jacquard", "url": "/categories/jacquard-neckties" }
       ]
     },
     {
       "name": "Other",
       "url": "/categories/other",
       "children": [
-        { "name": "cuff links", "url": "/categories/cuff-links-other" },
-        { "name": "pocket squares", "url": "/categories/pocket-squares-other" }
+        { "name": "Cuff Links", "url": "/categories/cuff-links-other" },
+        { "name": "Pocket Squares", "url": "/categories/pocket-squares-other" }
       ]
     }
   ],
   "footer": [
     {
-      "name": "bowties",
+      "name": "Bowties",
       "url": "/categories/bowties",
       "children": [
-        { "name": "retro", "url": "/categories/retro-bowties" },
-        { "name": "vintage", "url": "/categories/vintage-bowties" },
-        { "name": "antique", "url": "/categories/antique-bowties" }
+        { "name": "Retro", "url": "/categories/retro-bowties" },
+        { "name": "Vintage", "url": "/categories/vintage-bowties" },
+        { "name": "Antique", "url": "/categories/antique-bowties" }
       ]
     },
     {
       "name": "Neckties",
       "url": "/categories/neckties",
       "children": [
-        { "name": "retro", "url": "/categories/retro-neckties" },
-        { "name": "vintage", "url": "/categories/vintage-neckties" },
-        { "name": "antique", "url": "/categories/antique-neckties" },
-        { "name": "skinny", "url": "/categories/skinny-neckties" },
-        { "name": "wide", "url": "/categories/wide-neckties" },
-        { "name": "hand decordated", "url": "/categories/hand-decordated-neckties" },
-        { "name": "silk", "url": "/categories/silk-neckties" },
-        { "name": "synthetics", "url": "/categories/synthetics-neckties" },
-        { "name": "woven", "url": "/categories/woven-neckties" },
-        { "name": "jacquard", "url": "/categories/jacquard-neckties" }
+        { "name": "Retro", "url": "/categories/retro-neckties" },
+        { "name": "Vintage", "url": "/categories/vintage-neckties" },
+        { "name": "Antique", "url": "/categories/antique-neckties" },
+        { "name": "Skinny", "url": "/categories/skinny-neckties" },
+        { "name": "Wide", "url": "/categories/wide-neckties" },
+        { "name": "Hand Decordated", "url": "/categories/hand-decordated-neckties" },
+        { "name": "Silk", "url": "/categories/silk-neckties" },
+        { "name": "Synthetics", "url": "/categories/synthetics-neckties" },
+        { "name": "Woven", "url": "/categories/woven-neckties" },
+        { "name": "Jacquard", "url": "/categories/jacquard-neckties" }
       ]
     },
     {
       "name": "Other",
       "url": "/categories/other",
       "children": [
-        { "name": "cuff links", "url": "/categories/cuff-links-other" },
-        { "name": "pocket squares", "url": "/categories/pocket-squares-other" }
+        { "name": "Cuff Links", "url": "/categories/cuff-links-other" },
+        { "name": "Pocket Squares", "url": "/categories/pocket-squares-other" }
       ]
     }
   ],

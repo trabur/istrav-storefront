@@ -31,12 +31,10 @@
   })
 </script>
 
-<div class="parallax-container">
-  <div class="parallax">
-    {#if image && media}
-      <div class="image" style={`background-image: url(./media/${media}/${image});`}></div>
-    {/if}
-  </div>
+<div class="banner">
+  {#if image && media}
+    <div class="image" style={`background-image: url(./media/${media}/${image});`}></div>
+  {/if}
 </div>
 
 
@@ -47,9 +45,11 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  box-shadow: inset 0px 10px 10px -10px #000;
 }
 
-.parallax-container {
+.banner {
   height: 350px;
+  position: relative;
 }
 </style>

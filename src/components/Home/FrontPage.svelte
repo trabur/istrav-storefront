@@ -31,41 +31,41 @@
   })
 </script>
 
-<div class="parallax-container">
-  <div class="parallax">
-    {#if image && media}
-      <div class="image" style={`background-image: url(./media/${media}/${image});`}>
-        <div class="announce">
-          <div class="hide-on-med-and-down">
-            <span class="first"><h1 class="text">{announce.line1}</h1></span><br />
-            <span class="second"><h1 class="text">{announce.line2}</h1></span>
-          </div>
-          <div class="hide-on-large-only">
-            <span class="first"><h1 class="text small">{announce.line1}</h1></span><br />
-            <span class="second"><h1 class="text small">{announce.line2}</h1></span>
-          </div>
-          <a href={`${announce.buttonUrl}`} class="waves-effect waves-light btn-large" style="margin-top: 0.5em;">{announce.buttonName}</a>
+<div class="banner">
+  {#if image && media}
+    <div class="image" style={`background-image: url(./media/${media}/${image});`}>
+      <div class="announce">
+        <div class="hide-on-med-and-down">
+          <span class="first"><h1 class="text">{announce.line1}</h1></span><br />
+          <span class="second"><h1 class="text">{announce.line2}</h1></span>
         </div>
+        <div class="hide-on-large-only">
+          <span class="first"><h1 class="text small">{announce.line1}</h1></span><br />
+          <span class="second"><h1 class="text small">{announce.line2}</h1></span>
+        </div>
+        <a href={`${announce.buttonUrl}`} class="waves-effect waves-light btn-large" style="margin-top: 0.5em;">{announce.buttonName}</a>
       </div>
-    {/if}
-  </div>
+    </div>
+  {/if}
 </div>
 
 
 
 <style>
-
 .image {
   width: 100%;
   height: 100vh;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  box-shadow: inset 0px 10px 10px -10px #000;
 }
 
-.parallax-container {
+.banner {
   height: 100vh;
+  position: relative;
 }
+
 
 .announce {
   text-align: center;

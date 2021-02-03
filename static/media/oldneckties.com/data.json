@@ -38,17 +38,44 @@
     {
       "name": "Other",
       "url": "/categories/other",
-      "children": []
+      "children": [
+        { "name": "cuff links", "url": "/categories/cuff-links-other" },
+        { "name": "pocket squares", "url": "/categories/pocket-squares-other" }
+      ]
     }
   ],
   "footer": [
     {
-      "name": "thing2",
-      "url": "/category/thing",
+      "name": "bowties",
+      "url": "/categories/bowties",
       "children": [
-        { "name": "one2", "url": "/category/one" },
-        { "name": "two2", "url": "/category/two" },
-        { "name": "three2", "url": "/category/three" }
+        { "name": "retro", "url": "/categories/retro-bowties" },
+        { "name": "vintage", "url": "/categories/vintage-bowties" },
+        { "name": "antique", "url": "/categories/antique-bowties" }
+      ]
+    },
+    {
+      "name": "Neckties",
+      "url": "/categories/neckties",
+      "children": [
+        { "name": "retro", "url": "/categories/retro-neckties" },
+        { "name": "vintage", "url": "/categories/vintage-neckties" },
+        { "name": "antique", "url": "/categories/antique-neckties" },
+        { "name": "skinny", "url": "/categories/skinny-neckties" },
+        { "name": "wide", "url": "/categories/wide-neckties" },
+        { "name": "hand decordated", "url": "/categories/hand-decordated-neckties" },
+        { "name": "silk", "url": "/categories/silk-neckties" },
+        { "name": "synthetics", "url": "/categories/synthetics-neckties" },
+        { "name": "woven", "url": "/categories/woven-neckties" },
+        { "name": "jacquard", "url": "/categories/jacquard-neckties" }
+      ]
+    },
+    {
+      "name": "Other",
+      "url": "/categories/other",
+      "children": [
+        { "name": "cuff links", "url": "/categories/cuff-links-other" },
+        { "name": "pocket squares", "url": "/categories/pocket-squares-other" }
       ]
     }
   ],

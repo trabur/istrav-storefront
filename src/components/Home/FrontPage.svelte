@@ -34,7 +34,7 @@
 <div class="parallax-container">
   <div class="parallax">
     {#if image && media}
-      <img style={`opacity: 1; height: 600px;`} src={`./media/${media}/${image}`}  alt="background" />
+      <img style={`opacity: 1; height: 700px;`} src={`./media/${media}/${image}`}  alt="background" />
     {/if}
   </div>
 </div>
@@ -50,15 +50,15 @@
 
 <style>
 .parallax-container {
-  height: 600px;
+  height: 700px;
 }
 
 .announce {
   overflow: hidden;
-  margin-top: -425px;
+  margin-top: -475px;
   height: 300px;
   text-align: center;
-  margin-bottom: 125px;
+  margin-bottom: 175px;
 }
 
 .first,

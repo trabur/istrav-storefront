@@ -43,13 +43,13 @@
 <style>
 .image {
   width: 100%;
-  height: 400px;
+  height: 350px;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .parallax-container {
-  height: 400px;
+  height: 350px;
 }
 </style>

@@ -48,25 +48,19 @@
   },
   "featured": [
     { 
-      "slug": "first", "name": "first", "image": "./IMG-0695.jpg",
-      "category": { "slug": "plain", "name": "plain" }
+      "slug": "istrav.com", "name": "istrav.com", "image": "./IMG-0695.jpg",
+      "category": { "slug": "storefronts", "name": "storefronts" }
     },
     { 
-      "slug": "second", "name": "second", "image": "./IMG-0695.jpg",
-      "category": { "slug": "plain", "name": "plain" }
+      "slug": "printedbasics.com", "name": "printedbasics.com", "image": "./IMG-0695.jpg",
+      "category": { "slug": "storefronts", "name": "storefronts" }
     },
     { 
-      "slug": "third", "name": "third", "image": "./IMG-0695.jpg",
-      "category": { "slug": "plain", "name": "plain" }
-    },
-    { 
-      "slug": "fourth", "name": "fourth", "image": "./IMG-0695.jpg",
-      "category": { "slug": "plain", "name": "plain" }
+      "slug": "oldneckties.com", "name": "oldneckties.", "image": "./IMG-0695.jpg",
+      "category": { "slug": "storefronts", "name": "storefronts" }
     }
   ],
   "shopByCategory": [
-    { "slug": "plain", "name": "plain", "image": "categories/plain.jpg" },
-    { "slug": "simple", "name": "simple", "image": "categories/simple.jpg" },
-    { "slug": "generic", "name": "generic", "image": "categories/generic.jpg" }
+    { "slug": "storefronts", "name": "storefronts", "image": "categories/storefronts.jpg" }
   ]
 }

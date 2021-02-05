@@ -53,11 +53,6 @@
   font-weight: 900;
 }
 
-.subtitle {
-  font-size: 1.5em;
-  font-weight: 900;
-}
-
 .image {
   width: 100%;
   height: 200px;

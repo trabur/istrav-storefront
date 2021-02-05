@@ -1,12 +1,12 @@
 
 <script>
   import { onMount } from 'svelte';
-
+  import ShopByRelated from './ShopByRelated.svelte'
+  
 	// Import markdown conversion library
   import marked from 'marked'
 
   // objects
-  export let productId
   let product
   let media
   let gallery
@@ -14,6 +14,7 @@
   let shipping = ''
   let about = ''
   let activeTab = 'description'
+  export let productId
 
 	onMount(() => {
     media = window.location.host
@@ -55,23 +56,23 @@
 
     // build items array
     var items = [
-        {
-            src: 'https://placekitten.com/600/400',
-            w: 600,
-            h: 400
-        },
-        {
-            src: 'https://placekitten.com/1200/900',
-            w: 1200,
-            h: 900
-        }
+      {
+        src: 'https://placekitten.com/600/400',
+        w: 600,
+        h: 400
+      },
+      {
+        src: 'https://placekitten.com/1200/900',
+        w: 1200,
+        h: 900
+      }
     ];
 
     // define options (if needed)
     var options = {
-        // optionName: 'option value'
-        // for example:
-        index: 0 // start at first slide
+      // optionName: 'option value'
+      // for example:
+      index: 0 // start at first slide
     };
 
     open = function () {
@@ -122,6 +123,15 @@
   <div class="col s0 m1"></div>
 </div>
 
+<div class="row">
+  <div class="col s0 m1"></div>
+  <div class="col s12 m10">
+    {#if product}
+      <ShopByRelated products={product.related} />
+    {/if}
+  </div>
+  <div class="col s0 m1"></div>
+</div>
 
 <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">

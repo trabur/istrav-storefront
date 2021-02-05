@@ -102,8 +102,6 @@
   <div class="col s0 m1"></div>
 </div>
 <br />
-<br />
-<br />
 <div class="row">
   <div class="col s0 m1"></div>
   <div class="col s12 m10">

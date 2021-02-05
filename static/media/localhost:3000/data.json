@@ -12,21 +12,22 @@
   },
   "menu": [
     {
-      "name": "thing",
-      "url": "/category/thing",
+      "name": "things",
+      "url": "/categories/plain",
       "children": [
-        { "name": "one", "url": "/category/one" },
-        { "name": "two", "url": "/category/two" },
-        { "name": "three", "url": "/category/three" }
+        { "name": "plain", "url": "/categories/plain" },
+        { "name": "simple", "url": "/categories/simple" },
+        { "name": "generic", "url": "/categories/generic" }
       ]
     },
     {
-      "name": "api",
-      "url": "https://api.istrav.com",
+      "name": "objects",
+      "url": "/products/first",
       "children": [
-        { "name": "one1", "url": "/category/one" },
-        { "name": "two1", "url": "/category/two" },
-        { "name": "three1", "url": "/category/three" }
+        { "name": "first", "url": "/products/first" },
+        { "name": "second", "url": "/products/second" },
+        { "name": "third", "url": "/products/third" },
+        { "name": "fourth", "url": "/products/fourth" }
       ]
     },
     {

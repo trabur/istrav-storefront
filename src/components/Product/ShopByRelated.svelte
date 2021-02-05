@@ -10,18 +10,20 @@
   })
 </script>
 
-<h3 class="title">SHOP BY RELATED</h3>
-<div class="masonry">
-  {#each products as item (item.slug)}
-    <div class="item">
-      <a href={`/products/${item.slug}`}>
-        <div class="image" style={`background-image: url(./media/${media}/products/${item.slug}/${item.image});`}>
-        </div>
-        <h5 style="color: #111; margin: 0.5em 0 0 0;">{item.name}</h5>
-      </a>
-    </div>
-  {/each}
-</div>
+{#if products}
+  <h3 class="title">SHOP BY RELATED</h3>
+  <div class="masonry">
+    {#each products as item (item.slug)}
+      <div class="item">
+        <a href={`/products/${item.slug}`}>
+          <div class="image" style={`background-image: url(./media/${media}/products/${item.slug}/${item.image});`}>
+          </div>
+          <h5 style="color: #111; margin: 0.5em 0 0 0;">{item.name}</h5>
+        </a>
+      </div>
+    {/each}
+  </div>
+{/if}
 
 <style>
 .title {

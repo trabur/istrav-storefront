@@ -2,17 +2,23 @@
 <script>
   import { onMount } from 'svelte';
 
+	// Import markdown conversion library
+  import marked from 'marked'
+
   // objects
   export let productId
-  let product = {}
+  let product
   let media
   let gallery
   let open
+  let shipping = ''
+  let about = ''
+  let activeTab = 'description'
 
 	onMount(() => {
     media = window.location.host
 
-    // navigation request
+    // product request
     fetch(`./media/${media}/products/${productId}/data.json`, {
       method: 'GET',
       headers: {
@@ -25,6 +31,21 @@
       .then(value => {
         console.log('product:', value)
         product = value
+      })
+
+    // site request
+    fetch(`./media/${media}/data.json`, {
+      method: 'GET',
+      headers: {
+        'Cache-Control': 'no-cache',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }
+    })
+      .then(r => r.json())
+      .then(value => {
+        shipping = value.shipping
+        about = value.about
       })
 
     /**
@@ -57,20 +78,50 @@
       gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options)
       gallery.init()
     }
+
+    /**
+     * tabs
+     */
+    var elemTabs = document.querySelector('#productTabs')
+    var instance = M.Tabs.init(elemTabs, {});
   })
 </script>
 
 <div class="row">
   <div class="col s0 m1"></div>
-  <div class="col s12 m5">
-    <img on:click={() => open()} class="image" src={`/media/${media}/products/${productId}/${product.image}`} alt="" />
-  </div>
-  <div class="col s12 m5">
-    <h1>{product.name}</h1>
-    hello product view {JSON.stringify(product, null, 2)}
+    {#if product}
+      <div class="col s12 m5">
+        <img on:click={() => open()} class="image" src={`/media/${media}/products/${productId}/${product.image}`} alt="" />
+      </div>
+      <div class="col s12 m5">
+        <h1>{product.name}</h1>
+        <p>{product.details}</p>
+      </div>
+    {/if}
+  <div class="col s0 m1"></div>
+</div>
+<br />
+<br />
+<br />
+<div class="row">
+  <div class="col s0 m1"></div>
+  <div class="col s12 m10">
+    <ul class="tabs tabs-fixed-width" id="productTabs">
+      <li class="tab col s3"><a href="#description" on:click={() => activeTab = 'description'}>Description</a></li>
+      <li class="tab col s3"><a href="#shipping" on:click={() => activeTab = 'shipping'}>Shipping</a></li>
+      <li class="tab col s3"><a href="#about" on:click={() => activeTab = 'about'}>About</a></li>
+    </ul>
+    {#if product && activeTab === 'description'}
+      {@html marked(product.description)}
+    {:else if activeTab === 'shipping'}
+      {@html marked(shipping)}
+    {:else}
+      {@html marked(about)}
+    {/if}
   </div>
   <div class="col s0 m1"></div>
 </div>
+
 
 <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">

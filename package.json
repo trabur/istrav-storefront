@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "compression": "^1.7.1",
+    "marked": "^1.2.9",
     "polka": "next",
     "sirv": "^1.0.0"
   },

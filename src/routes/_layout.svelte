@@ -11,11 +11,22 @@
     // fetch library
     window.axios = axios
 
+    // appId domain state
+    if (window.location.host === 'localhost:3000') {
+      window.appDomain = 'istrav.com'
+    } else {
+      window.appDomain = window.location.host
+    }
+
     // dashboard.istrav.com scripts
     var code = document.createElement('script');
     code.onload = function (event) {
-      // dashboard scripts will attach to window
-      console.log(window.scripts)
+      // dashboard scripts & istrav will attach to window
+      // console.log(window.scripts)
+      // console.log(window.istrav)
+
+      istrav.tenant.apps.init({ host: 'https://api.istrav.com' })
+      istrav.account.users.init({ host: 'https://api.istrav.com' })
     };
     code.src = 'https://dashboard.istrav.com/scripts/index.js';
     code.setAttribute('type', 'module')

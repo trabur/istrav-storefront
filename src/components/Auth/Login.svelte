@@ -7,14 +7,21 @@
 	async function auth() {
     if (email === '') return alert('Email must be defined.')
     if (password === '') return alert('Password must be defined.')
-  
-    
-    istrav.tenant.apps.init({ host: 'https://api.istrav.com' })
 
-    let esApp = await scripts.tenant.apps.getOne(window.location.host, 'production')
-    let esUser = await scripts.account.users.getLogin(null, email, password)
+    let esApp = await scripts.tenant.apps.getOne(window.appDomain, 'production')
+    let esLogin = await scripts.account.users.getLogin(esApp.payload.id, email, password)
+
     console.log('esApp', esApp)
-    // login(email, password)
+    console.log('esLogin', esLogin)
+
+    if (esLogin.payload) {
+      if (esLogin.payload.success) {
+        localStorage.setItem('token', esLogin.payload.data.token)
+        window.location = '/account'
+      } else {
+        alert(esLogin.payload.reason)
+      }
+    }
   }
 </script>
 

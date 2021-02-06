@@ -5,14 +5,41 @@
 	let email = '';
   let password = '';
   let passwordRepeat = '';
+  let username = '';
+  let firstName = '';
+  let lastName = '';
 
-	function auth() {
+	async function auth() {
     if (email === '') return alert('Email must be defined.')
     if (password === '') return alert('Password must be defined.')
     if (passwordRepeat === '') return alert('Password repeat must be defined.')
     if (password !== passwordRepeat) return alert('Password should be the same as password confirm.')
+    if (username === '') return alert('Username must be defined.')
+    if (firstName === '') return alert('First name must be defined.')
+    if (lastName === '') return alert('Last name must be defined.')
   
-    register(email, password)
+    let esApp = await scripts.tenant.apps.getOne(window.appDomain, 'production')
+    let esRegister = await scripts.account.users.getRegister(esApp.payload.id, email, username, password, firstName, lastName)
+    
+    console.log('esApp', esApp)
+    console.log('esRegister', esRegister)
+
+    if (esRegister.payload) {
+      if (esRegister.payload.success) {
+        let esLogin = await scripts.account.users.getLogin(esApp.payload.id, email, password)
+        console.log('esLogin', esLogin)
+        if (esLogin.payload) {
+          if (esLogin.payload.success) {
+            localStorage.setItem('token', esLogin.payload.data.token)
+            window.location = '/account'
+          } else {
+            alert(esLogin.payload.reason)
+          }
+        }
+      } else {
+        alert(esUser.payload.reason)
+      }
+    }
   }
 </script>
 
@@ -33,6 +60,18 @@
         <div class="input-field col s12">
           <input id="passwordRepeat" type="password" class="validate" bind:value={passwordRepeat}>
           <label for="passwordRepeat">Password Confirm</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="username" type="text" class="validate" bind:value={username}>
+          <label for="username">Username</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="firstName" type="text" class="validate" bind:value={firstName}>
+          <label for="firstName">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="lastName" type="text" class="validate" bind:value={lastName}>
+          <label for="lastName">Last Name</label>
         </div>
         <br />
         <button style="margin-left: 1em;" type='submit' class="waves-effect btn" on:click={() => auth()}>Submit</button>

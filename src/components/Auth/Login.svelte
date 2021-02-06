@@ -1,15 +1,20 @@
 <script>
-  import { onMount, onDestroy } from 'svelte';
   // import { login } from './methods'
 
 	let email = '';
   let password = '';
 
-	function auth() {
+	async function auth() {
     if (email === '') return alert('Email must be defined.')
     if (password === '') return alert('Password must be defined.')
   
-    login(email, password)
+    
+    istrav.tenant.apps.init({ host: 'https://api.istrav.com' })
+
+    let esApp = await scripts.tenant.apps.getOne(window.location.host, 'production')
+    let esUser = await scripts.account.users.getLogin(null, email, password)
+    console.log('esApp', esApp)
+    // login(email, password)
   }
 </script>
 

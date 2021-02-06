@@ -8,6 +8,7 @@
     "start": "node __sapper__/build"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "compression": "^1.7.1",
     "cross-fetch": "^3.0.6",
     "marked": "^1.2.9",

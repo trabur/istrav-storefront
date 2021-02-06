@@ -19,27 +19,28 @@
     if (lastName === '') return alert('Last name must be defined.')
   
     let esApp = await scripts.tenant.apps.getOne(window.appDomain, 'production')
-    let esRegister = await scripts.account.users.getRegister(esApp.payload.id, email, username, password, firstName, lastName)
-    
     console.log('esApp', esApp)
-    console.log('esRegister', esRegister)
-
-    if (esRegister.payload) {
+    if (esApp.payload.success) {
+      let esRegister = await scripts.account.users.getRegister(esApp.payload.data.id, email, username, password, firstName, lastName)
+      console.log('esRegister', esRegister)
       if (esRegister.payload.success) {
-        let esLogin = await scripts.account.users.getLogin(esApp.payload.id, email, password)
+        let esLogin = await scripts.account.users.getLogin(esApp.payload.data.id, email, password)
         console.log('esLogin', esLogin)
-        if (esLogin.payload) {
-          if (esLogin.payload.success) {
-            localStorage.setItem('token', esLogin.payload.data.token)
-            window.location = '/account'
-          } else {
-            alert(esLogin.payload.reason)
-          }
+        if (esLogin.payload.success) {
+          localStorage.setItem('token', esLogin.payload.data.token)
+          window.location = '/account'
+        } else {
+          alert(esLogin.payload.reason)
         }
       } else {
         alert(esUser.payload.reason)
       }
+    } else {
+      alert(esApp.payload.reason)
     }
+    
+    console.log('esApp', esApp)
+    console.log('esRegister', esRegister)
   }
 </script>
 

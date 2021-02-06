@@ -9,18 +9,18 @@
     if (password === '') return alert('Password must be defined.')
 
     let esApp = await scripts.tenant.apps.getOne(window.appDomain, 'production')
-    let esLogin = await scripts.account.users.getLogin(esApp.payload.id, email, password)
-
     console.log('esApp', esApp)
-    console.log('esLogin', esLogin)
-
-    if (esLogin.payload) {
+    if (esApp.payload.success) {
+      let esLogin = await scripts.account.users.getLogin(esApp.payload.data.id, email, password)
+      console.log('esLogin', esLogin)
       if (esLogin.payload.success) {
         localStorage.setItem('token', esLogin.payload.data.token)
         window.location = '/account'
       } else {
         alert(esLogin.payload.reason)
       }
+    } else {
+      alert(esApp.payload.reason)
     }
   }
 </script>

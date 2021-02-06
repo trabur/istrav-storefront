@@ -33,7 +33,7 @@
           alert(esLogin.payload.reason)
         }
       } else {
-        alert(esUser.payload.reason)
+        alert(esRegister.payload.reason)
       }
     } else {
       alert(esApp.payload.reason)

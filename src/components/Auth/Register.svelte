@@ -38,9 +38,6 @@
     } else {
       alert(esApp.payload.reason)
     }
-    
-    console.log('esApp', esApp)
-    console.log('esRegister', esRegister)
   }
 </script>
 

@@ -20,13 +20,13 @@
   
     let esApp = await scripts.tenant.apps.getOne(window.appDomain, 'production')
     console.log('esApp', esApp)
-    if (esApp.payload.success) {
+    if (esApp.payload.success === true) {
       let esRegister = await scripts.account.users.getRegister(esApp.payload.data.id, email, username, password, firstName, lastName)
       console.log('esRegister', esRegister)
-      if (esRegister.payload.success) {
+      if (esRegister.payload.success === true) {
         let esLogin = await scripts.account.users.getLogin(esApp.payload.data.id, email, password)
         console.log('esLogin', esLogin)
-        if (esLogin.payload.success) {
+        if (esLogin.payload.success === true) {
           localStorage.setItem('token', esLogin.payload.data.token)
           window.location = '/account'
         } else {

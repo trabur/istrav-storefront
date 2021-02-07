@@ -21,13 +21,17 @@
       ]
     },
     {
-      "name": "api",
-      "url": "https://api.istrav.com",
-      "children": []
+      "name": "headless",
+      "url": "/categories/headless",
+      "children": [
+        { "name": "admin", "url": "/products/admin.istrav.com" },
+        { "name": "api", "url": "/products/api.istrav.com" },
+        { "name": "channels", "url": "/products/channels.istrav.com" }
+      ]
     },
     {
-      "name": "dashboard",
-      "url": "https://dashboard.istrav.com",
+      "name": "docs",
+      "url": "https://docs.istrav.com",
       "children": []
     }
   ],

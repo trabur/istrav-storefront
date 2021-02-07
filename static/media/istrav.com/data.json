@@ -6,9 +6,9 @@
   "shipping": "Vestibulum id mollis tortor. Sed nec fringilla nulla, id tincidunt nulla. Nam gravida quam nunc, vitae vestibulum augue mattis vitae. Sed et arcu eu elit faucibus luctus at eu risus. Etiam auctor felis eros, id euismod purus vehicula ac. Donec interdum arcu at libero elementum maximus. Pellentesque id lacus risus. Phasellus id mi sed orci pulvinar ullamcorper non quis sapien. Donec sagittis risus quam, vel ornare enim imperdiet non.\n\n\nVestibulum id mollis tortor. Sed nec fringilla nulla, id tincidunt nulla. Nam gravida quam nunc, vitae vestibulum augue mattis vitae. Sed et arcu eu elit faucibus luctus at eu risus. Etiam auctor felis eros, id euismod purus vehicula ac. Donec interdum arcu at libero elementum maximus. Pellentesque id lacus risus. Phasellus id mi sed orci pulvinar ullamcorper non quis sapien. Donec sagittis risus quam, vel ornare enim imperdiet non.",
   "announce": {
     "line1": "physical & digital",
-    "line2": "eCommerce",
+    "line2": "web services",
     "buttonName": "GET STARTED",
-    "buttonUrl": "https://admin.istrav.com"
+    "buttonUrl": "https://docs.istrav.com"
   },
   "menu": [
     {

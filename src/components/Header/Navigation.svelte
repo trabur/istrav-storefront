@@ -58,7 +58,6 @@
       // for subdomains such as http://istrav.dimension.click
       let endpoint = domain.split('.')[0]
       let esEndpoint = await scripts.tenant.apps.getEndpoint(endpoint)
-      console.log('esEndpoint', esEndpoint)
       if (esEndpoint.payload.success === true) {
         appId = esEndpoint.payload.data.id
         rawApp = JSON.parse(esEndpoint.payload.data.raw)
@@ -68,7 +67,6 @@
     } else {
       // for custom domains such as https://istrav.com
       let esOne = await scripts.tenant.apps.getOne(domain, state)
-      console.log('esOne', esOne)
       if (esOne.payload.success === true) {
         appId = esOne.payload.data.id
         rawApp = JSON.parse(esOne.payload.data.raw)
@@ -83,7 +81,7 @@
     } else {
       alert(esNavigation.payload.reason)
     }
-    console.log('items', items)
+    console.log('menus', items)
   })
 </script>
 

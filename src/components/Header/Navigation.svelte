@@ -3,12 +3,13 @@
   
   // navigation center text
   let extendNav = false
-  let categoryId = ''
   let items = []
   let subItems = []
   let token = null
-  let name = ''
-  let short = ''
+  let rawApp = {
+    name: '',
+    short: ''
+  }
   
   function setId (id) {
     subItems = items.filter((value, index) => {
@@ -28,7 +29,7 @@
   let instanceCart;
   let instanceSearch;
 
-	onMount(() => {
+	onMount(async () => {
     // user
 		token = localStorage.getItem('token')
     // main sidebar
@@ -42,24 +43,47 @@
     var elemSearch = document.querySelector('#search')
     instanceSearch = M.Sidenav.init(elemSearch, { edge: 'right' })
     
-    let media = window.location.host
 
-    // navigation request
-    fetch(`./media/${media}/data.json`, {
-      method: 'GET',
-      headers: {
-        'Cache-Control': 'no-cache',
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
+    // fetch
+    let appId
+    let domain = window.location.host
+    let state = 'production'
+
+    // pick an app to show for local development
+    if (domain.includes('localhost:3000')) {
+      domain = 'istrav.dimension.click'
+    }
+    // set appId from domain 
+    if (domain.includes('dimension.click')) {
+      // for subdomains such as http://istrav.dimension.click
+      let endpoint = domain.split('.')[0]
+      let esEndpoint = await scripts.tenant.apps.getEndpoint(endpoint)
+      console.log('esEndpoint', esEndpoint)
+      if (esEndpoint.payload.success === true) {
+        appId = esEndpoint.payload.data.id
+        rawApp = JSON.parse(esEndpoint.payload.data.raw)
+      } else {
+        alert(esEndpoint.payload.reason)
       }
-    })
-      .then(r => r.json())
-      .then(value => {
-        console.log('navigation main:', value)
-        items = value.menu
-        name = value.name
-        short = value.short
-      })
+    } else {
+      // for custom domains such as https://istrav.com
+      let esOne = await scripts.tenant.apps.getOne(domain, state)
+      console.log('esOne', esOne)
+      if (esOne.payload.success === true) {
+        appId = esOne.payload.data.id
+        rawApp = JSON.parse(esOne.payload.data.raw)
+      } else {
+        alert(esOne.payload.reason)
+      }
+    }
+    // get the menus
+    let esNavigation = await scripts.app.menus.getOne(appId, 'navigation')
+    if (esNavigation.payload.success === true) {
+      items = JSON.parse(esNavigation.payload.data.raw)
+    } else {
+      alert(esNavigation.payload.reason)
+    }
+    console.log('items', items)
   })
 </script>
 
@@ -68,8 +92,8 @@
     <ul class="left">
       <li><a href="/" on:click={(e) => instance.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">menu</i></a></li>
     </ul>
-    <a href="/" class="brand-logo left hide-on-large-only" style="margin-left: 1.75em;">{short}</a>
-    <a href="/" class="brand-logo center hide-on-med-and-down">{name}</a>
+    <a href="/" class="brand-logo left hide-on-large-only" style="margin-left: 1.75em;">{rawApp.short}</a>
+    <a href="/" class="brand-logo center hide-on-med-and-down">{rawApp.name}</a>
     <ul class="right">
       {#if token}
         <li><a href="/account" data-target="slide-out"><i class="material-icons">person</i></a></li>
@@ -99,7 +123,7 @@
 
 <ul id="main" class="sidenav">
   <li>
-    <h5 style="text-align: center;">{name}</h5>
+    <h5 style="text-align: center;">{rawApp.name}</h5>
   </li>
   <!-- <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
   <li><a href="#!">Second Link</a></li>

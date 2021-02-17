@@ -1,27 +1,53 @@
 <script>
   import { onMount } from 'svelte';
-  import { GET_CATEGORIES } from "./queries.ts"
   
   let items = []
-  let media 
+  let uploads
+  let domain
+  let state
+  let domainId
 
-	onMount(() => {
-    media = window.location.host
+	onMount(async () => {
+    // fetch
+    let appId
+    domain = window.location.host
+    state = 'production'
 
-    // data request
-    fetch(`./media/${media}/data.json`, {
-      method: 'GET',
-      headers: {
-        'Cache-Control': 'no-cache',
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
+    // pick an app to show for local development
+    if (domain.includes('localhost:3000')) {
+      domain = 'istrav.dimension.click'
+    }
+    // set appId from domain 
+    if (domain.includes('dimension.click')) {
+      // for subdomains such as http://istrav.dimension.click
+      let endpoint = domain.split('.')[0]
+      let esEndpoint = await scripts.tenant.apps.getEndpoint(endpoint)
+      if (esEndpoint.payload.success === true) {
+        domainId = esEndpoint.payload.data.domain
+        appId = esEndpoint.payload.data.id
+        uploads = esEndpoint.payload.data.uploads
+      } else {
+        alert(esEndpoint.payload.reason)
       }
-    })
-      .then(r => r.json())
-      .then(value => {
-        console.log('value.categories:', value)
-        items = value.shopByCategory
-      })
+    } else {
+      // for custom domains such as https://istrav.com
+      let esOne = await scripts.tenant.apps.getOne(domain, state)
+      if (esOne.payload.success === true) {
+        domainId = esOne.payload.data.domain
+        appId = esOne.payload.data.id
+        uploads = esOne.payload.data.uploads
+      } else {
+        alert(esOne.payload.reason)
+      }
+    }
+    // get the products
+    let esCategories = await scripts.store.categories.getAll(appId)
+    if (esCategories.payload.success === true) {
+      items = esCategories.payload.data
+    } else {
+      alert(esCategories.payload.reason)
+    }
+    // console.log('categories', items)
   })
 </script>
 <div class="row">
@@ -32,7 +58,7 @@
       {#each items as item (item.slug)}
         <div class="item">
           <a href={`/categories/${item.slug}`}>
-            <div class="image" style={`background-image: url(./media/${media}/${item.image});`}></div>
+            <div class="image" style={`background-image: url(https://rawcdn.githack.com/${uploads}/${domainId}/${state}/categories/${item.slug}/${item.image});`}></div>
             <h5 class="subtitle">{item.name}</h5>
           </a>
         </div>

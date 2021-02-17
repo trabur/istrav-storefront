@@ -1,31 +1,5 @@
 <script>
-  import { onMount } from 'svelte';
-
-  // navigation query
-  import { GET_MAIN_FOOTER } from "./queries.ts"
-  
-  // objects
-  let items = []
-  let media
-
-	onMount(() => {
-    media = window.location.host
-
-    // navigation request
-    fetch(`./media/${media}/data.json`, {
-      method: 'GET',
-      headers: {
-        'Cache-Control': 'no-cache',
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      }
-    })
-      .then(r => r.json())
-      .then(value => {
-        console.log('navigation footer:', value)
-        items = value.footer
-      })
-  })
+  export let items
 </script>
 
 <div class="footer">
@@ -51,18 +25,18 @@
 </div>
 
 <style>
-.footer {
-  background: #eee;
-  color: #111;
-  min-height: 200px;
-  margin-top: 50px;
-}
+  .footer {
+    background: #eee;
+    color: #111;
+    min-height: 200px;
+    margin-top: 50px;
+  }
 
-.title {
-  color: #111;
-}
+  .title {
+    color: #111;
+  }
 
-.list {
-  color: #888;
-}
+  .list {
+    color: #888;
+  }
 </style>

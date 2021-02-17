@@ -1,26 +1,41 @@
 <script>
   import { onMount } from 'svelte';
-  
-  let about = ''
-  let media
 
-	onMount(() => {
-    media = window.location.host
-    
-    // data request
-    fetch(`./media/${media}/data.json`, {
-      method: 'GET',
-      headers: {
-        'Cache-Control': 'no-cache',
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
+  let about
+  let domain
+  let state
+
+	onMount(async () => {
+    // fetch
+    let appId
+    domain = window.location.host
+    state = 'production'
+
+    // pick an app to show for local development
+    if (domain.includes('localhost:3000')) {
+      domain = 'istrav.dimension.click'
+    }
+    // set appId from domain 
+    if (domain.includes('dimension.click')) {
+      // for subdomains such as http://istrav.dimension.click
+      let endpoint = domain.split('.')[0]
+      let esEndpoint = await scripts.tenant.apps.getEndpoint(endpoint)
+      if (esEndpoint.payload.success === true) {
+        appId = esEndpoint.payload.data.id
+        about = JSON.parse(esEndpoint.payload.data.raw).about
+      } else {
+        alert(esEndpoint.payload.reason)
       }
-    })
-      .then(r => r.json())
-      .then(value => {
-        console.log('about:', value)
-        about = value.about
-      })
+    } else {
+      // for custom domains such as https://istrav.com
+      let esOne = await scripts.tenant.apps.getOne(domain, state)
+      if (esOne.payload.success === true) {
+        appId = esOne.payload.data.id
+        about = JSON.parse(esOne.payload.data.raw).about
+      } else {
+        alert(esOne.payload.reason)
+      }
+    }
   })
 </script>
 

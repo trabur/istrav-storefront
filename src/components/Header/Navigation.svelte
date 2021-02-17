@@ -81,7 +81,7 @@
     } else {
       alert(esNavigation.payload.reason)
     }
-    console.log('menus', items)
+    // console.log('menus', items)
   })
 </script>
 

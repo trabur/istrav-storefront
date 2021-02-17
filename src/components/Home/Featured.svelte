@@ -47,7 +47,7 @@
     } else {
       alert(esFeatured.payload.reason)
     }
-    console.log('featured products', items)
+    // console.log('featured products', items)
   })
 </script>
 

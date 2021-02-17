@@ -36,8 +36,8 @@
 
 
 <style>
-.title {
-  font-size: 2rem;
-  font-weight: 900;
-}
+  .title {
+    font-size: 2rem;
+    font-weight: 900;
+  }
 </style>

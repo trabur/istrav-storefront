@@ -1,14 +1,17 @@
 
 <script>
   import { onMount } from 'svelte';
-  import ShopByRelated from './ShopByRelated.svelte'
+  // import ShopByRelated from './ShopByRelated.svelte'
   
 	// Import markdown conversion library
   import marked from 'marked'
 
   // objects
+  let domain
+  let domainId
+  let state
+  let uploads
   let product
-  let media
   let gallery
   let open
   let shipping = ''
@@ -16,38 +19,51 @@
   let activeTab = 'description'
   export let productId
 
-	onMount(() => {
-    media = window.location.host
+	onMount(async () => {
+    // fetch
+    let appId
+    domain = window.location.host
+    state = 'production'
 
-    // product request
-    fetch(`./media/${media}/products/${productId}/data.json`, {
-      method: 'GET',
-      headers: {
-        'Cache-Control': 'no-cache',
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
+    // pick an app to show for local development
+    if (domain.includes('localhost:3000')) {
+      domain = 'istrav.dimension.click'
+    }
+    // set appId from domain 
+    if (domain.includes('dimension.click')) {
+      // for subdomains such as http://istrav.dimension.click
+      let endpoint = domain.split('.')[0]
+      let esEndpoint = await scripts.tenant.apps.getEndpoint(endpoint)
+      if (esEndpoint.payload.success === true) {
+        appId = esEndpoint.payload.data.id
+        domainId = esEndpoint.payload.data.domain
+        uploads = esEndpoint.payload.data.uploads
+        about = JSON.parse(esEndpoint.payload.data.raw).about
+        shipping = JSON.parse(esEndpoint.payload.data.raw).shipping
+      } else {
+        alert(esEndpoint.payload.reason)
       }
-    })
-      .then(r => r.json())
-      .then(value => {
-        console.log('product:', value)
-        product = value
-      })
-
-    // site request
-    fetch(`./media/${media}/data.json`, {
-      method: 'GET',
-      headers: {
-        'Cache-Control': 'no-cache',
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
+    } else {
+      // for custom domains such as https://istrav.com
+      let esOne = await scripts.tenant.apps.getOne(domain, state)
+      if (esOne.payload.success === true) {
+        appId = esOne.payload.data.id
+        domainId = esOne.payload.data.domain
+        uploads = esOne.payload.data.uploads
+        about = JSON.parse(esOne.payload.data.raw).about
+        shipping = JSON.parse(esOne.payload.data.raw).shipping
+      } else {
+        alert(esOne.payload.reason)
       }
-    })
-      .then(r => r.json())
-      .then(value => {
-        shipping = value.shipping
-        about = value.about
-      })
+    }
+    // get the products
+    let esProducts = await scripts.store.products.getOne(appId, productId)
+    if (esProducts.payload.success === true) {
+      product = esProducts.payload.data
+    } else {
+      alert(esProducts.payload.reason)
+    }
+    console.log('product', product)
 
     /**
      * photoswipe
@@ -92,11 +108,11 @@
   <div class="col s0 m1"></div>
     {#if product}
       <div class="col s12 m5">
-        <img on:click={() => open()} class="image" src={`/media/${media}/products/${productId}/${product.image}`} alt="" />
+        <img on:click={() => open()} class="image" src={`https://rawcdn.githack.com/${uploads}/${domainId}/${state}/products/${productId}/${product.image}`} alt="" />
       </div>
       <div class="col s12 m5">
         <h1>{product.name}</h1>
-        <p>{product.details}</p>
+        <p>{product.details || ''}</p>
       </div>
     {/if}
   <div class="col s0 m1"></div>
@@ -111,7 +127,7 @@
       <li class="tab col s3"><a href="#about" on:click={() => activeTab = 'about'}>About</a></li>
     </ul>
     {#if product && activeTab === 'description'}
-      {@html marked(product.description)}
+      {@html marked(product.description || '')}
     {:else if activeTab === 'shipping'}
       {@html marked(shipping)}
     {:else}
@@ -121,7 +137,7 @@
   <div class="col s0 m1"></div>
 </div>
 
-<div class="row">
+<!-- <div class="row">
   <div class="col s0 m1"></div>
   <div class="col s12 m10">
     {#if product}
@@ -129,7 +145,7 @@
     {/if}
   </div>
   <div class="col s0 m1"></div>
-</div>
+</div> -->
 
 <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">

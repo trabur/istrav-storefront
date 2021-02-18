@@ -35,8 +35,4 @@
   .title {
     color: #111;
   }
-
-  .list {
-    color: #888;
-  }
 </style>

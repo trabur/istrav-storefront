@@ -31,7 +31,7 @@
       }
     } else {
       // for custom domains such as https://istrav.com
-      let esOne = await scripts.tenant.apps.getOne(domain, state)
+      let esOne = await scripts.tenant.apps.getOne(null, domain, state)
       if (esOne.payload.success === true) {
         domainId = esOne.payload.data.domain
         appId = esOne.payload.data.id

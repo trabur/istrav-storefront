@@ -19,7 +19,7 @@
     if (domain.includes('dimension.click')) {
       // for subdomains such as http://istrav.dimension.click
       let endpoint = domain.split('.')[0]
-      let esEndpoint = await scripts.tenant.apps.getEndpoint(endpoint)
+      let esEndpoint = await scripts.tenant.apps.getEndpoint(null, endpoint)
       if (esEndpoint.payload.success === true) {
         appId = esEndpoint.payload.data.id
         about = JSON.parse(esEndpoint.payload.data.raw).about

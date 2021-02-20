@@ -8,7 +8,7 @@
     if (email === '') return alert('Email must be defined.')
     if (password === '') return alert('Password must be defined.')
 
-    let esApp = await scripts.tenant.apps.getOne(window.appDomain, 'production')
+    let esApp = await scripts.tenant.apps.getOne(null, window.appDomain, 'production')
     console.log('esApp', esApp)
     if (esApp.payload.success === true) {
       let esLogin = await scripts.account.users.getLogin(esApp.payload.data.id, email, password)

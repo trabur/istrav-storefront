@@ -39,6 +39,8 @@
       istrav.store.categories.init({ host: 'https://api.istrav.com' })
       istrav.store.products.init({ host: 'https://api.istrav.com' })
       istrav.account.users.init({ host: 'https://api.istrav.com' })
+      istrav.account.carts.init({ host: 'https://api.istrav.com' })
+      istrav.account.orders.init({ host: 'https://api.istrav.com' })
       loading = false
     };
     code.src = 'https://dashboard.istrav.com/scripts/index.js';

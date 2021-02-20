@@ -1,7 +1,7 @@
 
 <script>
   import { onMount } from 'svelte';
-  // import ShopByRelated from './ShopByRelated.svelte'
+  import AddToCart from './AddToCart.svelte'
   
 	// Import markdown conversion library
   import marked from 'marked'
@@ -18,10 +18,10 @@
   let about = ''
   let activeTab = 'description'
   export let productId
+  let appId
 
 	onMount(async () => {
     // fetch
-    let appId
     domain = window.location.host
     state = 'production'
 
@@ -113,6 +113,7 @@
       <div class="col s12 m5">
         <h1>{product.name}</h1>
         <p>{product.details || ''}</p>
+        <AddToCart appId={appId} product={product} />
       </div>
     {/if}
   <div class="col s0 m1"></div>

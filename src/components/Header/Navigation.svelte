@@ -1,10 +1,12 @@
 <script>
   import { onMount } from 'svelte';
+  import Cart from './Cart.svelte'
   
   // navigation center text
   let extendNav = false
   let items = []
   let subItems = []
+  let appId
   let token = null
   let rawApp = {
     name: '',
@@ -45,7 +47,6 @@
     
 
     // fetch
-    let appId
     let domain = window.location.host
     let state = 'production'
 
@@ -83,6 +84,12 @@
     }
     // console.log('menus', items)
   })
+
+  let cart = true
+  function reMountCart() {
+    cart = false; 
+    setTimeout(() => cart = true, 0);
+  } 
 </script>
 
 <nav class={extendNav ? `nav-extended` : ''} on:mouseleave={() => extendNav = false}>
@@ -98,7 +105,7 @@
       {:else}
         <li><a href="/login" data-target="slide-out"><i class="material-icons">person</i></a></li>
       {/if}
-      <li><a href="/" on:click={(e) => instanceCart.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">shopping_cart</i></a></li>
+      <li><a href="/" on:click={(e) => instanceCart.open() & reMountCart() & e.preventDefault()} data-target="slide-out"><i class="material-icons">shopping_cart</i></a></li>
       <li><a href="/" on:click={(e) => instanceSearch.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">search</i></a></li>
     </ul>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
@@ -139,21 +146,22 @@
   {/if}
 </ul>
 
-<ul id="person" class="sidenav">
-  <li>
-    <h5 style="text-align: center;">person</h5>
-  </li>
-  
-</ul>
+<div id="person" class="sidenav">
+  <h5 style="text-align: center;">person</h5>
+</div>
 
-<ul id="cart" class="sidenav">
-  <li>
-    <h5 style="text-align: center;">cart</h5>
-  </li>
-</ul>
+<div id="cart" class="sidenav">
+  {#if appId && cart}
+    <Cart appId={appId} />
+  {/if}
+</div>
 
-<ul id="search" class="sidenav">
-  <li>
-    <h5 style="text-align: center;">search</h5>
-  </li>
-</ul>
+<div id="search" class="sidenav">
+  <h5 style="text-align: center;">search</h5>
+</div>
+
+<style>
+  .sidenav {
+    width: 400px;
+  }
+</style>

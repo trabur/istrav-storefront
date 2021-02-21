@@ -14,7 +14,7 @@
 
     // add cart if missing
     let esCarts = await scripts.account.carts.getAll(appId, token)
-    console.log('esCarts', esCarts)
+    // console.log('esCarts', esCarts)
     if (esCarts.payload.success === true) {
       cart = esCarts.payload.data[0]
       if (!cart) {
@@ -22,11 +22,19 @@
           products: []
         }
         let esSave = await scripts.account.carts.getSave(appId, token, change)
-        console.log('esSave', esSave)
+        // console.log('esSave', esSave)
         if (esSave.payload.success === true) {
           cart = esSave.payload.data
         } else {
           alert(esSave.payload.reason)
+        }
+      } else {
+        // fetch cart with products
+        let esCart = await scripts.account.carts.getOne(appId, token, cart.id)
+        if (esCart.payload.success === true) {
+          cart = esCart.payload.data
+        } else {
+          alert(esCart.payload.reason)
         }
       }
     } else {

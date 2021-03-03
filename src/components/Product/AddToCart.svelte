@@ -45,6 +45,15 @@
 	async function addToCart() {
     if (itemCount === '') return alert('item count must be defined.')
 
+    if (!token) {
+      if (confirm('You must login to an account first before adding an item to your cart.')) {
+        // ok was pressed
+        window.location.href = `/login?redirect=/products/${product.slug}`
+      } else {
+        // cancel was pressed
+      }
+    }
+
     let change = {
       products: cart.products || []
     }

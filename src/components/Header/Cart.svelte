@@ -7,9 +7,10 @@
   export let domainId
   export let state
   let cart
+  let token
 
 	onMount(async () => {
-		let token = localStorage.getItem('token')
+		token = localStorage.getItem('token')
 
     let esCarts = await scripts.account.carts.getAll(appId, token)
     console.log('esCarts', esCarts)
@@ -36,30 +37,39 @@
 
 <!-- {JSON.stringify(cart, null, 2)} -->
 
-<div class="items">
-  {#if cart && cart.products}
-    {#each cart.products as item (item.slug)}
-      <div class="item">
-        <div class="image" style={`background-image: url(https://rawcdn.githack.com/${uploads}/${domainId}/${state}/products/${item.slug}/${item.image});`}>
+{#if token}
+  <div class="items">
+    {#if cart && cart.products}
+      {#each cart.products as item (item.slug)}
+        <div class="item">
+          <div class="image" style={`background-image: url(https://rawcdn.githack.com/${uploads}/${domainId}/${state}/products/${item.slug}/${item.image});`}>
+          </div>
+          <div class="details">
+            <h5 style="color: #111; margin: 0;">{item.name}</h5>
+          </div>
         </div>
-        <div class="details">
-          <h5 style="color: #111; margin: 0;">{item.name}</h5>
-        </div>
-      </div>
-    {/each}
-  {/if}
-</div>
-<div class="checkout">
-  <button type='submit' class="waves-effect btn btn-large checkout-button" on:click={() => checkout()}>checkout</button>
-</div>
+      {/each}
+    {/if}
+  </div>
+  <div class="checkout">
+    <button type='submit' class="waves-effect btn btn-large checkout-button" on:click={() => checkout()}>checkout</button>
+  </div>
+{:else}
+  <div class="auth">
+    <a href="/login" class="waves-effect btn btn-large auth-button">Let's go!</a>
+    <p style="text-align: center;">(please login or register to get started)</p>
+  </div>
+{/if}
 
 
 
 <style>
+  .auth,
   .checkout {
     padding: 0.5em;
   }
 
+  .auth-button,
   .checkout-button {
     width: 100%;
   }

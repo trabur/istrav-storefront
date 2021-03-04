@@ -2,6 +2,8 @@
   "rewrites": [
     { "source": "/categories/:id", "destination": "/" },
     { "source": "/products/:id", "destination": "/" },
-    { "source": "/account", "destination": "/" }
+    { "source": "/account", "destination": "/" },
+    { "source": "/login", "destination": "/" },
+    { "source": "/register", "destination": "/" }
   ]
 }

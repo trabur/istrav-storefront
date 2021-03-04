@@ -7,6 +7,9 @@
   let items = []
   let subItems = []
   let appId
+  let domain = window.location.host
+  let state = 'production'
+  let uploads
   let token = null
   let rawApp = {
     name: '',
@@ -44,15 +47,10 @@
     instanceCart = M.Sidenav.init(elemCart, { edge: 'right' })
     var elemSearch = document.querySelector('#search')
     instanceSearch = M.Sidenav.init(elemSearch, { edge: 'right' })
-    
-
-    // fetch
-    let domain = window.location.host
-    let state = 'production'
 
     // pick an app to show for local development
     if (domain.includes('localhost:3000')) {
-      domain = 'istrav.dimension.click'
+      domain = 'istrav.com'
     }
     // set appId from domain 
     if (domain.includes('dimension.click')) {
@@ -61,6 +59,7 @@
       let esEndpoint = await scripts.tenant.apps.getEndpoint(null, endpoint)
       if (esEndpoint.payload.success === true) {
         appId = esEndpoint.payload.data.id
+        uploads = esEndpoint.payload.data.uploads
         rawApp = JSON.parse(esEndpoint.payload.data.raw)
       } else {
         alert(esEndpoint.payload.reason)
@@ -70,6 +69,7 @@
       let esOne = await scripts.tenant.apps.getOne(null, domain, state)
       if (esOne.payload.success === true) {
         appId = esOne.payload.data.id
+        uploads = esOne.payload.data.uploads
         rawApp = JSON.parse(esOne.payload.data.raw)
       } else {
         alert(esOne.payload.reason)
@@ -152,7 +152,7 @@
 
 <div id="cart" class="sidenav">
   {#if appId && cart}
-    <Cart appId={appId} />
+    <Cart appId={appId} domainId={domain} state={state} uploads={uploads} />
   {/if}
 </div>
 

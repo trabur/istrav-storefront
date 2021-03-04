@@ -13,7 +13,7 @@
 
     // pick an app to show for local development
     if (domain.includes('localhost:3000')) {
-      domain = 'istrav.dimension.click'
+      domain = 'istrav.com'
     }
     // set appId from domain 
     if (domain.includes('dimension.click')) {

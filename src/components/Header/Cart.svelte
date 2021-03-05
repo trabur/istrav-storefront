@@ -45,14 +45,18 @@
           <div class="image" style={`background-image: url(https://rawcdn.githack.com/${uploads}/${domainId}/${state}/products/${item.slug}/${item.image});`}>
           </div>
           <div class="details">
-            <h5 style="color: #111; margin: 0;">{item.name}</h5>
+            <div style="float: right;">$10.00</div>
+            <div style="color: #111; margin: 0;">{item.name}</div>
+            <div>
+              <!-- todo-->
+            </div>
           </div>
         </div>
       {/each}
     {/if}
   </div>
   <div class="checkout">
-    <button type='submit' class="waves-effect btn btn-large checkout-button" on:click={() => checkout()}>checkout</button>
+    <button type='submit' class="waves-effect btn btn-large checkout-button" on:click={() => checkout()}>proceed to checkout</button>
   </div>
 {:else}
   <div class="auth">

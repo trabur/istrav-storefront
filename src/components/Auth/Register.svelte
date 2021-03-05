@@ -1,13 +1,14 @@
 <script>
-  import { onMount, onDestroy } from 'svelte';
+  import { onMount, onDestroy } from 'svelte'
   // import { login, register } from './methods'
 
-	let email = '';
-  let password = '';
-  let passwordRepeat = '';
-  let username = '';
-  let firstName = '';
-  let lastName = '';
+	let email = ''
+  let password = ''
+  let passwordRepeat = ''
+  let username = ''
+  let firstName = ''
+  let lastName = ''
+  let esApp
 
 	async function auth() {
     if (email === '') return alert('Email must be defined.')
@@ -18,7 +19,6 @@
     if (firstName === '') return alert('First name must be defined.')
     if (lastName === '') return alert('Last name must be defined.')
   
-    let esApp = await scripts.tenant.apps.getOne(null, window.appDomain, 'production')
     console.log('esApp', esApp)
     if (esApp.payload.success === true) {
       let esRegister = await scripts.account.users.getRegister(esApp.payload.data.id, email, username, password, firstName, lastName)
@@ -39,6 +39,36 @@
       alert(esApp.payload.reason)
     }
   }
+
+  onMount(async () => {
+    // fetch
+    let domain = window.location.host
+    let state = 'production'
+
+    // pick an app to show for local development
+    if (domain.includes('localhost:3000')) {
+      domain = 'istrav.com'
+    }
+    // set appId from domain 
+    if (domain.includes('dimension.click')) {
+      // for subdomains such as http://istrav.dimension.click
+      let endpoint = domain.split('.')[0]
+      let esEndpoint = await scripts.tenant.apps.getEndpoint(null, endpoint)
+      if (esEndpoint.payload.success === true) {
+        esApp = esEndpoint
+      } else {
+        alert(esEndpoint.payload.reason)
+      }
+    } else {
+      // for custom domains such as https://istrav.com
+      let esOne = await scripts.tenant.apps.getOne(null, domain, state)
+      if (esOne.payload.success === true) {
+        esApp = esOne
+      } else {
+        alert(esOne.payload.reason)
+      }
+    }
+  })
 </script>
 
 <div class="row">
@@ -83,10 +113,10 @@
 </div>
 
 <style>
-.title {
-  margin: 0; 
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 900;
-}
+  .title {
+    margin: 0; 
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 900;
+  }
 </style>

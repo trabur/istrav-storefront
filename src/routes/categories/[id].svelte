@@ -20,17 +20,15 @@
 </script>
 
 <Navigation />
-<Banner categoryId={$page.params.id} />
-<br />
-<br />
-<br />
-{#if load === true}
-  <ListProducts categoryId={$page.params.id} />
-{/if}
-<br />
-<br />
-<br />
-<br />
+<div style="min-height: 100vh;">
+  <Banner categoryId={$page.params.id} />
+  <br />
+  <br />
+  <br />
+  {#if load === true}
+    <ListProducts categoryId={$page.params.id} />
+  {/if}
+</div>
 <Footer>
 	<a href="/" class="breadcrumb hide-on-med-and-down">Home</a>
 	<a href="/" class="breadcrumb">Categories</a>

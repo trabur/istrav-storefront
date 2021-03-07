@@ -104,38 +104,43 @@
   })
 </script>
 
-<div class="row">
-  <div class="col s0 m1"></div>
-    {#if product}
-      <div class="col s12 m5">
-        <img on:click={() => open()} class="image" src={`https://rawcdn.githack.com/${uploads}/${domainId}/${state}/products/${productId}/${product.image}`} alt="" />
-      </div>
-      <div class="col s12 m5">
-        <h1>{product.name}</h1>
-        <p>{product.details || ''}</p>
-        <AddToCart appId={appId} product={product} />
-      </div>
-    {/if}
-  <div class="col s0 m1"></div>
-</div>
-<br />
-<div class="row">
-  <div class="col s0 m1"></div>
-  <div class="col s12 m10">
-    <ul class="tabs tabs-fixed-width" id="productTabs">
-      <li class="tab col s3"><a href="#description" on:click={() => activeTab = 'description'}>Description</a></li>
-      <li class="tab col s3"><a href="#shipping" on:click={() => activeTab = 'shipping'}>Shipping</a></li>
-      <li class="tab col s3"><a href="#about" on:click={() => activeTab = 'about'}>About</a></li>
-    </ul>
-    {#if product && activeTab === 'description'}
-      {@html marked(product.description || '')}
-    {:else if activeTab === 'shipping'}
-      {@html marked(shipping)}
-    {:else}
-      {@html marked(about)}
-    {/if}
+<div style="min-height: 100vh;">
+  <br />
+  <br />
+  <br />
+  <div class="row">
+    <div class="col s0 m1"></div>
+      {#if product}
+        <div class="col s12 m5">
+          <img on:click={() => open()} class="image" src={`https://rawcdn.githack.com/${uploads}/${domainId}/${state}/products/${productId}/${product.image}`} alt="" />
+        </div>
+        <div class="col s12 m5">
+          <h1>{product.name}</h1>
+          <p>{product.details || ''}</p>
+          <AddToCart appId={appId} product={product} />
+        </div>
+      {/if}
+    <div class="col s0 m1"></div>
   </div>
-  <div class="col s0 m1"></div>
+  <br />
+  <div class="row">
+    <div class="col s0 m1"></div>
+    <div class="col s12 m10">
+      <ul class="tabs tabs-fixed-width" id="productTabs">
+        <li class="tab col s3"><a href="#description" on:click={() => activeTab = 'description'}>Description</a></li>
+        <li class="tab col s3"><a href="#shipping" on:click={() => activeTab = 'shipping'}>Shipping</a></li>
+        <li class="tab col s3"><a href="#about" on:click={() => activeTab = 'about'}>About</a></li>
+      </ul>
+      {#if product && activeTab === 'description'}
+        {@html marked(product.description || '')}
+      {:else if activeTab === 'shipping'}
+        {@html marked(shipping)}
+      {:else}
+        {@html marked(about)}
+      {/if}
+    </div>
+    <div class="col s0 m1"></div>
+  </div>
 </div>
 
 <!-- <div class="row">

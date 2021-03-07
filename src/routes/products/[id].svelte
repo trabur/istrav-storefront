@@ -19,16 +19,9 @@
 </script>
 
 <Navigation />
-<br />
-<br />
-<br />
 {#if load === true}
   <View productId={$page.params.id} />
 {/if}
-<br />
-<br />
-<br />
-<br />
 <Footer>
 	<a href="/" class="breadcrumb hide-on-med-and-down">Home</a>
 	<a href="/" class="breadcrumb">Products</a>

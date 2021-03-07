@@ -6,8 +6,6 @@
 </script>
 
 <Navigation />
-<br />
-<br />
 <Account />
 
 <Footer>

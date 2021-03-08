@@ -4,6 +4,7 @@
   export let appId
   export let product
   let cart
+  let raw = {}
   let token
   let itemCount = 1
 
@@ -19,7 +20,8 @@
       cart = esCarts.payload.data[0]
       if (!cart) {
         let change = {
-          products: []
+          products: [],
+          raw: raw
         }
         let esSave = await scripts.account.carts.getSave(appId, token, change)
         // console.log('esSave', esSave)
@@ -33,6 +35,8 @@
         let esCart = await scripts.account.carts.getOne(appId, token, cart.id)
         if (esCart.payload.success === true) {
           cart = esCart.payload.data
+          raw = cart.raw || {}
+          console.log('raw', raw)
         } else {
           alert(esCart.payload.reason)
         }
@@ -54,8 +58,11 @@
       }
     }
 
+    raw[product.slug] = itemCount
+
     let change = {
-      products: cart.products || []
+      products: cart.products || [],
+      raw: raw
     }
     change.products.push(product)
 

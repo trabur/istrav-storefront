@@ -33,7 +33,14 @@
   }
 </script>
 
-<h5 style="text-align: center; margin-bottom: 0;">My Cart</h5>
+<h4 style="margin: 0.5em 0 0; padding: 0 0.5em;">
+  <a href="/cart"class="my-cart-button">My Cart</a>
+  {#if token}
+    <a href="/cart" class="waves-effect btn btn-small red lighten-2 edit-button">edit</a>
+  {:else}
+    <a href="/login" class="waves-effect btn btn-small red lighten-2 edit-button">login</a>
+  {/if}
+</h4>
 
 <!-- {JSON.stringify(cart, null, 2)} -->
 
@@ -47,9 +54,7 @@
           <div class="details">
             <div style="float: right;">$10.00</div>
             <div style="color: #111; margin: 0;">{item.name}</div>
-            <div>
-              <!-- todo-->
-            </div>
+            <div style="color: #aaa;">qty:</div>
           </div>
         </div>
       {/each}
@@ -60,7 +65,7 @@
   </div>
 {:else}
   <div class="auth">
-    <a href="/login" class="waves-effect btn btn-large auth-button">Let's go!</a>
+    <a href="/register" class="waves-effect btn btn-large auth-button">Let's get started!</a>
     <p style="text-align: center;">(please login or register to get started)</p>
   </div>
 {/if}
@@ -68,9 +73,18 @@
 
 
 <style>
+
+  .my-cart-button {
+    color: #000;
+  }
+
+  .edit-button {
+    float: right;
+  }
+
   .auth,
   .checkout {
-    padding: 0.5em;
+    padding: 1em;
   }
 
   .auth-button,

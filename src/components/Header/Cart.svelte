@@ -43,7 +43,7 @@
 <!-- {JSON.stringify(cart, null, 2)} -->
 
 {#if token}
-  {#if cart && cart.products}
+  {#if cart && cart.products && cart.products.length > 0}
     <div class="items">
       {#each cart.products as item (item.slug)}
         <div class="item">
@@ -75,8 +75,10 @@
     </div>
   {/if}
   {#if cart && cart.products && cart.products.length === 0}
-    <hr>
-    <p>Your cart is empty...</p>
+    <div class="items">
+      <hr>
+      <p>Your cart is empty...</p>
+    </div>
   {/if}
 {:else}
   <div class="auth">

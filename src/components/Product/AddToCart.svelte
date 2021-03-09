@@ -78,13 +78,13 @@
 
 
 <div class="row addToCart">
-  <div class="col s12 m6">
+  <div class="col s6 m6">
     <div class="input-field col s12">
       <input id="itemCount" type="number" class="validate" bind:value={itemCount}>
       <label for="itemCount">Item Count:</label>
     </div>
   </div>
-  <div class="col s12 m6">
+  <div class="col s6 m6">
     <button type='submit' class="waves-effect btn btn-large submit-button" on:click={() => addToCart()}>Add to cart</button>
   </div>
 </div>

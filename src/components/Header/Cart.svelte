@@ -9,6 +9,16 @@
   let cart
   let token
   let raw = {}
+  let subtotal
+  let total
+
+  function calculateSubtotal (products, raw) {
+    let amount = 0
+    products.forEach((value, index) => {
+      amount = amount + value.price * raw[value.slug]
+    })
+    return amount
+  }
 
 	onMount(async () => {
 		token = localStorage.getItem('token')
@@ -22,6 +32,8 @@
       if (esCarts.payload.success === true) {
         cart = esCart.payload.data
         raw = esCart.payload.data.raw
+        subtotal = calculateSubtotal(cart.products, raw)
+        total = subtotal
       } else {
         alert(esCart.payload.reason)
       }
@@ -58,7 +70,7 @@
     </div>
     <div class="calculate">
       <hr>
-      <div style="float: right;">$400.00</div>
+      <div style="float: right;">${subtotal / 100}</div>
       <div>Subtotal</div>
       <div style="float: right;">Calculated at checkout</div>
       <div>Taxes</div>
@@ -66,7 +78,7 @@
       <div>Estimated Shipping</div>
       <hr>
       <div style="font-weight: 900;">
-        <div style="float: right;">$400.00</div>
+        <div style="float: right;">${total / 100}</div>
         <div>Total</div>
       </div>
     </div>
@@ -90,7 +102,6 @@
 
 
 <style>
-
   .my-cart-button {
     color: #000;
   }

@@ -8,6 +8,7 @@
   export let state
   let cart
   let token
+  let raw = {}
 
 	onMount(async () => {
 		token = localStorage.getItem('token')
@@ -20,6 +21,7 @@
       console.log('esCart', esCart)
       if (esCarts.payload.success === true) {
         cart = esCart.payload.data
+        raw = esCart.payload.data.raw
       } else {
         alert(esCart.payload.reason)
       }
@@ -27,10 +29,6 @@
       alert(esCarts.payload.reason)
     }
   })
-
-  function checkout () {
-    alert('checkout')
-  }
 </script>
 
 <h4 style="margin: 0.5em 0 0; padding: 0 0.5em;">
@@ -49,19 +47,32 @@
     {#if cart && cart.products}
       {#each cart.products as item (item.slug)}
         <div class="item">
-          <div class="image" style={`background-image: url(https://rawcdn.githack.com/${uploads}/${domainId}/${state}/products/${item.slug}/${item.image});`}>
-          </div>
+          <a href={`/products/${item.slug}`}><div class="image" style={`background-image: url(https://rawcdn.githack.com/${uploads}/${domainId}/${state}/products/${item.slug}/${item.image});`}></div> </a>
           <div class="details">
-            <div style="float: right;">$10.00</div>
-            <div style="color: #111; margin: 0;">{item.name}</div>
-            <div style="color: #aaa;">qty:</div>
+            <div style="float: right;">${item.price / 100}</div>
+            <a href={`/products/${item.slug}`} style="color: #111; margin: 0;">{item.name}</a>
+            <div style="color: #888;">qty: {raw[item.slug]}</div>
           </div>
         </div>
       {/each}
     {/if}
   </div>
+  <div class="calculate">
+    <hr>
+    <div style="float: right;">$400.00</div>
+    <div>Subtotal</div>
+    <div style="float: right;">Calculated at checkout</div>
+    <div>Taxes</div>
+    <div style="float: right;"><strong>FREE</strong></div>
+    <div>Estimated Shipping</div>
+    <hr>
+    <div style="font-weight: 900;">
+      <div style="float: right;">$400.00</div>
+      <div>Total</div>
+    </div>
+  </div>
   <div class="checkout">
-    <button type='submit' class="waves-effect btn btn-large checkout-button" on:click={() => checkout()}>proceed to checkout</button>
+    <a href="/checkout" class="waves-effect btn btn-large checkout-button">proceed to checkout</a>
   </div>
 {:else}
   <div class="auth">
@@ -82,7 +93,12 @@
     float: right;
   }
 
-  .auth,
+  .auth {
+    padding: 1em;
+  }
+  .calculate {
+    padding: 0 1em;
+  }
   .checkout {
     padding: 1em;
   }
@@ -93,7 +109,7 @@
   }
 
   .items {
-    padding: 1em;
+    padding: 1em 1em 0 1em;
   }
 
   .item {

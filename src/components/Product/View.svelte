@@ -115,8 +115,10 @@
           <img on:click={() => open()} class="image" src={`https://rawcdn.githack.com/${uploads}/${domainId}/${state}/products/${productId}/${product.image}`} alt="" />
         </div>
         <div class="col s12 m5">
-          <h1>{product.name}</h1>
-          <p>{product.details || ''}</p>
+          <h1 style="margin: 0; font-size: 2.5em;">{product.name}</h1>
+          <hr>
+          <h2 style="margin: 0; font-weight: 800; font-size: 1.5em;">${product.price / 100}</h2>
+          <p>{product.details || 'Product details coming soon...'}</p>
           <AddToCart appId={appId} product={product} />
         </div>
       {/if}

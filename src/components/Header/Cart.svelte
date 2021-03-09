@@ -43,8 +43,8 @@
 <!-- {JSON.stringify(cart, null, 2)} -->
 
 {#if token}
-  <div class="items">
-    {#if cart && cart.products}
+  {#if cart && cart.products}
+    <div class="items">
       {#each cart.products as item (item.slug)}
         <div class="item">
           <a href={`/products/${item.slug}`}><div class="image" style={`background-image: url(https://rawcdn.githack.com/${uploads}/${domainId}/${state}/products/${item.slug}/${item.image});`}></div> </a>
@@ -55,25 +55,29 @@
           </div>
         </div>
       {/each}
-    {/if}
-  </div>
-  <div class="calculate">
-    <hr>
-    <div style="float: right;">$400.00</div>
-    <div>Subtotal</div>
-    <div style="float: right;">Calculated at checkout</div>
-    <div>Taxes</div>
-    <div style="float: right;"><strong>FREE</strong></div>
-    <div>Estimated Shipping</div>
-    <hr>
-    <div style="font-weight: 900;">
-      <div style="float: right;">$400.00</div>
-      <div>Total</div>
     </div>
-  </div>
-  <div class="checkout">
-    <a href="/checkout" class="waves-effect btn btn-large checkout-button">proceed to checkout</a>
-  </div>
+    <div class="calculate">
+      <hr>
+      <div style="float: right;">$400.00</div>
+      <div>Subtotal</div>
+      <div style="float: right;">Calculated at checkout</div>
+      <div>Taxes</div>
+      <div style="float: right;"><strong>FREE</strong></div>
+      <div>Estimated Shipping</div>
+      <hr>
+      <div style="font-weight: 900;">
+        <div style="float: right;">$400.00</div>
+        <div>Total</div>
+      </div>
+    </div>
+    <div class="checkout">
+      <a href="/checkout" class="waves-effect btn btn-large checkout-button">proceed to checkout</a>
+    </div>
+  {/if}
+  {#if cart && cart.products && cart.products.length === 0}
+    <hr>
+    <p>Your cart is empty...</p>
+  {/if}
 {:else}
   <div class="auth">
     <a href="/register" class="waves-effect btn btn-large auth-button">Let's get started!</a>

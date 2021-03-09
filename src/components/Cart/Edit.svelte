@@ -1,9 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import ListProducts from './ListProducts.svelte'
-
-	let email = '';
-  let password = '';
+  
   let esApp
   let cart
   let token
@@ -15,25 +13,6 @@
   let domainId
   let domain
   let state
-
-	async function auth() {
-    if (email === '') return alert('Email must be defined.')
-    if (password === '') return alert('Password must be defined.')
-
-    console.log('esApp', esApp)
-    if (esApp.payload.success === true) {
-      let esLogin = await scripts.account.users.getLogin(esApp.payload.data.id, email, password)
-      console.log('esLogin', esLogin)
-      if (esLogin.payload.success === true) {
-        localStorage.setItem('token', esLogin.payload.data.token)
-        window.location = '/account'
-      } else {
-        alert(esLogin.payload.reason)
-      }
-    } else {
-      alert(esApp.payload.reason)
-    }
-  }
 
   function calculateSubtotal (products, raw) {
     let amount = 0

@@ -1,9 +1,26 @@
 <script>
+  import { onMount } from 'svelte';
+
   export let products
   export let raw
   export let uploads
   export let state
   export let domainId
+  export let updatePrices
+
+  function remove(product) {
+    console.log('delete', product)
+    updatePrices()
+  }
+
+  function changeQty(slug) {
+    console.log('changeQty', raw[slug])
+    updatePrices()
+  }
+
+	// onMount(() => {
+  //   M.updateTextFields()
+  // })
 </script>
 
 {#if products && products.length > 0}
@@ -14,7 +31,14 @@
         <div class="details">
           <div style="float: right;">${item.price / 100}</div>
           <a href={`/products/${item.slug}`} style="color: #111; margin: 0;">{item.name}</a>
-          <div style="color: #888;">qty: {raw[item.slug]}</div>
+          <br />
+          <button class="btn" style="float: right;" on:click={() => remove(item)}><i class="material-icons">delete</i></button>
+          <div class="row edit">
+            <div class="input-field col s6 m4">
+              <div style="font-size: 0.75em; color: #aaa; margin: -0.5em 0;">Item Count:</div>
+              <input id="itemCount" type="number" class="validate" bind:value={raw[item.slug]} on:change={(e) => changeQty(item.slug)}>
+            </div>
+          </div>
         </div>
       </div>
     {/each}
@@ -44,5 +68,10 @@
 
   .details {
     margin-left: 110px;
+  }
+
+  .edit,
+  .input-field {
+    margin-bottom: 0;
   }
 </style>

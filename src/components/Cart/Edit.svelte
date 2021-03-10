@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import ListProducts from './ListProducts.svelte'
-  
+
   let esApp
   let cart
   let token
@@ -20,6 +20,11 @@
       amount = amount + value.price * raw[value.slug]
     })
     return amount
+  }
+
+  function updatePrices () {
+    subtotal = calculateSubtotal(cart.products, raw)
+    total = subtotal
   }
 
 	onMount(async () => {
@@ -90,7 +95,7 @@
     <h4 class="description">REVIEW YOUR ORDER</h4>
     <hr style="margin: 0.5em 0 0 0;">
     {#if cart}
-      <ListProducts products={cart.products} raw={raw} uploads={uploads} domainId={domainId} state={state} />
+      <ListProducts products={cart.products} raw={raw} uploads={uploads} domainId={domainId} state={state} updatePrices={updatePrices} />
     {/if}
   </div>
   <div class="col s12 m12 l3">

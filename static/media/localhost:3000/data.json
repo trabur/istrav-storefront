@@ -32,8 +32,8 @@
     },
     {
 
-      "name": "dashboard",
-      "url": "https://dashboard.istrav.com",
+      "name": "headless",
+      "url": "https://headless.istrav.com",
       "children": []
     }
   ],

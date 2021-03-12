@@ -113,7 +113,7 @@
       {#if product}
         <div class="col s12 m5">
           {#if product.url}
-            <a href={product.url} class="waves-effect btn btn-large submit-button" style="margin: 0 0 0.5em 0; width: 100%;">{product.url}</a>
+            <a href={product.url} target="_blank" class="waves-effect btn btn-large submit-button" style="margin: 0 0 0.5em 0; width: 100%;">{product.url}</a>
           {/if}
           <img on:click={() => open()} class="image" src={`https://rawcdn.githack.com/${uploads}/${domainId}/${state}/products/${productId}/${product.image}`} alt="" />
         </div>

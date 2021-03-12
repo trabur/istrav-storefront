@@ -117,7 +117,11 @@
         <div class="col s12 m5">
           <h1 style="margin: 0; font-size: 2.5em;">{product.name}</h1>
           <hr>
-          <h2 style="margin: 0; font-weight: 800; font-size: 1.5em;">${product.price / 100}</h2>
+          {#if product.isNotForSale}
+            <h2 style="margin: 0; font-weight: 800; font-size: 1.5em;"><strike>${product.price / 100}</strike> NOT FOR SALE</h2>
+          {:else}
+            <h2 style="margin: 0; font-weight: 800; font-size: 1.5em;">${product.price / 100}</h2>
+          {/if}
           <p>{product.details || 'Product details coming soon...'}</p>
           <AddToCart appId={appId} product={product} />
         </div>

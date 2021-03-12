@@ -50,7 +50,7 @@
     } else {
       alert(esProducts.payload.reason)
     }
-    // console.log('category products', items)
+    console.log('category products', items)
   })
 </script>
 
@@ -65,6 +65,11 @@
             <div class="image" style={`background-image: url(https://rawcdn.githack.com/${uploads}/${domainId}/${state}/products/${item.slug}/${item.image});`}>
             </div>
             <h5 style="color: #111; margin: 0.5em 0 0 0;">{item.name}</h5>
+            {#if item.isNotForSale}
+              <h6 style="color: #666; margin: 0.5em 0 0 0;"><strike>${item.price / 100}</strike> NOT FOR SALE</h6>
+            {:else}
+              <h6 style="color: #666; margin: 0.5em 0 0 0;">${item.price / 100}</h6>
+            {/if}
           </a>
         </div>
       {/each}

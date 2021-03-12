@@ -112,6 +112,9 @@
     <div class="col s0 m1"></div>
       {#if product}
         <div class="col s12 m5">
+          {#if product.url}
+            <a href={product.url} class="waves-effect btn btn-large submit-button" style="margin: 0 0 0.5em 0; width: 100%;">{product.url}</a>
+          {/if}
           <img on:click={() => open()} class="image" src={`https://rawcdn.githack.com/${uploads}/${domainId}/${state}/products/${productId}/${product.image}`} alt="" />
         </div>
         <div class="col s12 m5">
@@ -138,7 +141,7 @@
         <li class="tab col s3"><a href="#about" on:click={() => activeTab = 'about'}>About</a></li>
       </ul>
       {#if product && activeTab === 'description'}
-        {@html marked(product.description || '')}
+        {@html marked(product.description || 'Product description coming soon...')}
       {:else if activeTab === 'shipping'}
         {@html marked(shipping)}
       {:else}

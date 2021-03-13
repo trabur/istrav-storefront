@@ -75,10 +75,23 @@
   <div class="welcome">{rawApp.welcome || `WELCOME TO THE NEW LOOK OF ${rawApp.name}.`}</div>
 </div>
 <div class="title-bar">
-  <div class="name-and-search">
+  <div class="numbers-inline hide-on-large-only">
+    Local: {rawApp.contactLocal || '210-590-2662'} • Toll Free: {rawApp.contactTollFree || '888-844-4227'}
+  </div>
+  <div class="query-inline hide-on-large-only">
+    <div class="row" style="margin: 0; width: 100%;">
+      <form class="col s12">
+        <div class="input-field col s12">
+          <input id="search" type="text" class="validate">
+          <label for="search" style="width: initial;">Search</label>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="name-and-search hide-on-med-and-down">
     <div class="name">
-      <a href="/" class="title-menu hide-on-med-and-down" on:click={(e) => instance.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">menu</i></a>
-      <a href="/" class="title-logo center hide-on-med-and-down">{rawApp.name}</a>
+      <a href="/" class="title-menu" on:click={(e) => instance.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">menu</i></a>
+      <a href="/" class="title-logo center">{rawApp.name}</a>
     </div>
     <div class="search">
       <div class="numbers">
@@ -90,7 +103,7 @@
           <form class="col s12">
             <div class="input-field col s12">
               <input id="search" type="text" class="validate">
-              <label for="search">Search</label>
+              <label for="search" style="width: initial;">Search</label>
             </div>
           </form>
         </div>
@@ -211,17 +224,27 @@
 
   .name-and-search .search .numbers {
     text-align: center;
+    min-width: 200px;
   }
   
+  .query-inline {
+    width: 100%;
+  }
+  .numbers-inline {
+    width: 100%;
+    text-align: center;
+    margin: 0 0 -1em 0;
+    padding: 0.5em;
+  }
 
   .name-and-search .search {
     display: flex;
     justify-content: center;
     align-items: center;
     grid-template-columns: 1fr 1fr;
-    min-width: 400px;
   }
 
+  .query-inline input,
   .name-and-search .search .query input {
     background: #fff;
     margin: 0;

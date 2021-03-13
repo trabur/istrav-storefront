@@ -76,22 +76,24 @@
 </div>
 <div class="title-bar">
   <div class="name-and-search">
-    <div class="name hide-on-med-and-down">
-      <a href="/" class="title-menu" on:click={(e) => instance.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">menu</i></a>
+    <div class="name">
+      <a href="/" class="title-menu hide-on-med-and-down" on:click={(e) => instance.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">menu</i></a>
       <a href="/" class="title-logo center hide-on-med-and-down">{rawApp.name}</a>
     </div>
-    <div class="contact">
-      <div class="local">Local: {rawApp.contactLocal || '210-590-2662'}</div>
-      <div class="toll-free">Toll Free: {rawApp.contactTollFree || '888-844-4227'}</div>
-    </div>
     <div class="search">
-      <div class="row" style="margin: 0; width: 100%;">
-        <form class="col s12">
-          <div class="input-field col s12">
-            <input id="search" type="text" class="validate">
-            <label for="search">Search</label>
-          </div>
-        </form>
+      <div class="numbers">
+        <div class="local">Local: {rawApp.contactLocal || '210-590-2662'}</div>
+        <div class="toll-free">Toll Free: {rawApp.contactTollFree || '888-844-4227'}</div>
+      </div>
+      <div class="query">
+        <div class="row" style="margin: 0; width: 100%;">
+          <form class="col s12">
+            <div class="input-field col s12">
+              <input id="search" type="text" class="validate">
+              <label for="search">Search</label>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
@@ -197,25 +199,30 @@
 
   .name-and-search {
     display: inline-grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     width: 100%;
     min-height: 84px;
   }
 
-  .name-and-search .contact {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  .name-and-search .search .numbers,
+  .name-and-search .search .query {
+    width: 100%;
   }
+
+  .name-and-search .search .numbers {
+    text-align: center;
+  }
+  
 
   .name-and-search .search {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    grid-template-columns: 1fr 1fr;
+    min-width: 400px;
   }
-  .name-and-search .search input {
+
+  .name-and-search .search .query input {
     background: #fff;
     margin: 0;
   }

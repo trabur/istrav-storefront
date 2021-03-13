@@ -74,9 +74,27 @@
   </div>
   <div class="welcome">{rawApp.welcome || `WELCOME TO THE NEW LOOK OF ${rawApp.name}.`}</div>
 </div>
-<div class="title-bar hide-on-med-and-down">
-  <a href="/" class="title-menu" on:click={(e) => instance.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">menu</i></a>
-  <a href="/" class="title-logo center hide-on-med-and-down">{rawApp.name}</a>
+<div class="title-bar">
+  <div class="name-and-search">
+    <div class="name hide-on-med-and-down">
+      <a href="/" class="title-menu" on:click={(e) => instance.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">menu</i></a>
+      <a href="/" class="title-logo center hide-on-med-and-down">{rawApp.name}</a>
+    </div>
+    <div class="contact">
+      <div class="local">Local: {rawApp.contactLocal || '210-590-2662'}</div>
+      <div class="toll-free">Toll Free: {rawApp.contactTollFree || '888-844-4227'}</div>
+    </div>
+    <div class="search">
+      <div class="row" style="margin: 0; width: 100%;">
+        <form class="col s12">
+          <div class="input-field col s12">
+            <input id="search" type="text" class="validate">
+            <label for="search">Search</label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 <nav class={extendNav ? `nav-extended` : ''} on:mouseleave={() => extendNav = false}>
   <div class="nav-wrapper">
@@ -175,5 +193,30 @@
   }
   .top-bar {
     background: #ccc;
+  }
+
+  .name-and-search {
+    display: inline-grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    width: 100%;
+    min-height: 84px;
+  }
+
+  .name-and-search .contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .name-and-search .search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .name-and-search .search input {
+    background: #fff;
+    margin: 0;
   }
 </style>

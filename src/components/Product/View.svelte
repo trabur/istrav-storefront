@@ -116,6 +116,9 @@
     </div>
     <div class="col s0 m1"></div>
   </div>
+  <br class="hide-on-med-and-down" />
+  <br class="hide-on-med-and-down" />
+  <br />
 </div>
 
 <!-- <div class="row">

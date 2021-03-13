@@ -76,11 +76,11 @@
 </div>
 <div class="title-bar">
   <div class="numbers-inline hide-on-large-only">
-    Local: {rawApp.contactLocal || '210-590-2662'} • Toll Free: {rawApp.contactTollFree || '888-844-4227'}
+    Local: <strong>{rawApp.contactLocal || '210-590-2662'} • Toll Free: <strong>{rawApp.contactTollFree || '888-844-4227'}</strong>
   </div>
   <div class="query-inline hide-on-large-only">
     <div class="row" style="margin: 0; width: 100%;">
-      <form class="col s12">
+      <form class="">
         <div class="input-field col s12">
           <input id="search" type="text" class="validate">
           <label for="search" style="width: initial;">Search</label>
@@ -95,12 +95,12 @@
     </div>
     <div class="search">
       <div class="numbers">
-        <div class="local">Local: {rawApp.contactLocal || '210-590-2662'}</div>
-        <div class="toll-free">Toll Free: {rawApp.contactTollFree || '888-844-4227'}</div>
+        <div class="local">Local: <strong>{rawApp.contactLocal || '210-590-2662'}</strong></div>
+        <div class="toll-free">Toll Free: <strong>{rawApp.contactTollFree || '888-844-4227'}</strong></div>
       </div>
       <div class="query">
         <div class="row" style="margin: 0; width: 100%;">
-          <form class="col s12">
+          <form class="">
             <div class="input-field col s12">
               <input id="search" type="text" class="validate">
               <label for="search" style="width: initial;">Search</label>

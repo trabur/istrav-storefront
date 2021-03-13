@@ -64,21 +64,28 @@
   } 
 </script>
 
+<div class="top-bar">
+  <div class="auth">
+    {#if token}
+      <a href="/account" data-target="slide-out">My Account</a>
+    {:else}
+      <a href="/login" data-target="slide-out">Login</a> / <a href="/register" data-target="slide-out">Register</a>
+    {/if}
+  </div>
+  <div class="welcome">{rawApp.welcome || `WELCOME TO THE NEW LOOK OF ${rawApp.name}.`}</div>
+</div>
+<div class="title-bar hide-on-med-and-down">
+  <a href="/" class="title-menu" on:click={(e) => instance.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">menu</i></a>
+  <a href="/" class="title-logo center hide-on-med-and-down">{rawApp.name}</a>
+</div>
 <nav class={extendNav ? `nav-extended` : ''} on:mouseleave={() => extendNav = false}>
   <div class="nav-wrapper">
-    <ul class="left">
-      <li><a href="/" on:click={(e) => instance.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">menu</i></a></li>
-    </ul>
+    <a href="/" class="left hide-on-large-only" style="padding: 0 1em;" on:click={(e) => instance.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">menu</i></a>
     <a href="/" class="brand-logo left hide-on-large-only" style="margin-left: 1.75em;">{rawApp.short}</a>
-    <a href="/" class="brand-logo center hide-on-med-and-down">{rawApp.name}</a>
+    <!-- <a href="/" class="brand-logo center hide-on-med-and-down">{rawApp.name}</a> -->
     <ul class="right">
-      {#if token}
-        <li><a href="/account" data-target="slide-out"><i class="material-icons">person</i></a></li>
-      {:else}
-        <li><a href="/login" data-target="slide-out"><i class="material-icons">person</i></a></li>
-      {/if}
       <li><a href="/" on:click={(e) => instanceCart.open() & reMountCart() & e.preventDefault()} data-target="slide-out"><i class="material-icons">shopping_cart</i></a></li>
-      <li><a href="/" on:click={(e) => instanceSearch.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">search</i></a></li>
+      <!-- <li><a href="/" on:click={(e) => instanceSearch.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">search</i></a></li> -->
     </ul>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
       {#each items as item (item.url)}
@@ -135,5 +142,38 @@
 <style>
   .sidenav {
     width: 400px;
+  }
+
+  .welcome {
+    color: #111;
+    padding: 0.5em;
+  }
+  .title-bar {
+    background: #eee;
+  }
+  .title-menu {
+    color: #111;
+  }
+  .title-menu i {
+    font-size: 2.5em;
+  }
+  .title-logo {
+    color: #333;
+    font-size: 3.5em;
+    font-weight: 800;
+  }
+  .auth {
+    float: right;
+    text-align: right;
+    padding: 0.5em;
+  }
+  .auth a {
+    color: #111;
+  }
+  .auth a:hover {
+    text-decoration: underline;
+  }
+  .top-bar {
+    background: #ccc;
   }
 </style>

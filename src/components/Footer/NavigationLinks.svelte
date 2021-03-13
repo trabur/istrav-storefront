@@ -12,7 +12,7 @@
     <div class="col s12 m10">
       <div class="row" style="margin: 0; padding-top: 4.5em; padding-bottom: 1em;" >
         <div class="branding col s12 m6 l3">
-          <div class="name">{raw.name}</div>
+          <div class="name">{raw.short}</div>
           <hr>
           <div class="description">Head Office:</div>
           <div class="address">1100 Congress Ave,</div>

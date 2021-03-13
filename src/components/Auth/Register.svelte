@@ -42,17 +42,17 @@
 
   onMount(async () => {
     // fetch
-    let domain = window.location.host
+    let domainId = window.location.host
     let state = 'production'
 
     // pick an app to show for local development
-    if (domain.includes('localhost:3000')) {
-      domain = 'istrav.com'
+    if (domainId.includes('localhost:3000')) {
+      domainId = 'istrav.com'
     }
     // set appId from domain 
-    if (domain.includes('dimension.click')) {
+    if (domainId.includes('dimension.click')) {
       // for subdomains such as http://istrav.dimension.click
-      let endpoint = domain.split('.')[0]
+      let endpoint = domainId.split('.')[0]
       let esEndpoint = await scripts.tenant.apps.getEndpoint(null, endpoint)
       if (esEndpoint.payload.success === true) {
         esApp = esEndpoint
@@ -61,7 +61,7 @@
       }
     } else {
       // for custom domains such as https://istrav.com
-      let esOne = await scripts.tenant.apps.getOne(null, domain, state)
+      let esOne = await scripts.tenant.apps.getOne(null, domainId, state)
       if (esOne.payload.success === true) {
         esApp = esOne
       } else {

@@ -1,45 +1,14 @@
 <script>
   import { onMount } from 'svelte';
   
+  export let appId
+  export let domainId
+  export let state
+  export let uploads
+
   let items = []
-  let uploads
-  let domain
-  let state
-  let domainId
 
 	onMount(async () => {
-    // fetch
-    let appId
-    domain = window.location.host
-    state = 'production'
-
-    // pick an app to show for local development
-    if (domain.includes('localhost:3000')) {
-      domain = 'istrav.com'
-    }
-    // set appId from domain 
-    if (domain.includes('dimension.click')) {
-      // for subdomains such as http://istrav.dimension.click
-      let endpoint = domain.split('.')[0]
-      let esEndpoint = await scripts.tenant.apps.getEndpoint(null, endpoint)
-      if (esEndpoint.payload.success === true) {
-        domainId = esEndpoint.payload.data.domain
-        appId = esEndpoint.payload.data.id
-        uploads = esEndpoint.payload.data.uploads
-      } else {
-        alert(esEndpoint.payload.reason)
-      }
-    } else {
-      // for custom domains such as https://istrav.com
-      let esOne = await scripts.tenant.apps.getOne(null, domain, state)
-      if (esOne.payload.success === true) {
-        domainId = esOne.payload.data.domain
-        appId = esOne.payload.data.id
-        uploads = esOne.payload.data.uploads
-      } else {
-        alert(esOne.payload.reason)
-      }
-    }
     // get the products
     let esCategories = await scripts.store.categories.getAll(appId)
     if (esCategories.payload.success === true) {

@@ -1,57 +1,16 @@
 <script>
   import { onMount } from 'svelte';
 
-  let domainId
-  let domain
-  let state
-  let uploads
-  let image = ''
-  let line1
-  let line2
-  let buttonName
-  let buttonUrl
-
-	onMount(async () => {
-    // fetch
-    domain = window.location.host
-    state = 'production'
-
-    // pick an app to show for local development
-    if (domain.includes('localhost:3000')) {
-      domain = 'istrav.com'
-    }
-    // set appId from domain 
-    if (domain.includes('dimension.click')) {
-      // for subdomains such as http://istrav.dimension.click
-      let endpoint = domain.split('.')[0]
-      let esEndpoint = await scripts.tenant.apps.getEndpoint(null, endpoint)
-      if (esEndpoint.payload.success === true) {
-        domainId = esEndpoint.payload.data.domain
-        uploads = esEndpoint.payload.data.uploads
-        image = esEndpoint.payload.data.image
-        line1 = esEndpoint.payload.data.line1
-        line2 = esEndpoint.payload.data.line2
-        buttonName = esEndpoint.payload.data.buttonName
-        buttonUrl = esEndpoint.payload.data.buttonUrl
-      } else {
-        alert(esEndpoint.payload.reason)
-      }
-    } else {
-      // for custom domains such as https://istrav.com
-      let esOne = await scripts.tenant.apps.getOne(null, domain, state)
-      if (esOne.payload.success === true) {
-        domainId = esOne.payload.data.domain
-        uploads = esOne.payload.data.uploads
-        image = esOne.payload.data.image
-        line1 = esOne.payload.data.line1
-        line2 = esOne.payload.data.line2
-        buttonName = esOne.payload.data.buttonName
-        buttonUrl = esOne.payload.data.buttonUrl
-      } else {
-        alert(esOne.payload.reason)
-      }
-    }
-  })
+  export let domainId
+  export let state
+  export let uploads
+  export let esApp
+  
+  let image = esApp.image
+  let line1 = esApp.line1
+  let line2 = esApp.line2
+  let buttonName = esApp.buttonName
+  let buttonUrl = esApp.buttonUrl
 </script>
 
 <div class="banner">
@@ -71,8 +30,6 @@
     </div>
   {/if}
 </div>
-
-
 
 <style>
   .image {

@@ -6,56 +6,22 @@
 	// Import markdown conversion library
   import marked from 'marked'
 
+  export let productId
+  export let appId
+  export let domainId
+  export let state
+  export let uploads
+  export let esApp
+
   // objects
-  let domain
-  let domainId
-  let state
-  let uploads
+  let about = JSON.parse(esApp.raw).about
+  let shipping = JSON.parse(esApp.raw).shipping
   let product
   let gallery
   let open
-  let shipping = ''
-  let about = ''
   let activeTab = 'description'
-  export let productId
-  let appId
 
 	onMount(async () => {
-    // fetch
-    domain = window.location.host
-    state = 'production'
-
-    // pick an app to show for local development
-    if (domain.includes('localhost:3000')) {
-      domain = 'istrav.com'
-    }
-    // set appId from domain 
-    if (domain.includes('dimension.click')) {
-      // for subdomains such as http://istrav.dimension.click
-      let endpoint = domain.split('.')[0]
-      let esEndpoint = await scripts.tenant.apps.getEndpoint(null, endpoint)
-      if (esEndpoint.payload.success === true) {
-        appId = esEndpoint.payload.data.id
-        domainId = esEndpoint.payload.data.domain
-        uploads = esEndpoint.payload.data.uploads
-        about = JSON.parse(esEndpoint.payload.data.raw).about
-        shipping = JSON.parse(esEndpoint.payload.data.raw).shipping
-      } else {
-        alert(esEndpoint.payload.reason)
-      }
-    } else {
-      // for custom domains such as https://istrav.com
-      let esOne = await scripts.tenant.apps.getOne(null, domain, state)
-      if (esOne.payload.success === true) {
-        appId = esOne.payload.data.id
-        domainId = esOne.payload.data.domain
-        uploads = esOne.payload.data.uploads
-        about = JSON.parse(esOne.payload.data.raw).about
-        shipping = JSON.parse(esOne.payload.data.raw).shipping
-      } else {
-        alert(esOne.payload.reason)
-      }
-    }
     // get the products
     let esProducts = await scripts.store.products.getOne(appId, productId)
     if (esProducts.payload.success === true) {

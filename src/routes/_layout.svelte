@@ -19,7 +19,7 @@
 
     // appId domain state
     if (window.location.host === 'localhost:3000') {
-      window.appDomain = 'istrav.com'
+      window.appdomainId = 'istrav.com'
     } else {
       window.appDomain = window.location.host
     }

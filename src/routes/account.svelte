@@ -1,14 +1,61 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount } from 'svelte'
+
   import Navigation from '../components/Header/Navigation.svelte'
   import Footer from '../components/Footer/Main.svelte'
   import Account from '../components/Auth/Account.svelte'
+
+  let appId
+  let domainId = window.location.host
+  let state = 'production'
+  let uploads
+  let token = null
+  let rawApp = {
+    name: '',
+    short: ''
+  }
+
+	onMount(async () => {
+    // user
+		token = localStorage.getItem('token')
+
+    domainId = window.location.host
+
+    // pick an app to show for local development
+    if (domainId.includes('localhost:3000')) {
+      domainId = 'istrav.com'
+    }
+    // set appId from domain 
+    if (domainId.includes('dimension.click')) {
+      // for subdomains such as http://istrav.dimension.click
+      let endpoint = domainId.split('.')[0]
+      let esEndpoint = await scripts.tenant.apps.getEndpoint(null, endpoint)
+      if (esEndpoint.payload.success === true) {
+        appId = esEndpoint.payload.data.id
+        uploads = esEndpoint.payload.data.uploads
+        rawApp = JSON.parse(esEndpoint.payload.data.raw)
+      } else {
+        alert(esEndpoint.payload.reason)
+      }
+    } else {
+      // for custom domains such as https://istrav.com
+      let esOne = await scripts.tenant.apps.getOne(null, domainId, state)
+      if (esOne.payload.success === true) {
+        appId = esOne.payload.data.id
+        uploads = esOne.payload.data.uploads
+        rawApp = JSON.parse(esOne.payload.data.raw)
+      } else {
+        alert(esOne.payload.reason)
+      }
+    }
+  })
 </script>
 
-<Navigation />
-<Account />
-
-<Footer>
-	<a href="/" class="breadcrumb">Home</a>
-	<a href="/account" class="breadcrumb">My Account</a>
-</Footer>
+{#if appId}
+	<Navigation appId={appId} domainId={domainId} state={state} uploads={uploads} rawApp={rawApp} />
+  <Account />
+  <Footer appId={appId} rawApp={rawApp}>
+    <a href="/" class="breadcrumb">Home</a>
+    <a href="/account" class="breadcrumb">My Account</a>
+  </Footer>
+{/if}

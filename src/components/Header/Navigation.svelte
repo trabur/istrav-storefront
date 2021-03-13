@@ -6,15 +6,13 @@
   let extendNav = false
   let items = []
   let subItems = []
-  let appId
-  let domain = window.location.host
-  let state = 'production'
-  let uploads
-  let token = null
-  let rawApp = {
-    name: '',
-    short: ''
-  }
+  let token
+
+  export let appId
+  export let domainId
+  export let state
+  export let uploads
+  export let rawApp
   
   function setId (id) {
     subItems = items.filter((value, index) => {
@@ -37,6 +35,7 @@
 	onMount(async () => {
     // user
 		token = localStorage.getItem('token')
+    
     // main sidebar
     var elem = document.querySelector('#main')
     instance = M.Sidenav.init(elem, { edge: 'left' })
@@ -48,33 +47,6 @@
     var elemSearch = document.querySelector('#search')
     instanceSearch = M.Sidenav.init(elemSearch, { edge: 'right' })
 
-    // pick an app to show for local development
-    if (domain.includes('localhost:3000')) {
-      domain = 'istrav.com'
-    }
-    // set appId from domain 
-    if (domain.includes('dimension.click')) {
-      // for subdomains such as http://istrav.dimension.click
-      let endpoint = domain.split('.')[0]
-      let esEndpoint = await scripts.tenant.apps.getEndpoint(null, endpoint)
-      if (esEndpoint.payload.success === true) {
-        appId = esEndpoint.payload.data.id
-        uploads = esEndpoint.payload.data.uploads
-        rawApp = JSON.parse(esEndpoint.payload.data.raw)
-      } else {
-        alert(esEndpoint.payload.reason)
-      }
-    } else {
-      // for custom domains such as https://istrav.com
-      let esOne = await scripts.tenant.apps.getOne(null, domain, state)
-      if (esOne.payload.success === true) {
-        appId = esOne.payload.data.id
-        uploads = esOne.payload.data.uploads
-        rawApp = JSON.parse(esOne.payload.data.raw)
-      } else {
-        alert(esOne.payload.reason)
-      }
-    }
     // get the menus
     let esNavigation = await scripts.app.menus.getOne(appId, 'navigation')
     if (esNavigation.payload.success === true) {
@@ -152,7 +124,7 @@
 
 <div id="cart" class="sidenav">
   {#if appId && cart}
-    <Cart appId={appId} domainId={domain} state={state} uploads={uploads} />
+    <Cart appId={appId} domainId={domainId} state={state} uploads={uploads} />
   {/if}
 </div>
 

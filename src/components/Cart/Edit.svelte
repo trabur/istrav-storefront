@@ -2,17 +2,16 @@
   import { onMount } from 'svelte';
   import ListProducts from './ListProducts.svelte'
 
-  let esApp
+  export let appId
+  export let uploads
+  export let state
+  export let domainId
+
   let cart
   let token
   let raw = {}
   let subtotal
   let total
-  let uploads
-  let appId
-  let domainId
-  let domain
-  let state
 
   function calculateSubtotal (products, raw) {
     let amount = 0
@@ -28,59 +27,24 @@
   }
 
 	onMount(async () => {
-    // fetch
-    domain = window.location.host
-    state = 'production'
+    token = localStorage.getItem('token')
 
-    // pick an app to show for local development
-    if (domain.includes('localhost:3000')) {
-      domain = 'istrav.com'
-    }
-    // set appId from domain 
-    if (domain.includes('dimension.click')) {
-      // for subdomains such as http://istrav.dimension.click
-      let endpoint = domain.split('.')[0]
-      let esEndpoint = await scripts.tenant.apps.getEndpoint(null, endpoint)
-      if (esEndpoint.payload.success === true) {
-        esApp = esEndpoint
+    let esCarts = await scripts.account.carts.getAll(appId, token)
+    console.log('esCarts', esCarts)
+    if (esCarts.payload.success === true) {
+      cart = esCarts.payload.data[0]
+      let esCart = await scripts.account.carts.getOne(appId, token, cart.id)
+      console.log('esCart', esCart)
+      if (esCarts.payload.success === true) {
+        cart = esCart.payload.data
+        raw = esCart.payload.data.raw
+        subtotal = calculateSubtotal(cart.products, raw)
+        total = subtotal
       } else {
-        alert(esEndpoint.payload.reason)
+        alert(esCart.payload.reason)
       }
     } else {
-      // for custom domains such as https://istrav.com
-      let esOne = await scripts.tenant.apps.getOne(null, domain, state)
-      if (esOne.payload.success === true) {
-        esApp = esOne
-      } else {
-        alert(esOne.payload.reason)
-      }
-    }
-
-    // my cart
-    if (esApp) {
-      appId = esApp.payload.data.id
-      domainId = esApp.payload.data.domain
-      uploads = esApp.payload.data.uploads
-
-      token = localStorage.getItem('token')
-  
-      let esCarts = await scripts.account.carts.getAll(appId, token)
-      console.log('esCarts', esCarts)
-      if (esCarts.payload.success === true) {
-        cart = esCarts.payload.data[0]
-        let esCart = await scripts.account.carts.getOne(appId, token, cart.id)
-        console.log('esCart', esCart)
-        if (esCarts.payload.success === true) {
-          cart = esCart.payload.data
-          raw = esCart.payload.data.raw
-          subtotal = calculateSubtotal(cart.products, raw)
-          total = subtotal
-        } else {
-          alert(esCart.payload.reason)
-        }
-      } else {
-        alert(esCarts.payload.reason)
-      }
+      alert(esCarts.payload.reason)
     }
   })
 </script>

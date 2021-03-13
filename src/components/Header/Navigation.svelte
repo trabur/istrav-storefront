@@ -217,6 +217,11 @@
     min-height: 84px;
   }
 
+  .query-inline .input-field,
+  .name-and-search .input-field {
+    padding-right: 1.5em;
+  }
+
   .name-and-search .search .numbers,
   .name-and-search .search .query {
     width: 100%;
@@ -244,9 +249,15 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  .query-inline input,
+  .query-inline .input-field input,
   .name-and-search .search .query input {
     background: #fff;
     margin: 0;
+    border-radius: 2em;
+    padding: 0 0 0 1em;
+  }
+  .query-inline label,
+  .name-and-search .search .query label {
+    margin-left: 1em;
   }
 </style>

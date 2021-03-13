@@ -49,12 +49,12 @@
   })
 </script>
 
+<br class="hide-on-med-and-down" />
+<br class="hide-on-med-and-down" />
+<br>
 <div class="row" style="min-height: 100vh;">
   <div class="col s12 m12 l1"></div>
   <div class="col s12 m12 l7">
-    <br>
-    <br>
-    <br>
     <h3 class="title">My Cart</h3>
     <h4 class="description">REVIEW YOUR ORDER</h4>
     <hr style="margin: 0.5em 0 0 0;">
@@ -63,9 +63,6 @@
     {/if}
   </div>
   <div class="col s12 m12 l3">
-    <br>
-    <br>
-    <br>
     <div class="card" style="padding: 1em; background: #eee;">
       <div class="calculate">
         <hr>

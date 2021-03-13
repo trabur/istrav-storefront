@@ -61,12 +61,14 @@
 {#if appId}
 	<Navigation appId={appId} domainId={domainId} state={state} uploads={uploads} rawApp={rawApp} />
   <FrontPageBanner appId={appId} domainId={domainId} state={state} uploads={uploads} esApp={esApp} />
-  <br />
-  <br />
+  <br class="hide-on-med-and-down" />
+  <br class="hide-on-med-and-down" />
   <br />
   <Featured appId={appId} domainId={domainId} state={state} uploads={uploads} />
   <ShopByCategory appId={appId} domainId={domainId} state={state} uploads={uploads} />
   <About esApp={esApp} />
+  <br class="hide-on-med-and-down" />
+  <br class="hide-on-med-and-down" />
   <br />
   <Footer appId={appId} rawApp={rawApp}>
     <a href="/" class="breadcrumb">Home</a>

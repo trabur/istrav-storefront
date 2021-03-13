@@ -8,9 +8,9 @@
 </script>
 
 <div class="row" style="min-height: 100vh;">
-  <br />
-  <br />
-  <br />
+  <br class="hide-on-med-and-down" />
+  <br class="hide-on-med-and-down" />
+  <br>
   <div class="col s0 m1"></div>
   <div class="col s12 m10">
     <ul class="tabs tabs-fixed-width" id="accountTabs">

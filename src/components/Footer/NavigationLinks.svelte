@@ -22,10 +22,10 @@
           <div class="col s12 m6 l3">
             <ul>
               <li style="width: 100%;">
-                <h5><a class="title" href={item.url}>{item.name}</a></h5>
+                <h5 style="text-align: center;"><a class="title" href={item.url}>{item.name}</a></h5>
               </li>
               {#each item.children as item (item.url)}
-                <li style="width: 100%;"><a class="title" href={item.url}>{item.name}</a></li>
+                <li style="width: 100%; text-align: center;"><a class="title" href={item.url}>{item.name}</a></li>
               {/each}
             </ul>
           </div>

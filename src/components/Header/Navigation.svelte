@@ -178,7 +178,7 @@
   }
 
   .welcome {
-    color: #111;
+    color: #444;
     padding: 0.5em;
   }
   .title-bar {
@@ -191,7 +191,7 @@
     font-size: 2.5em;
   }
   .title-logo {
-    color: #333;
+    color: #111;
     font-size: 3.5em;
     font-weight: 800;
   }

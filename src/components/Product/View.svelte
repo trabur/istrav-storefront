@@ -71,19 +71,19 @@
 </script>
 
 <div style="min-height: 100vh;">
-  <br />
-  <br />
+  <br class="hide-on-med-and-down" />
+  <br class="hide-on-med-and-down" />
   <br />
   <div class="row">
-    <div class="col s0 m1"></div>
+    <div class="col s0 m0 l1"></div>
       {#if product}
-        <div class="col s12 m5">
+        <div class="col s12 m12 l5">
           {#if product.url}
             <a href={product.url} target="_blank" class="waves-effect btn btn-large submit-button" style="margin: 0 0 0.5em 0; width: 100%;">{product.url}</a>
           {/if}
           <img on:click={() => open()} class="image" src={`https://rawcdn.githack.com/${uploads}/${domainId}/${state}/products/${productId}/${product.image}`} alt="" />
         </div>
-        <div class="col s12 m5">
+        <div class="col s12 m12 l5">
           <h1 style="margin: 0; font-size: 2.5em;">{product.name}</h1>
           <hr>
           {#if product.isNotForSale}
@@ -95,7 +95,7 @@
           <AddToCart appId={appId} product={product} />
         </div>
       {/if}
-    <div class="col s0 m1"></div>
+    <div class="col s0 m0 l1"></div>
   </div>
   <br />
   <div class="row">

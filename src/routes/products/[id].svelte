@@ -48,6 +48,7 @@
         uploads = esEndpoint.payload.data.uploads
         rawApp = JSON.parse(esEndpoint.payload.data.raw)
         esApp = esEndpoint.payload.data
+        domainId = esEndpoint.payload.data.domain // do this so images load
       } else {
         alert(esEndpoint.payload.reason)
       }

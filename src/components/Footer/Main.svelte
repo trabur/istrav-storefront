@@ -78,10 +78,10 @@
 
 <div class="row top-bar">
   <div class="col s0 m1"></div>
-  <div class="copyright col s12 m5">
+  <div class="copyright col s12 m6">
     Copyright @{new Date().getFullYear()} <a href="/">{rawApp.name || `ISTRAV`}</a>. All Rights Reserved. Powered by <a href="https://istrav.com" target="_blank">ISTRAV</a>.
   </div>
-  <div class="we-accept col s12 m5">
+  <div class="we-accept col s12 m4">
     We Accept:
     <img src="./we-accept/accept1.png" alt="VISA" class="accept" />
     <img src="./we-accept/accept2.png" alt="MASTERCARD" class="accept" />

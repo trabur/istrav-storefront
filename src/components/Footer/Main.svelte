@@ -8,8 +8,11 @@
   export let rawApp
 
   let items = []
+  let token
 
 	onMount(async () => {
+		token = localStorage.getItem('token')
+
     // get the products
     let esMenus = await scripts.app.menus.getOne(appId, 'footer')
     if (esMenus.payload.success === true) {
@@ -22,8 +25,42 @@
   })
 </script>
 
-<br />
-<br />
+<div class="dotted">
+  <br class="hide-on-med-and-down" />
+  <br class="hide-on-med-and-down" />
+  <br />
+  <div class="row" style="margin: 0;">
+    <div class="col s1 m4"></div>
+    <div class="col s10 m4">
+      {#if token}
+        <div class="card">
+          <div class="card-content">
+            <h4 style="margin: 0 0 0.5em;">Welcome back!</h4>
+            <p>You are subscribed to receive emails & hear about new arrivals, special promotions and exclusive offers.</p>
+          </div>
+          <div class="card-action">
+            <a href="/account">My Account</a>
+          </div>
+        </div>
+      {:else}
+        <div class="card">
+          <div class="card-content">
+            <h4 style="margin: 0 0 0.5em;">Welcome guest!</h4>
+            <p>Subscribe to receive emails & hear about new arrivals, special promotions and exclusive offers.</p>
+          </div>
+          <div class="card-action">
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+          </div>
+        </div>
+      {/if}
+    </div>
+    <div class="col s1 m4"></div>
+  </div>
+  <br class="hide-on-med-and-down" />
+  <br class="hide-on-med-and-down" />
+  <br />
+</div>
 <nav class="teal lighten-2" style="position: absolute;">
   <div class="row" style="margin: 0;">
     <div class="col s0 m1"></div>
@@ -77,5 +114,15 @@
   }
   .accept {
     margin: -0.45em 0;
+  }
+
+  .dotted {
+    background-image: radial-gradient(#ccc 20%, transparent 20%),
+      radial-gradient(#ccc 20%, transparent 20%);
+    background-color: #eee;
+    background-position: 0 0, 50px 50px;
+    background-size: 100px 100px;
+    min-height: 200px;
+    width: 100%;
   }
 </style>

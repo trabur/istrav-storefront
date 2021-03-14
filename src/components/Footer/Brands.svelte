@@ -6,7 +6,7 @@
   export let state
   export let esApp
 
-  let brands = JSON.parse(esApp.brands)
+  let brands = JSON.parse(esApp.brands) || []
   
 	onMount(async () => {
     console.log('brands', brands)

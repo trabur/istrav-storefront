@@ -3,15 +3,21 @@
 
   import SocialLinks from './SocialLinks.svelte'
   import NavigationLinks from './NavigationLinks.svelte'
+  import jwt_decode from "jwt-decode"
 
   export let appId
   export let rawApp
 
   let items = []
   let token
+  let decoded = {}
 
 	onMount(async () => {
 		token = localStorage.getItem('token')
+    if (token) {
+      decoded = jwt_decode(token)
+      console.log('token', decoded)
+    }
 
     // get the products
     let esMenus = await scripts.app.menus.getOne(appId, 'footer')
@@ -35,7 +41,7 @@
       {#if token}
         <div class="card">
           <div class="card-content">
-            <h4 style="margin: 0 0 0.5em;">Welcome back!</h4>
+            <h4 style="margin: 0 0 0.5em;">Hello {decoded.username},</h4>
             <p>You are subscribed to receive emails & hear about new arrivals, special promotions and exclusive offers.</p>
           </div>
           <div class="card-action">
@@ -45,7 +51,7 @@
       {:else}
         <div class="card">
           <div class="card-content">
-            <h4 style="margin: 0 0 0.5em;">Welcome guest!</h4>
+            <h4 style="margin: 0 0 0.5em;">Hello guest,</h4>
             <p>Subscribe to receive emails & hear about new arrivals, special promotions and exclusive offers.</p>
           </div>
           <div class="card-action">

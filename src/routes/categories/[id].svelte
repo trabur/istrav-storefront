@@ -72,11 +72,11 @@
 {#if appId}
 	<Navigation appId={appId} domainId={domainId} state={state} uploads={uploads} rawApp={rawApp} />
   <div style="min-height: 100vh;">
-    <Banner categoryId={$page.params.id} appId={appId} domainId={domainId} state={state} uploads={uploads} />
-    <br />
-    <br />
-    <br />
     {#if load === true}
+      <Banner categoryId={$page.params.id} appId={appId} domainId={domainId} state={state} uploads={uploads} />
+      <br />
+      <br />
+      <br />
       <ListProducts categoryId={$page.params.id} appId={appId} domainId={domainId} state={state} uploads={uploads} />
     {/if}
   </div>

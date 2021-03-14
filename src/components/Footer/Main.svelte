@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount } from 'svelte'
 
   import SocialLinks from './SocialLinks.svelte'
   import NavigationLinks from './NavigationLinks.svelte'

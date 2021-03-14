@@ -3,6 +3,7 @@
 
 	import Navigation from '../../components/Header/Navigation.svelte'
   import Footer from '../../components/Footer/Main.svelte'
+  import Brands from '../../components/Footer/Brands.svelte'
   import View from '../../components/Product/View.svelte'
 
   import { stores } from "@sapper/app"
@@ -16,13 +17,13 @@
     load = false
     setTimeout(() => load = true, 0)
   }
-
+  
+  let esApp
   let appId
   let domainId = window.location.host
   let state = 'production'
   let uploads
   let token = null
-  let esApp
   let rawApp = {
     name: '',
     short: ''
@@ -44,10 +45,10 @@
       let endpoint = domainId.split('.')[0]
       let esEndpoint = await scripts.tenant.apps.getEndpoint(null, endpoint)
       if (esEndpoint.payload.success === true) {
+        esApp = esEndpoint.payload.data
         appId = esEndpoint.payload.data.id
         uploads = esEndpoint.payload.data.uploads
         rawApp = JSON.parse(esEndpoint.payload.data.raw)
-        esApp = esEndpoint.payload.data
         domainId = esEndpoint.payload.data.domain // do this so images load
       } else {
         alert(esEndpoint.payload.reason)
@@ -56,10 +57,10 @@
       // for custom domains such as https://istrav.com
       let esOne = await scripts.tenant.apps.getOne(null, domainId, state)
       if (esOne.payload.success === true) {
+        esApp = esOne.payload.data
         appId = esOne.payload.data.id
         uploads = esOne.payload.data.uploads
         rawApp = JSON.parse(esOne.payload.data.raw)
-        esApp = esOne.payload.data
       } else {
         alert(esOne.payload.reason)
       }
@@ -72,6 +73,7 @@
   {#if load === true}
     <View productId={$page.params.id} esApp={esApp} appId={appId} domainId={domainId} state={state} uploads={uploads} />
   {/if}
+  <Brands domainId={domainId} state={state} uploads={uploads} esApp={esApp} />
   <Footer appId={appId} rawApp={rawApp}>
     <a href="/" class="breadcrumb hide-on-med-and-down">Home</a>
     <a href="/" class="breadcrumb">Products</a>

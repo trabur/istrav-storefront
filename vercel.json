@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    { "source": "/collections/:id", "destination": "/" },
     { "source": "/categories/:id", "destination": "/" },
     { "source": "/products/:id", "destination": "/" },
     { "source": "/account", "destination": "/" },

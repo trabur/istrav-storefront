@@ -29,7 +29,7 @@
       cart = esCarts.payload.data[0]
       let esCart = await scripts.account.carts.getOne(appId, token, cart.id)
       console.log('esCart', esCart)
-      if (esCarts.payload.success === true) {
+      if (esCart.payload.success === true) {
         cart = esCart.payload.data
         raw = esCart.payload.data.raw
         subtotal = calculateSubtotal(cart.products, raw)

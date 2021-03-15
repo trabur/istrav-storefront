@@ -32,10 +32,10 @@
     let esCarts = await scripts.account.carts.getAll(appId, token)
     console.log('esCarts', esCarts)
     if (esCarts.payload.success === true) {
-      cart = esCarts.payload.data[0]
-      let esCart = await scripts.account.carts.getOne(appId, token, cart.id)
+      let id = esCarts.payload.data[0].id
+      let esCart = await scripts.account.carts.getOne(appId, token, id)
       console.log('esCart', esCart)
-      if (esCarts.payload.success === true) {
+      if (esCart.payload.success === true) {
         cart = esCart.payload.data
         raw = esCart.payload.data.raw
         subtotal = calculateSubtotal(cart.products, raw)
@@ -59,7 +59,7 @@
     <h4 class="description">REVIEW YOUR ORDER</h4>
     <hr style="margin: 0.5em 0 0 0;">
     {#if cart}
-      <ListProducts products={cart.products} raw={raw} uploads={uploads} domainId={domainId} state={state} updatePrices={updatePrices} />
+      <ListProducts cart={cart} raw={raw} uploads={uploads} appId={appId} domainId={domainId} state={state} updatePrices={updatePrices} />
     {/if}
   </div>
   <div class="col s12 m12 l3">

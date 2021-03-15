@@ -1,20 +1,36 @@
 <script>
   import { onMount } from 'svelte';
 
-  export let products
+  export let appId
+  export let cart
   export let raw
   export let uploads
   export let state
   export let domainId
   export let updatePrices
 
-  function remove(product) {
-    console.log('delete', product)
-    updatePrices()
-  }
+  let products = cart.products
 
   function changeQty(slug) {
     console.log('changeQty', raw[slug])
+    updatePrices()
+  }
+
+  async function remove(product) {
+    console.log('delete', product)
+    let token = localStorage.getItem('token')
+    let change = cart
+    change.products = change.products.filter((value, index) => {
+      return value.id !== product.id
+    })
+    let esDelete = await scripts.account.carts.getUpdate(appId, token, cart.id, change)
+    console.log('esDelete', esDelete)
+    if (esDelete.payload.success === true) {
+      products = esDelete.payload.data.products
+    } else {
+      alert(esDelete.payload.reason)
+    }
+
     updatePrices()
   }
 

@@ -19,6 +19,7 @@
     <div class="row" style="margin: 0;">
       <div class="col s0 m1"></div>
       <div class="list col s12 m10">
+        <h5 class="title">Shop by Brand:</h5>
         {#each brands as brand}
           <a href={brand.url}>
             <span class="text">{brand.text}</span>
@@ -32,6 +33,11 @@
 {/if}
 
 <style>
+  .title {
+    color: #eee;
+    margin: 0 0 0.5em 0;
+  }
+  
   .brands {
     margin: 0;
   }

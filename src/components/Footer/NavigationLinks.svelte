@@ -11,12 +11,28 @@
     <div class="col s0 m1"></div>
     <div class="col s12 m10">
       <div class="row" style="margin: 0; padding-top: 4.5em; padding-bottom: 1em;" >
-        <div class="branding col s12 m6 l3">
-          <div class="name">{raw.short}</div>
-          <hr>
-          <div class="description">Head Office:</div>
-          <div class="address">1100 Congress Ave,</div>
-          <div class="address">Austin, TX 78701</div>
+        <div class="col s12 m6 l3">
+          <div class="branding">
+            <div class="name">{raw.short}</div>
+            <hr>
+            <div class="description">Head Office:</div>
+            <div class="address">{raw.addressLine1 || '1100 Congress Ave,'}</div>
+            <div class="address">{raw.addressLine2 || 'Austin, TX 78701'}</div>
+            <hr>
+            <div class="description">Email:</div>
+            <div class="address">{raw.email || 'travis.burandt@gmail.com'}</div>
+          </div>
+          <ul class="conditions">
+            <li>
+              <a href="/pages/terms-of-use">Terms of Use</a>
+            </li>
+            <li>
+              <a href="/pages/terms-of-sale">Terms of Sale</a>
+            </li>
+            <li>
+              <a href="/pages/privacy-policy">Privacy Policy</a>
+            </li>
+          </ul>
         </div>
         {#each items as item (item.url)}
           <div class="col s12 m6 l3">
@@ -61,5 +77,12 @@
   }
   .description {
     font-weight: bold;
+  }
+  .conditions {
+    margin: 0;
+    text-align: center;
+  }
+  .conditions a {
+    color: #333;
   }
 </style>

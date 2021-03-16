@@ -5,6 +5,7 @@
     { "source": "/products/:id", "destination": "/" },
     { "source": "/account", "destination": "/" },
     { "source": "/login", "destination": "/" },
-    { "source": "/register", "destination": "/" }
+    { "source": "/register", "destination": "/" },
+    { "source": "/cart", "destination": "/" }
   ]
 }

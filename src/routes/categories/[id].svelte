@@ -74,10 +74,13 @@
   <div style="min-height: 100vh;">
     {#if load === true}
       <Banner categoryId={$page.params.id} appId={appId} domainId={domainId} state={state} uploads={uploads} />
-      <br />
-      <br />
-      <br />
+      <br class="hide-on-med-and-down" />
+      <br class="hide-on-med-and-down" />
+      <br>
       <ListProducts categoryId={$page.params.id} appId={appId} domainId={domainId} state={state} uploads={uploads} />
+      <br class="hide-on-med-and-down" />
+      <br class="hide-on-med-and-down" />
+      <br>
     {/if}
   </div>
   <Brands domainId={domainId} state={state} uploads={uploads} esApp={esApp} />

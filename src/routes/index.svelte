@@ -72,7 +72,7 @@
   <br class="hide-on-med-and-down" />
   <br />
   <Brands domainId={domainId} state={state} uploads={uploads} esApp={esApp} />
-  <Footer appId={appId} rawApp={rawApp}>
+  <Footer appId={appId} rawApp={rawApp} esApp={esApp}>
     <a href="/" class="breadcrumb">Home</a>
     <a href="/" class="breadcrumb">Welcome</a>
   </Footer>

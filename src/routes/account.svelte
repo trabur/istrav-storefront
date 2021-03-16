@@ -60,7 +60,7 @@
 	<Navigation appId={appId} domainId={domainId} state={state} uploads={uploads} rawApp={rawApp} />
   <Account />
   <Brands domainId={domainId} state={state} uploads={uploads} esApp={esApp} />
-  <Footer appId={appId} rawApp={rawApp}>
+  <Footer appId={appId} rawApp={rawApp} esApp={esApp}>
     <a href="/" class="breadcrumb">Home</a>
     <a href="/account" class="breadcrumb">My Account</a>
   </Footer>

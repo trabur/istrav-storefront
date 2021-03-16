@@ -69,7 +69,7 @@
   <br />
   <br />
   <Brands domainId={domainId} state={state} uploads={uploads} esApp={esApp} />
-  <Footer appId={appId} rawApp={rawApp}>
+  <Footer appId={appId} rawApp={rawApp} esApp={esApp}>
     <a href="/" class="breadcrumb">Home</a>
     <a href="/login" class="breadcrumb">Login</a>
   </Footer>

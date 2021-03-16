@@ -4,13 +4,17 @@
   import SocialLinks from './SocialLinks.svelte'
   import NavigationLinks from './NavigationLinks.svelte'
   import jwt_decode from "jwt-decode"
+  import TawkToChatWidget from './TawkToChatWidget.svelte'
 
   export let appId
   export let rawApp
+  export let esApp
 
   let items = []
   let token
   let decoded = {}
+  let propertyId = esApp.tawkToPropertyId // || '6051205af7ce18270930caec'
+  let chatId = esApp.tawkToChatId // || '1f0ueco46'
 
 	onMount(async () => {
 		token = localStorage.getItem('token')
@@ -96,6 +100,10 @@
   </div>
   <div class="col s0 m1"></div>
 </div>
+
+{#if propertyId && chatId}
+  <TawkToChatWidget propertyId={propertyId} chatId={chatId} />
+{/if}
 
 <style>
   .top-bar {

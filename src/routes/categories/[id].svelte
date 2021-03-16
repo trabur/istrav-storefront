@@ -81,7 +81,7 @@
     {/if}
   </div>
   <Brands domainId={domainId} state={state} uploads={uploads} esApp={esApp} />
-  <Footer appId={appId} rawApp={rawApp}>
+  <Footer appId={appId} rawApp={rawApp} esApp={esApp}>
     <a href="/" class="breadcrumb hide-on-med-and-down">Home</a>
     <a href="/" class="breadcrumb">Categories</a>
     <a href={`/categories/${$page.params.id}`} class="breadcrumb">{$page.params.id.toUpperCase()}</a>

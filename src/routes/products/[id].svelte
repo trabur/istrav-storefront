@@ -74,7 +74,7 @@
     <View productId={$page.params.id} esApp={esApp} appId={appId} domainId={domainId} state={state} uploads={uploads} />
   {/if}
   <Brands domainId={domainId} state={state} uploads={uploads} esApp={esApp} />
-  <Footer appId={appId} rawApp={rawApp}>
+  <Footer appId={appId} rawApp={rawApp} esApp={esApp}>
     <a href="/" class="breadcrumb hide-on-med-and-down">Home</a>
     <a href="/" class="breadcrumb">Products</a>
     <a href={`/products/${$page.params.id}`} class="breadcrumb">{$page.params.id.toUpperCase()}</a>

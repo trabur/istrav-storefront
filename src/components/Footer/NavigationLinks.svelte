@@ -18,9 +18,11 @@
             <div class="description">Head Office:</div>
             <div class="address">{raw.addressLine1 || '1100 Congress Ave,'}</div>
             <div class="address">{raw.addressLine2 || 'Austin, TX 78701'}</div>
-            <hr>
-            <div class="description">Email:</div>
-            <div class="address">{raw.email || 'travis.burandt@gmail.com'}</div>
+            {#if raw.email}
+              <hr>
+              <div class="description">Email:</div>
+              <div class="address">{raw.email}</div>
+            {/if}
           </div>
           <ul class="conditions">
             <li>

@@ -47,7 +47,16 @@
   })
 
 	async function addToCart() {
+    if (product.isNotForSale) {
+      return alert('This product is marked as: "NOT FOR SALE".')
+    }
+
     if (itemCount === '') return alert('item count must be defined.')
+
+    // how many are left in stock?
+    if (product.inStockCount < itemCount) {
+      return alert(`Item count for "${product.slug}" is too high! There is only ${product.inStockCount} product left in stock.`)
+    }
 
     if (!token) {
       if (confirm('You must login to an account first before adding an item to your cart.')) {

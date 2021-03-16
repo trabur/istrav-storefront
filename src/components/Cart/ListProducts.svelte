@@ -14,6 +14,14 @@
 
   async function changeQty(slug) {
     console.log('changeQty', slug, raw[slug])
+    // how many are left in stock?
+    cart.products.forEach(product => {
+      if (product.inStockCount < raw[product.slug]) {
+        alert(`Item count for "${product.slug}" is too high! There is only ${product.inStockCount} product left in stock.`)
+        raw[product.slug] = product.inStockCount
+      }
+    })
+    // continue
     let change = cart
     change.raw[slug] = raw[slug]
     let esUpdate = await scripts.account.carts.getUpdate(appId, token, cart.id, change)

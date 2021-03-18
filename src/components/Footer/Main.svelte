@@ -5,6 +5,7 @@
   import NavigationLinks from './NavigationLinks.svelte'
   import jwt_decode from "jwt-decode"
   import TawkToChatWidget from './TawkToChatWidget.svelte'
+  import GoogleAnalytics from './GoogleAnalytics.svelte'
 
   export let appId
   export let rawApp
@@ -15,6 +16,7 @@
   let decoded = {}
   let propertyId = esApp.tawkToPropertyId // || '6051205af7ce18270930caec'
   let chatId = esApp.tawkToChatId // || '1f0ueco46'
+  let measurementId = esApp.googleAnalyticsMeasurementId // || 'G-M6CKY68372'
 
 	onMount(async () => {
 		token = localStorage.getItem('token')
@@ -103,6 +105,9 @@
 
 {#if propertyId && chatId}
   <TawkToChatWidget propertyId={propertyId} chatId={chatId} />
+{/if}
+{#if measurementId}
+  <GoogleAnalytics measurementId={measurementId} />
 {/if}
 
 <style>

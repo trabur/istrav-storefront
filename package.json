@@ -14,7 +14,8 @@
     "jwt-decode": "^3.1.2",
     "marked": "^1.2.9",
     "polka": "next",
-    "sirv": "^1.0.0"
+    "sirv": "^1.0.0",
+    "stripe": "^8.138.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -24,6 +25,7 @@
     "@babel/runtime": "^7.0.0",
     "@rollup/plugin-babel": "^5.0.0",
     "@rollup/plugin-commonjs": "^14.0.0",
+    "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^8.0.0",
     "@rollup/plugin-replace": "^2.2.0",
     "@rollup/plugin-url": "^5.0.0",

@@ -79,7 +79,11 @@
         </div>
       </div>
       <div class="checkout">
-        <a href="/checkout" class="waves-effect btn btn-large checkout-button">proceed to checkout</a>
+        {#if total > 0}
+          <a href="/checkout" class="waves-effect btn btn-large checkout-button">proceed to checkout</a>
+        {:else}
+          <a href="/checkout" class="waves-effect btn btn-large checkout-button" disabled>proceed to checkout</a>
+        {/if}
       </div>
     </div>
     <div class="col s12 m12 l1"></div>

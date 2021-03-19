@@ -1,6 +1,9 @@
 <script>
 	import { onMount } from 'svelte'
 	
+	let wait = 3000
+	let counter = wait / 1000
+
   let esApp
   let appId
   let domainId = window.location.host
@@ -71,9 +74,22 @@
       } else {
         stripe = new Stripe(esApp.stripePublishableKeyLive)
       }
-			stripe.redirectToCheckout({ sessionId })
+
+      // finish
+      setTimeout(() => {
+			  stripe.redirectToCheckout({ sessionId })
+      }, wait)
+      setInterval(() => {
+        counter = counter - 1
+      }, 1000)
     } else {
       alert(esCheckoutSession.payload.reason)
     }
 	})
 </script>
+
+
+<div style="text-align: center;">
+  <h1>My shopping cart,</h1>
+  <h4>Let's proceed to checkout now... {counter}</h4>
+</div>

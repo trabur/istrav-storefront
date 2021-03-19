@@ -7,6 +7,9 @@
     { "source": "/account", "destination": "/" },
     { "source": "/login", "destination": "/" },
     { "source": "/register", "destination": "/" },
-    { "source": "/cart", "destination": "/" }
+    { "source": "/cart", "destination": "/" },
+    { "source": "/checkout", "destination": "/" },
+    { "source": "/checkout/cancel", "destination": "/" },
+    { "source": "/checkout/success", "destination": "/" }
   ]
 }

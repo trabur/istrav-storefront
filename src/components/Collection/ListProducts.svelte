@@ -33,7 +33,7 @@
           <a href={`/products/${item.slug}`}>
             <div class="image" style={`background-image: url(https://rawcdn.githack.com/${uploads}/${domainId}/${state}/products/${item.slug}/${item.image});`}>
             </div>
-            <h5 style="color: #111; margin: 0.5em 0 0 0;">{item.name}</h5>
+            <h6 style="color: #111; margin: 0.5em 0 0 0;">{item.name}</h6>
             {#if item.isNotForSale}
               <h6 style="color: #666; margin: 0.5em 0 0 0;"><strike>${item.price / 100}</strike> NOT FOR SALE</h6>
             {:else}

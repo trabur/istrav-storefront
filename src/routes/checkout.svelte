@@ -90,7 +90,7 @@
 
 
 <div class="middle">
-  <h3>My shopping cart,</h3>
+  <h3>Finalizing cart,</h3>
   <h4>Let's proceed to checkout now... {counter}</h4>
 </div>
 

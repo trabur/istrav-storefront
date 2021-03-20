@@ -58,16 +58,7 @@
 
 {#if appId}
 	<Navigation appId={appId} domainId={domainId} state={state} uploads={uploads} rawApp={rawApp} />
-  <br />
-  <br />
-  <br />
   <Login />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
   <Brands domainId={domainId} state={state} uploads={uploads} esApp={esApp} />
   <Footer appId={appId} rawApp={rawApp} esApp={esApp}>
     <a href="/" class="breadcrumb">Home</a>

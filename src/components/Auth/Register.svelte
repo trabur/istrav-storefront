@@ -74,6 +74,9 @@
 <div class="row" style="min-height: 100vh;">
   <div class="col s12 m4"></div>
   <div class="col s12 m4">
+    <br class="hide-on-med-and-down" />
+    <br class="hide-on-med-and-down" />
+    <br />
     <h3 class="title">REGISTER</h3>
     <div class="card" style="padding: 1em; background: #eee;">
       <div class="row">
@@ -108,6 +111,9 @@
     <div style="text-align: right;">
       <a href="/login" class="waves-effect red lighten-2 btn">LOGIN</a>
     </div>
+    <br class="hide-on-med-and-down" />
+    <br class="hide-on-med-and-down" />
+    <br />
   </div>
   <div class="col s12 m4"></div>
 </div>

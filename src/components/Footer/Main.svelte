@@ -136,8 +136,7 @@
   }
 
   .dotted {
-    background-image: radial-gradient(#ccc 20%, transparent 20%),
-      radial-gradient(#ccc 20%, transparent 20%);
+		background-image: radial-gradient(#ddd 20%, transparent 20%), radial-gradient(#ddd 20%, transparent 20%);
     background-color: #eee;
     background-position: 0 0, 50px 50px;
     background-size: 100px 100px;

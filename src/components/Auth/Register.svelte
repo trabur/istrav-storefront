@@ -42,7 +42,7 @@
 
   onMount(async () => {
     // fetch
-    let domainId = window.location.host.split('.').slice(-2).join('.')
+    let domainId = window.location.host
     let state = 'production'
 
     // pick an app to show for local development
@@ -61,6 +61,7 @@
       }
     } else {
       // for custom domains such as https://istrav.com
+      domainId = window.location.host.split('.').slice(-2).join('.')
       let esOne = await scripts.tenant.apps.getOne(null, domainId, state)
       if (esOne.payload.success === true) {
         esApp = esOne

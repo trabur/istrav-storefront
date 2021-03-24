@@ -6,7 +6,7 @@
 
   let esApp
   let appId
-  let domainId = window.location.host.split('.').slice(-2).join('.')
+  let domainId = window.location.host
   let state = 'production'
   let token = null
   let cart
@@ -15,7 +15,7 @@
     // user
 		token = localStorage.getItem('token')
 
-    domainId = window.location.host.split('.').slice(-2).join('.')
+    domainId = window.location.host
 
     // pick an app to show for local development
     if (domainId.includes('localhost:3000')) {
@@ -34,6 +34,7 @@
       }
     } else {
       // for custom domains such as https://istrav.com
+      domainId = window.location.host.split('.').slice(-2).join('.')
       let esOne = await scripts.tenant.apps.getOne(null, domainId, state)
       if (esOne.payload.success === true) {
         esApp = esOne.payload.data

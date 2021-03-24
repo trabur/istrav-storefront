@@ -55,7 +55,7 @@
       }
     } else {
       // for custom domains such as https://istrav.com
-      domainId = window.location.host.split('.').slice(-2).join('.')
+      domainId = domainId.split('.').slice(-2).join('.')
       let esOne = await scripts.tenant.apps.getOne(null, domainId, state)
       if (esOne.payload.success === true) {
         esApp = esOne.payload.data

@@ -8,7 +8,7 @@
 
   let esApp
   let appId
-  let domainId = window.location.host
+  let domainId = window.location.host.split('.').slice(-2).join('.')
   let state = 'production'
   let uploads
   let token = null
@@ -21,7 +21,7 @@
     // user
 		token = localStorage.getItem('token')
 
-    domainId = window.location.host
+    domainId = window.location.host.split('.').slice(-2).join('.')
 
     // pick an app to show for local development
     if (domainId.includes('localhost:3000')) {

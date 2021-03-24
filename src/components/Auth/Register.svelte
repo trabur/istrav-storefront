@@ -42,7 +42,7 @@
 
   onMount(async () => {
     // fetch
-    let domainId = window.location.host
+    let domainId = window.location.host.split('.').slice(-2).join('.')
     let state = 'production'
 
     // pick an app to show for local development

@@ -24,7 +24,7 @@
     // user
 		token = localStorage.getItem('token')
 
-    domainId = window.location.host
+    domainId = window.location.host.split('.').slice(-2).join('.')
 
     // pick an app to show for local development
     if (domainId.includes('localhost:3000')) {

@@ -23,19 +23,25 @@
 	onMount(async () => {
 		token = localStorage.getItem('token')
 
+    if (!token) {
+      return // don't try to load cart
+    }
+
     let esCarts = await scripts.account.carts.getAll(appId, token)
     console.log('esCarts', esCarts)
     if (esCarts.payload.success === true) {
       cart = esCarts.payload.data[0]
-      let esCart = await scripts.account.carts.getOne(appId, token, cart.id)
-      console.log('esCart', esCart)
-      if (esCart.payload.success === true) {
-        cart = esCart.payload.data
-        raw = esCart.payload.data.raw
-        subtotal = calculateSubtotal(cart.products, raw)
-        total = subtotal
-      } else {
-        alert(esCart.payload.reason)
+      if (cart) {
+        let esCart = await scripts.account.carts.getOne(appId, token, cart.id)
+        console.log('esCart', esCart)
+        if (esCart.payload.success === true) {
+          cart = esCart.payload.data
+          raw = esCart.payload.data.raw
+          subtotal = calculateSubtotal(cart.products, raw)
+          total = subtotal
+        } else {
+          alert(esCart.payload.reason)
+        }
       }
     } else {
       alert(esCarts.payload.reason)

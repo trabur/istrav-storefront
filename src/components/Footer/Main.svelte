@@ -38,7 +38,7 @@
   })
 </script>
 
-<Nav selected='Shop' appId={appId} />
+<Nav selected='shop' appId={appId} />
 <div class="dotted">
   <br class="hide-on-med-and-down" />
   <br class="hide-on-med-and-down" />

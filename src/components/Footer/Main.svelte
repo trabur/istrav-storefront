@@ -6,6 +6,7 @@
   import jwt_decode from "jwt-decode"
   import TawkToChatWidget from './TawkToChatWidget.svelte'
   import GoogleAnalytics from './GoogleAnalytics.svelte'
+	import Nav from '../Nav.svelte'
 
   export let appId
   export let rawApp
@@ -37,6 +38,7 @@
   })
 </script>
 
+<Nav selected='Shop' appId={appId} />
 <div class="dotted">
   <br class="hide-on-med-and-down" />
   <br class="hide-on-med-and-down" />

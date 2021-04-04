@@ -8,8 +8,6 @@
 
   export let productId
   export let appId
-  export let domainId
-  export let state
   export let uploads
   export let esApp
 
@@ -81,7 +79,7 @@
           {#if product.url}
             <a href={product.url} target="_blank" class="waves-effect btn btn-large submit-button" style="margin: 0 0 0.5em 0; width: 100%;">{product.url}</a>
           {/if}
-          <img on:click={() => open()} class="image" src={`https://rawcdn.githack.com/${uploads}/${domainId}/${state}/products/${productId}/${product.image}`} alt="" />
+          <img on:click={() => open()} class="image" src={`${uploads}/${product.image}`} alt="" />
         </div>
         <div class="col s12 m12 l5">
           <h1 style="margin: 0; font-size: 2.5em;">{product.name}</h1>

@@ -2,8 +2,6 @@
   import { onMount } from 'svelte';
   
   export let appId
-  export let domainId
-  export let state
   export let uploads
 
   let items = []
@@ -27,7 +25,7 @@
       {#each items as item (item.slug)}
         <div class="item">
           <a href={`/categories/${item.slug}`}>
-            <div class="image" style={`background-image: url(https://rawcdn.githack.com/${uploads}/${domainId}/${state}/categories/${item.slug}/${item.image});`}></div>
+            <div class="image" style={`background-image: url(${uploads}/${item.image});`}></div>
             <h5 class="subtitle">{item.name}</h5>
           </a>
         </div>

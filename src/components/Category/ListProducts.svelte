@@ -4,8 +4,6 @@
 
   export let categoryId
   export let appId
-  export let domainId
-  export let state
   export let uploads
 
   // objects
@@ -31,7 +29,7 @@
       {#each items as item (item.slug)}
         <div class="item">
           <a href={`/products/${item.slug}`}>
-            <div class="image" style={`background-image: url(https://rawcdn.githack.com/${uploads}/${domainId}/${state}/products/${item.slug}/${item.image});`}>
+            <div class="image" style={`background-image: url(${uploads}/${item.image});`}>
             </div>
             <h6 style="color: #111; margin: 0.5em 0 0 0;">{item.name}</h6>
             {#if item.isNotForSale}

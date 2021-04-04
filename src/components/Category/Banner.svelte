@@ -4,8 +4,6 @@
 
   export let categoryId
   export let appId
-  export let domainId
-  export let state
   export let uploads
   
   // objects
@@ -25,7 +23,7 @@
 
 <div class="banner">
   {#if image}
-    <div class="image" style={`background-image: url(https://rawcdn.githack.com/${uploads}/${domainId}/${state}/categories/${categoryId}/${image});`}></div>
+    <div class="image" style={`background-image: url(${uploads}/${image});`}></div>
   {/if}
 </div>
 

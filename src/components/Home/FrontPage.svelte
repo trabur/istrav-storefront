@@ -1,8 +1,6 @@
 <script>
   import { onMount } from 'svelte';
 
-  export let domainId
-  export let state
   export let uploads
   export let esApp
   
@@ -15,7 +13,7 @@
 
 <div class="banner">
   {#if image && uploads}
-    <div class="image" style={`background-image: url(https://rawcdn.githack.com/${uploads}/${domainId}/${state}/${image});`}>
+    <div class="image" style={`background-image: url(${uploads}/${image});`}>
       <div class="announce">
         <div class="hide-on-med-and-down">
           <span class="first"><h1 class="text">{line1}</h1></span><br />

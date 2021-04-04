@@ -4,8 +4,6 @@
 
   export let appId
   export let uploads
-  export let domainId
-  export let state
   let cart
   let token
   let raw = {}
@@ -65,7 +63,7 @@
     <div class="items">
       {#each cart.products as item (item.slug)}
         <div class="item">
-          <a href={`/products/${item.slug}`}><div class="image" style={`background-image: url(https://rawcdn.githack.com/${uploads}/${domainId}/${state}/products/${item.slug}/${item.image});`}></div> </a>
+          <a href={`/products/${item.slug}`}><div class="image" style={`background-image: url(${uploads}/${item.image});`}></div> </a>
           <div class="details">
             <div style="float: right;">${item.price / 100}</div>
             <a href={`/products/${item.slug}`} style="color: #111; margin: 0;">{item.name}</a>

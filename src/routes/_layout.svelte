@@ -31,19 +31,19 @@
       // console.log(window.scripts)
       // console.log(window.istrav)
 
-      istrav.tenant.members.init({ host: 'https://api.istrav.com' })
-      istrav.tenant.apps.init({ host: 'https://api.istrav.com' })
-      istrav.app.menus.init({ host: 'https://api.istrav.com' })
-      istrav.app.pages.init({ host: 'https://api.istrav.com' })
-      istrav.store.collections.init({ host: 'https://api.istrav.com' })
-      istrav.store.categories.init({ host: 'https://api.istrav.com' })
-      istrav.store.products.init({ host: 'https://api.istrav.com' })
-      istrav.account.users.init({ host: 'https://api.istrav.com' })
-      istrav.account.carts.init({ host: 'https://api.istrav.com' })
-      istrav.account.orders.init({ host: 'https://api.istrav.com' })
+      istrav.tenant.members.init({ host: 'https://hacktracks.org' })
+      istrav.tenant.apps.init({ host: 'https://hacktracks.org' })
+      istrav.app.menus.init({ host: 'https://hacktracks.org' })
+      istrav.app.pages.init({ host: 'https://hacktracks.org' })
+      istrav.store.collections.init({ host: 'https://hacktracks.org' })
+      istrav.store.categories.init({ host: 'https://hacktracks.org' })
+      istrav.store.products.init({ host: 'https://hacktracks.org' })
+      istrav.account.users.init({ host: 'https://hacktracks.org' })
+      istrav.account.carts.init({ host: 'https://hacktracks.org' })
+      istrav.account.orders.init({ host: 'https://hacktracks.org' })
       loading = false
     };
-    code.src = 'https://headless.istrav.com/scripts/index.js';
+    code.src = 'https://farmerless.com/scripts/index.js';
     code.setAttribute('type', 'module')
     document.getElementById('code').appendChild(code); 
   })

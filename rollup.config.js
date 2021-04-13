@@ -78,6 +78,7 @@ export default {
 		output: config.server.output(),
 		plugins: [
 			replace({
+				...sapperEnv(),
 				'process.browser': false,
 				'process.env.NODE_ENV': JSON.stringify(mode)
 			}),

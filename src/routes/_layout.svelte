@@ -18,10 +18,18 @@
     window.axios = axios
 
     // appId domain state
-    if (window.location.host === 'localhost:3000') {
-      window.appdomainId = 'istrav.com'
+    let backend
+    let headless
+    if (window.location.host === 'localhost:5280') {
+      window.appDomain = 'istrav.com'
+      backend = 'http://localhost:1337'
+      headless = 'http://localhost:9999'
+      console.log('localhost settings:', appDomain, backend, headless)
     } else {
       window.appDomain = window.location.host
+      backend = process.env.API_URI || 'https://hacktracks.org'
+      headless = proccess.env.HEADLESS_URI || 'https://farmerless.com'
+      console.log('production settings:', appDomain, backend, headless)
     }
 
     // headless.istrav.com scripts
@@ -31,19 +39,19 @@
       // console.log(window.scripts)
       // console.log(window.istrav)
 
-      istrav.tenant.members.init({ host: 'https://hacktracks.org' })
-      istrav.tenant.apps.init({ host: 'https://hacktracks.org' })
-      istrav.app.menus.init({ host: 'https://hacktracks.org' })
-      istrav.app.pages.init({ host: 'https://hacktracks.org' })
-      istrav.store.collections.init({ host: 'https://hacktracks.org' })
-      istrav.store.categories.init({ host: 'https://hacktracks.org' })
-      istrav.store.products.init({ host: 'https://hacktracks.org' })
-      istrav.account.users.init({ host: 'https://hacktracks.org' })
-      istrav.account.carts.init({ host: 'https://hacktracks.org' })
-      istrav.account.orders.init({ host: 'https://hacktracks.org' })
+      istrav.tenant.members.init({ host: backend })
+      istrav.tenant.apps.init({ host: backend })
+      istrav.app.menus.init({ host: backend })
+      istrav.app.pages.init({ host: backend })
+      istrav.store.collections.init({ host: backend })
+      istrav.store.categories.init({ host: backend })
+      istrav.store.products.init({ host: backend })
+      istrav.account.users.init({ host: backend })
+      istrav.account.carts.init({ host: backend })
+      istrav.account.orders.init({ host: backend })
       loading = false
     };
-    code.src = 'https://farmerless.com/scripts/index.js';
+    code.src = `${headless}/scripts/index.js`;
     code.setAttribute('type', 'module')
     document.getElementById('code').appendChild(code); 
   })

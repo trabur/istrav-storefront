@@ -20,7 +20,7 @@
     // appId domain state
     let backend
     let headless
-    if (window.location.host === 'localhost:5280') {
+    if (window.location.host === 'localhost:7000') {
       window.appDomain = 'istrav.com'
       backend = 'http://localhost:1337'
       headless = 'http://localhost:9999'

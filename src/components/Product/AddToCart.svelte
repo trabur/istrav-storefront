@@ -13,6 +13,10 @@
 		token = localStorage.getItem('token')
     console.log('appId', appId)
 
+    if (!token) {
+      return // don't try to load cart
+    }
+
     // add cart if missing
     let esCarts = await scripts.account.carts.getAll(appId, token)
     // console.log('esCarts', esCarts)

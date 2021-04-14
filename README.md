@@ -2,6 +2,11 @@ DIMENSION.CLICK
 ========
 
 ```bash
+# development
+export PORT=7000; npm run dev
+```
+
+```bash
 npm install
 npm run build
 npm start

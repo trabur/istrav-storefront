@@ -46,7 +46,7 @@
     let state = 'production'
 
     // pick an app to show for local development
-    if (domainId.includes('localhost:3000')) {
+    if (domainId.includes('localhost:7000')) {
       domainId = 'istrav.com'
     }
     // set appId from domain 

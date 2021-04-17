@@ -13,7 +13,6 @@ import json from '@rollup/plugin-json';
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
-const sapperEnv = require('sapper-environment'); 
 
 const onwarn = (warning, onwarn) =>
 	(warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
@@ -27,7 +26,6 @@ export default {
 		plugins: [
 			json(),
 			replace({
-				...sapperEnv(),
 				'process.browser': true,
 				'process.env.NODE_ENV': JSON.stringify(mode)
 			}),
@@ -78,7 +76,6 @@ export default {
 		output: config.server.output(),
 		plugins: [
 			replace({
-				...sapperEnv(),
 				'process.browser': false,
 				'process.env.NODE_ENV': JSON.stringify(mode)
 			}),

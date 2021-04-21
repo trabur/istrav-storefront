@@ -8,8 +8,17 @@
 
   // objects
   let items = []
+  let name
 
 	onMount(async () => {
+    // get category
+    let esCategory = await scripts.store.categories.getOne(appId, categoryId)
+    if (esCategory.payload.success === true) {
+      name = esCategory.payload.data.name
+    } else {
+      alert(esCategory.payload.reason)
+    }
+
     // get the products
     let esProducts = await scripts.store.categories.getProducts(appId, categoryId)
     if (esProducts.payload.success === true) {
@@ -24,7 +33,9 @@
 <div class="row">
   <div class="col s0 m1"></div>
   <div class="col s12 m10">
-    <h3 class="title">{categoryId}</h3>
+    {#if name}
+      <h3 class="title">{name}</h3>
+    {/if}
     <div class="masonry">
       {#each items as item (item.slug)}
         <div class="item">

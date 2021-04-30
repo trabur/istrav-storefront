@@ -1,6 +1,6 @@
 <script>
   export let items
-  export let raw
+  export let app
 </script>
 
 <div class="footer">
@@ -13,26 +13,26 @@
       <div class="row" style="margin: 0; padding-top: 4.5em; padding-bottom: 1em;" >
         <div class="col s12 m6 l3">
           <div class="branding">
-            <div class="name">{raw.short}</div>
+            <div class="name">{app.labelShort}</div>
             <hr>
             <div class="description">Head Office:</div>
-            <div class="address">{raw.addressLine1 || '1100 Congress Ave,'}</div>
-            <div class="address">{raw.addressLine2 || 'Austin, TX 78701'}</div>
-            {#if raw.email}
+            <div class="address">{app.labelAddressLine1 || '1100 Congress Ave,'}</div>
+            <div class="address">{app.labelAddressLine2 || 'Austin, TX 78701'}</div>
+            {#if app.labelEmail}
               <hr>
               <div class="description">Email:</div>
-              <div class="address">{raw.email}</div>
+              <div class="address">{app.labelEmail}</div>
             {/if}
           </div>
           <ul class="conditions">
             <li>
-              <a href="/pages/terms-of-use">Terms of Use</a>
+              <a href={`https://www.${app.domain}/terms-of-use`}>Terms of Use</a>
             </li>
             <li>
-              <a href="/pages/terms-of-sale">Terms of Sale</a>
+              <a href={`https://www.${app.domain}/terms-of-sale`}>Terms of Sale</a>
             </li>
             <li>
-              <a href="/pages/privacy-policy">Privacy Policy</a>
+              <a href={`https://www.${app.domain}/privacy-policy`}>Privacy Policy</a>
             </li>
           </ul>
         </div>

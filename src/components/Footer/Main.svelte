@@ -8,16 +8,14 @@
   import GoogleAnalytics from './GoogleAnalytics.svelte'
 	import Nav from '../Nav.svelte'
 
-  export let appId
-  export let rawApp
-  export let esApp
+  export let app
 
   let items = []
   let token
   let decoded = {}
-  let propertyId = esApp.tawkToPropertyId // || '6051205af7ce18270930caec'
-  let chatId = esApp.tawkToChatId // || '1f0ueco46'
-  let measurementId = esApp.googleAnalyticsMeasurementId // || 'G-M6CKY68372'
+  let propertyId = app.tawkToPropertyId // || '6051205af7ce18270930caec'
+  let chatId = app.tawkToChatId // || '1f0ueco46'
+  let measurementId = app.googleAnalyticsMeasurementId // || 'G-M6CKY68372'
 
 	onMount(async () => {
 		token = localStorage.getItem('token')
@@ -27,18 +25,17 @@
     }
 
     // get the products
-    let esMenus = await scripts.app.menus.getOne(appId, 'footer')
+    let esMenus = await scripts.app.menus.getOne(app.id, 'footer')
     if (esMenus.payload.success === true) {
       items = JSON.parse(esMenus.payload.data.raw)
     } else {
       alert(esMenus.payload.reason)
     }
     console.log('footer', items)
-    console.log('rawApp', rawApp)
   })
 </script>
 
-<Nav selected='shop' appId={appId} />
+<Nav selected='shop' appId={app.id} />
 <div class="dotted">
   <br class="hide-on-med-and-down" />
   <br class="hide-on-med-and-down" />
@@ -80,20 +77,18 @@
     <div class="col s0 m1"></div>
     <div class="col s12 m10">
       <slot></slot>
-      {#if rawApp}
-        <SocialLinks raw={rawApp} />
-      {/if}
+      <SocialLinks share={app.share} />
     </div>
   </div>
 </nav>
 {#if items}
-  <NavigationLinks items={items} raw={rawApp} />
+  <NavigationLinks items={items} app={app} />
 {/if}
 
 <div class="row top-bar">
   <div class="col s0 m1"></div>
   <div class="copyright col s12 m6">
-    Copyright @{new Date().getFullYear()} <a href="/">{rawApp.name || `ISTRAV`}</a>. All Rights Reserved. Powered by <a href="https://istrav.com" target="_blank">ISTRAV</a>.
+    Copyright @{new Date().getFullYear()} <a href="/">{app.labelName || `ISTRAV`}</a>. All Rights Reserved. Powered by <a href="https://istrav.com" target="_blank">ISTRAV</a>.
   </div>
   <div class="we-accept col s12 m4">
     We Accept:

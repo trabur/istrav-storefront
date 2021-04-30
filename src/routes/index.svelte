@@ -24,7 +24,7 @@
 
     // pick an app to show for local development
     if (domainId.includes('localhost:7000')) {
-      domainId = 'istrav.com'
+      domainId = 'oldneckties.com'
     }
     // set appId from domain 
     if (domainId.includes('dimension.click')) {

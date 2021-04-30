@@ -9,11 +9,9 @@
   export let productId
   export let appId
   export let uploads
-  export let esApp
+  export let app
 
   // objects
-  let about = JSON.parse(esApp.raw).about
-  let shipping = JSON.parse(esApp.raw).shipping
   let product
   let gallery
   let open
@@ -107,9 +105,9 @@
       {#if product && activeTab === 'description'}
         {@html marked(product.description || 'Product description coming soon...')}
       {:else if activeTab === 'shipping'}
-        {@html marked(shipping)}
+        {@html marked(app.labelShipping || '')}
       {:else}
-        {@html marked(about)}
+        {@html marked(app.labelAbout || '')}
       {/if}
     </div>
     <div class="col s0 m1"></div>

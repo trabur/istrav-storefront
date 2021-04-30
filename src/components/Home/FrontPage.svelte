@@ -2,13 +2,13 @@
   import { onMount } from 'svelte';
 
   export let uploads
-  export let esApp
+  export let app
   
-  let image = esApp.image
-  let line1 = esApp.line1
-  let line2 = esApp.line2
-  let buttonName = esApp.buttonName
-  let buttonUrl = esApp.buttonUrl
+  let image = app.image
+  let line1 = app.line1
+  let line2 = app.line2
+  let buttonName = app.buttonName
+  let buttonUrl = app.buttonUrl
 </script>
 
 <div class="banner">

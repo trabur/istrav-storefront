@@ -15,10 +15,6 @@
   let state = 'production'
   let uploads
   let token = null
-  let rawApp = {
-    name: '',
-    short: ''
-  }
 
 	onMount(async () => {
     // user
@@ -39,7 +35,6 @@
         app = esEndpoint.payload.data
         appId = esEndpoint.payload.data.id
         uploads = esEndpoint.payload.data.uploads
-        rawApp = JSON.parse(esEndpoint.payload.data.raw)
         domainId = esEndpoint.payload.data.domain // do this so images load
       } else {
         alert(esEndpoint.payload.reason)
@@ -52,7 +47,6 @@
         app = esOne.payload.data
         appId = esOne.payload.data.id
         uploads = esOne.payload.data.uploads
-        rawApp = JSON.parse(esOne.payload.data.raw)
       } else {
         alert(esOne.payload.reason)
       }
@@ -61,14 +55,14 @@
 </script>
 
 {#if appId}
-	<Navigation appId={appId} domainId={domainId} state={state} uploads={uploads} rawApp={rawApp} />
-  <FrontPageBanner appId={appId} domainId={domainId} state={state} uploads={uploads} esApp={app} />
+	<Navigation {app} appId={appId} domainId={domainId} state={state} uploads={uploads} />
+  <FrontPageBanner app={app} appId={appId} domainId={domainId} state={state} uploads={uploads} />
   <br class="hide-on-med-and-down" />
   <br class="hide-on-med-and-down" />
   <br />
   <Featured appId={appId} domainId={domainId} state={state} uploads={uploads} />
   <ShopByCategory appId={appId} domainId={domainId} state={state} uploads={uploads} />
-  <About esApp={app} />
+  <About app={app} />
   <br class="hide-on-med-and-down" />
   <br class="hide-on-med-and-down" />
   <br />

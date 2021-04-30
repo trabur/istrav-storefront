@@ -1,7 +1,7 @@
 <script>
-  export let esApp
+  export let app
 
-  let about = JSON.parse(esApp.raw).about
+  let about = app.labelAbout
 </script>
 
 {#if about}

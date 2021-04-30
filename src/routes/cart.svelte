@@ -12,10 +12,6 @@
   let state = 'production'
   let uploads
   let token = null
-  let rawApp = {
-    name: '',
-    short: ''
-  }
 
 	onMount(async () => {
     // user
@@ -36,7 +32,6 @@
         app = esEndpoint.payload.data
         appId = esEndpoint.payload.data.id
         uploads = esEndpoint.payload.data.uploads
-        rawApp = JSON.parse(esEndpoint.payload.data.raw)
         domainId = esEndpoint.payload.data.domain // do this so images load
       } else {
         alert(esEndpoint.payload.reason)
@@ -49,7 +44,6 @@
         app = esOne.payload.data
         appId = esOne.payload.data.id
         uploads = esOne.payload.data.uploads
-        rawApp = JSON.parse(esOne.payload.data.raw)
       } else {
         alert(esOne.payload.reason)
       }
@@ -58,8 +52,8 @@
 </script>
 
 {#if appId}
-	<Navigation appId={appId} domainId={domainId} state={state} uploads={uploads} rawApp={rawApp} />
-  <MyCart appId={appId} domainId={domainId} state={state} uploads={uploads} />
+	<Navigation {app} appId={appId} domainId={domainId} state={state} uploads={uploads} />
+  <MyCart {app} appId={appId} domainId={domainId} state={state} uploads={uploads} />
   <Footer app={app}>
     <a href="/" class="breadcrumb">Home</a>
     <a href="/cart" class="breadcrumb">Cart</a>

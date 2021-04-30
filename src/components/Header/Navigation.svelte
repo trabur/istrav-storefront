@@ -8,11 +8,11 @@
   let subItems = []
   let token
 
+  export let app
   export let appId
   export let domainId
   export let state
   export let uploads
-  export let rawApp
   
   function setId (id) {
     subItems = items.filter((value, index) => {
@@ -72,11 +72,11 @@
       <a href="/login" data-target="slide-out">Login</a> / <a href="/register" data-target="slide-out">Register</a>
     {/if}
   </div>
-  <div class="welcome">{rawApp.welcome || `WELCOME TO THE NEW LOOK OF ${rawApp.name}.`}</div>
+  <div class="welcome">{app.labelWelcome}</div>
 </div>
 <div class="title-bar">
   <div class="numbers-inline hide-on-large-only">
-    Local: <strong>{rawApp.contactLocal || '210-590-2662'} • Toll Free: <strong>{rawApp.contactTollFree || '888-844-4227'}</strong>
+    Local: <strong>{app.labelContactLocal || '210-590-2662'} • Toll Free: <strong>{app.labelContactTollFree || '888-844-4227'}</strong>
   </div>
   <div class="query-inline hide-on-large-only">
     <div class="row" style="margin: 0; width: 100%;">
@@ -91,12 +91,12 @@
   <div class="name-and-search hide-on-med-and-down">
     <div class="name">
       <a href="/" class="title-menu" on:click={(e) => instance.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">menu</i></a>
-      <a href="/" class="title-logo center">{rawApp.name}</a>
+      <a href="/" class="title-logo center">{app.labelName}</a>
     </div>
     <div class="search">
       <div class="numbers">
-        <div class="local">Local: <strong>{rawApp.contactLocal || '210-590-2662'}</strong></div>
-        <div class="toll-free">Toll Free: <strong>{rawApp.contactTollFree || '888-844-4227'}</strong></div>
+        <div class="local">Local: <strong>{app.labelContactLocal || '210-590-2662'}</strong></div>
+        <div class="toll-free">Toll Free: <strong>{app.labelContactTollFree || '888-844-4227'}</strong></div>
       </div>
       <div class="query">
         <div class="row" style="margin: 0; width: 100%;">
@@ -114,7 +114,7 @@
 <nav class={extendNav ? `nav-extended` : ''} on:mouseleave={() => extendNav = false}>
   <div class="nav-wrapper">
     <a href="/" class="left hide-on-large-only" style="padding: 0 1em;" on:click={(e) => instance.open() & e.preventDefault()} data-target="slide-out"><i class="material-icons">menu</i></a>
-    <a href="/" class="brand-logo left hide-on-large-only" style="margin-left: 1.75em;">{rawApp.short}</a>
+    <a href="/" class="brand-logo left hide-on-large-only" style="margin-left: 1.75em;">{app.labelShort}</a>
     <!-- <a href="/" class="brand-logo center hide-on-med-and-down">{rawApp.name}</a> -->
     <ul class="right">
       <li><a href="/" on:click={(e) => instanceCart.open() & reMountCart() & e.preventDefault()} data-target="slide-out"><i class="material-icons">shopping_cart</i></a></li>
@@ -140,7 +140,7 @@
 
 <ul id="main" class="sidenav">
   <li>
-    <h5 style="text-align: center;">{rawApp.name}</h5>
+    <h5 style="text-align: center;">{app.labelName}</h5>
   </li>
   <!-- <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
   <li><a href="#!">Second Link</a></li>

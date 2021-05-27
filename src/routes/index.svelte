@@ -1,6 +1,8 @@
 <script>
   import { onMount } from 'svelte'
 
+  import { istrav, scripts } from '../../farmerless/api'
+  
 	import Navigation from '../components/Header/Navigation.svelte'
 	import FrontPageBanner from '../components/Home/FrontPage.svelte'
   import Footer from '../components/Footer/Main.svelte'

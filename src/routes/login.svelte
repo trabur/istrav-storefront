@@ -1,12 +1,21 @@
 <script>
   import { onMount } from 'svelte'
 
-	import Navigation from '../components/Header/Navigation.svelte'
+	import { appData } from '../stores.js';
+  import { istrav, scripts } from '../../farmerless/api'
+  
+  import BigFrontHeader from '../../farmerless/components/blocks/storefront/BigFrontHeader.svelte'
+  import BigBackFooter from '../../farmerless/components/blocks/storefront/BigBackFooter/BigBackFooter.svelte'
 	import Login from '../components/Auth/Login.svelte'
   import Footer from '../components/Footer/Main.svelte'
-  import Brands from '../components/Footer/Brands.svelte'
 
   let app
+  appData.subscribe(value => {
+    app = value
+    console.log('', app)
+  })
+  
+  
   let appId
   let domainId = window.location.host
   let state = 'production'
@@ -14,6 +23,9 @@
   let token = null
 
 	onMount(async () => {
+    // configure backend
+    istrav.tenant.apps.init({ host: apiUri })
+    
     // user
 		token = localStorage.getItem('token')
 
@@ -51,11 +63,11 @@
   })
 </script>
 
-{#if appId}
-	<Navigation {app} appId={appId} domainId={domainId} state={state} uploads={uploads} />
-  <Login />
-  <Footer app={app}>
+{#if app.id}
+  <BigFrontHeader {app} />
+  <!-- <Login /> -->
+  <BigBackFooter app={app} menuId='footer'>
     <a href="/" class="breadcrumb">Home</a>
     <a href="/login" class="breadcrumb">Login</a>
-  </Footer>
+  </BigBackFooter>
 {/if}

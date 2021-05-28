@@ -1,13 +1,18 @@
 <script>
 	import { onMount } from 'svelte'
-	
+
+	import { appData } from '../stores.js';
+  import { istrav, scripts } from '../../farmerless/api'
+
+  let app
+  appData.subscribe(value => {
+    app = value
+    console.log('', app)
+  })
+
 	let wait = 3000
 	let counter = wait / 1000
-
-  let esApp
-  let appId
-  let domainId = window.location.host
-  let state = 'production'
+  
   let token = null
   let cart
 
@@ -15,42 +20,12 @@
     // user
 		token = localStorage.getItem('token')
 
-    domainId = window.location.host
-
-    // pick an app to show for local development
-    if (domainId.includes('localhost:7000')) {
-      domainId = 'istrav.com'
-    }
-    // set appId from domain 
-    if (domainId.includes('dimension.click')) {
-      // for subdomains such as http://istrav.dimension.click
-      let endpoint = domainId.split('.')[0]
-      let esEndpoint = await scripts.tenant.apps.getEndpoint(null, endpoint)
-      if (esEndpoint.payload.success === true) {
-        esApp = esEndpoint.payload.data
-        appId = esEndpoint.payload.data.id
-      } else {
-        alert(esEndpoint.payload.reason)
-      }
-    } else {
-      // for custom domains such as https://istrav.com
-      domainId = domainId.split('.').slice(-2).join('.')
-      let esOne = await scripts.tenant.apps.getOne(null, domainId, state)
-      if (esOne.payload.success === true) {
-        esApp = esOne.payload.data
-        appId = esOne.payload.data.id
-      } else {
-        alert(esOne.payload.reason)
-      }
-    }
-    console.log('esApp', esApp)
-
 		// get the cart
-    let esCarts = await scripts.account.carts.getAll(appId, token)
+    let esCarts = await scripts.account.carts.getAll(app.id, token)
     console.log('esCarts', esCarts)
     if (esCarts.payload.success === true) {
       let id = esCarts.payload.data[0].id
-      let esCart = await scripts.account.carts.getOne(appId, token, id)
+      let esCart = await scripts.account.carts.getOne(app.id, token, id)
       console.log('esCart', esCart)
       if (esCart.payload.success === true) {
         cart = esCart.payload.data
@@ -63,17 +38,17 @@
 
     // get the session
 		let sessionId
-    let esCheckoutSession = await scripts.account.carts.getStripeCheckoutSession(appId, token, cart.id)
+    let esCheckoutSession = await scripts.account.carts.getStripeCheckoutSession(app.id, token, cart.id)
 		console.log('esCheckoutSession', esCheckoutSession)
     if (esCheckoutSession.payload.success === true) {
       sessionId = esCheckoutSession.payload.data.id
 			
       // then finally redirect using stripe
       let stripe
-      if (esApp.isStripeTestData) {
-        stripe = new Stripe(esApp.stripePublishableKeyTest)
+      if (app.isStripeTestData) {
+        stripe = new Stripe(app.stripePublishableKeyTest)
       } else {
-        stripe = new Stripe(esApp.stripePublishableKeyLive)
+        stripe = new Stripe(app.stripePublishableKeyLive)
       }
 
       // finish

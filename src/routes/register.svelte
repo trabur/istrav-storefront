@@ -1,11 +1,27 @@
+<script context="module">
+  export async function load({ session }) {
+    const { API_URI, IO_URI, HEADLESS_URI } = session;
+
+    return { 
+      apiUri: API_URI,
+      ioUri: IO_URI,
+      headlessUri: HEADLESS_URI,
+    };
+  }
+</script>
+
 <script>
   import { onMount } from 'svelte'
+	import { appData } from '../stores.js';
 
-	import Navigation from '../components/Header/Navigation.svelte'
+  import { istrav, scripts } from '../../farmerless/api'
+  
+  import BigFrontHeader from '../../farmerless/components/blocks/storefront/BigFrontHeader.svelte'
+  import BigBackFooter from '../../farmerless/components/blocks/storefront/BigBackFooter/BigBackFooter.svelte'
 	import Register from '../components/Auth/Register.svelte'
   import Footer from '../components/Footer/Main.svelte'
-  import Brands from '../components/Footer/Brands.svelte'
 
+  export let apiUri
   let app
   let appId
   let domainId = window.location.host
@@ -14,6 +30,9 @@
   let token = null
 
 	onMount(async () => {
+    // configure backend
+    istrav.tenant.apps.init({ host: apiUri })
+    
     // user
 		token = localStorage.getItem('token')
 
@@ -51,11 +70,11 @@
   })
 </script>
 
-{#if appId}
-	<Navigation {app} appId={appId} domainId={domainId} state={state} uploads={uploads} />
-  <Register />
-  <Footer app={app}>
+{#if app.id}
+  <BigFrontHeader {app} />
+  <!-- <Register /> -->
+  <BigBackFooter app={app} menuId='footer'>
     <a href="/" class="breadcrumb">Home</a>
     <a href="/register" class="breadcrumb">Register</a>
-  </Footer>
+  </BigBackFooter>
 {/if}

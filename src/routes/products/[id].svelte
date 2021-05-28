@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte'
 
-	import Navigation from '../../components/Header/Navigation.svelte'
+  import BigFrontHeader from '../../../farmerless/components/blocks/storefront/BigFrontHeader.svelte'
   import Footer from '../../components/Footer/Main.svelte'
   import Brands from '../../components/Footer/Brands.svelte'
   import View from '../../components/Product/View.svelte'

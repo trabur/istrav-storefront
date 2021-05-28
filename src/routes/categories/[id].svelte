@@ -1,14 +1,13 @@
 <script>
   import { onMount } from 'svelte'
 
-	import Navigation from '../../components/Header/Navigation.svelte'
+  import BigFrontHeader from '../../../farmerless/components/blocks/storefront/BigFrontHeader.svelte'
   import Footer from '../../components/Footer/Main.svelte'
   import Brands from '../../components/Footer/Brands.svelte'
   import ListProducts from '../../components/Category/ListProducts.svelte'
   import Banner from '../../components/Category/Banner.svelte'
 
-  import { stores } from "@sapper/app";
-  const { page } = stores();
+  import { getStores, navigating, page, session } from '$app/stores';
 
   // When this is true, show the component
   let load = false

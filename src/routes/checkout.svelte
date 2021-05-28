@@ -7,7 +7,7 @@
   let app
   appData.subscribe(value => {
     app = value
-    console.log('', app)
+    console.log(app)
   })
 
 	let wait = 3000
@@ -20,6 +20,8 @@
     // user
 		token = localStorage.getItem('token')
 
+    if (!app.id) return;
+    
 		// get the cart
     let esCarts = await scripts.account.carts.getAll(app.id, token)
     console.log('esCarts', esCarts)

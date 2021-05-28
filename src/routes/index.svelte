@@ -15,7 +15,7 @@
   let app
   appData.subscribe(value => {
     app = value
-    console.log('', app)
+    console.log(app)
   })
 </script>
 

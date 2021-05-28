@@ -13,7 +13,7 @@
 {#if loading}
   <!-- do nothing -->
 {:else}
-  <slot {domainId}></slot>
+  <slot></slot>
 {/if}
 
 <div id="code"></div>
@@ -49,7 +49,7 @@
     io = value
 	})
 
-  let loading = false
+  let loading = true
   let state = 'production'
 
   onMount(async () => {
@@ -71,6 +71,7 @@
     
     // configure backend
     istrav.tenant.apps.init({ host: backend })
+    istrav.account.carts.init({ host: backend })
 
     // pick an app to show for local development
     if (domain.includes('localhost:7000')) {
@@ -99,5 +100,6 @@
     }
 
     console.log('appData', app)
+    loading = false
   })
 </script>

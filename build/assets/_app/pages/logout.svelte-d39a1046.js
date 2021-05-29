@@ -1,0 +1,1 @@
+import{S as e,i as o,s,z as t}from"../chunks/vendor-ebfb1990.js";function r(e){return t((()=>{localStorage.removeItem("token"),window.location.href="/"})),[]}export default class extends e{constructor(e){super(),o(this,e,r,null,s,{})}}

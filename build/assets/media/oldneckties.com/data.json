@@ -1,0 +1,112 @@
+{
+  "name": "OLDNECKTIES",
+  "short": "ONT",
+  "image": "ties-in-boxes.jpg",
+  "about": "Our old neckties are ideal for inspiration for clothing designers, authentic movie props & vintage & antique clothing enthusiasts. Although we try to source vintage & antique ties in the best of condition & quality these are old ties that have been subjected to wear, age & other factors that may affect the qualities of a necktie like being constructed by hand.",
+  "shipping": "Vestibulum id mollis tortor. Sed nec fringilla nulla, id tincidunt nulla. Nam gravida quam nunc, vitae vestibulum augue mattis vitae. Sed et arcu eu elit faucibus luctus at eu risus. Etiam auctor felis eros, id euismod purus vehicula ac. Donec interdum arcu at libero elementum maximus. Pellentesque id lacus risus. Phasellus id mi sed orci pulvinar ullamcorper non quis sapien. Donec sagittis risus quam, vel ornare enim imperdiet non.\n\n\nVestibulum id mollis tortor. Sed nec fringilla nulla, id tincidunt nulla. Nam gravida quam nunc, vitae vestibulum augue mattis vitae. Sed et arcu eu elit faucibus luctus at eu risus. Etiam auctor felis eros, id euismod purus vehicula ac. Donec interdum arcu at libero elementum maximus. Pellentesque id lacus risus. Phasellus id mi sed orci pulvinar ullamcorper non quis sapien. Donec sagittis risus quam, vel ornare enim imperdiet non.",
+  "announce": {
+    "line1": "Old Neck Ties.",
+    "line2": "Accessories from the past.",
+    "buttonName": "SHOP",
+    "buttonUrl": "/categories/neckties"
+  },
+  "menu": [
+    {
+      "name": "Bowties",
+      "url": "/categories/bowties",
+      "children": [
+        { "name": "Retro", "url": "/categories/retro-bowties" },
+        { "name": "Vintage", "url": "/categories/vintage-bowties" },
+        { "name": "Antique", "url": "/categories/antique-bowties" }
+      ]
+    },
+    {
+      "name": "Neckties",
+      "url": "/categories/neckties",
+      "children": [
+        { "name": "Retro", "url": "/categories/retro-neckties" },
+        { "name": "Vintage", "url": "/categories/vintage-neckties" },
+        { "name": "Antique", "url": "/categories/antique-neckties" },
+        { "name": "Skinny", "url": "/categories/skinny-neckties" },
+        { "name": "Wide", "url": "/categories/wide-neckties" },
+        { "name": "Hand Decordated", "url": "/categories/hand-decordated-neckties" },
+        { "name": "Silk", "url": "/categories/silk-neckties" },
+        { "name": "Synthetics", "url": "/categories/synthetics-neckties" },
+        { "name": "Woven", "url": "/categories/woven-neckties" },
+        { "name": "Jacquard", "url": "/categories/jacquard-neckties" }
+      ]
+    },
+    {
+      "name": "Other",
+      "url": "/categories/other",
+      "children": [
+        { "name": "Cuff Links", "url": "/categories/cuff-links-other" },
+        { "name": "Pocket Squares", "url": "/categories/pocket-squares-other" }
+      ]
+    }
+  ],
+  "footer": [
+    {
+      "name": "Bowties",
+      "url": "/categories/bowties",
+      "children": [
+        { "name": "Retro", "url": "/categories/retro-bowties" },
+        { "name": "Vintage", "url": "/categories/vintage-bowties" },
+        { "name": "Antique", "url": "/categories/antique-bowties" }
+      ]
+    },
+    {
+      "name": "Neckties",
+      "url": "/categories/neckties",
+      "children": [
+        { "name": "Retro", "url": "/categories/retro-neckties" },
+        { "name": "Vintage", "url": "/categories/vintage-neckties" },
+        { "name": "Antique", "url": "/categories/antique-neckties" },
+        { "name": "Skinny", "url": "/categories/skinny-neckties" },
+        { "name": "Wide", "url": "/categories/wide-neckties" },
+        { "name": "Hand Decordated", "url": "/categories/hand-decordated-neckties" },
+        { "name": "Silk", "url": "/categories/silk-neckties" },
+        { "name": "Synthetics", "url": "/categories/synthetics-neckties" },
+        { "name": "Woven", "url": "/categories/woven-neckties" },
+        { "name": "Jacquard", "url": "/categories/jacquard-neckties" }
+      ]
+    },
+    {
+      "name": "Other",
+      "url": "/categories/other",
+      "children": [
+        { "name": "Cuff Links", "url": "/categories/cuff-links-other" },
+        { "name": "Pocket Squares", "url": "/categories/pocket-squares-other" }
+      ]
+    }
+  ],
+  "socialLinks": {
+    "instagram": "https://instagram.com",
+    "facebook": "https://facebook.com",
+    "youtube": "https://youtube.com",
+    "twitter": "https://twitter.com"
+  },
+  "featured": [
+    { 
+      "slug": "first", "name": "first", "image": "./IMG-0695.jpg",
+      "category": { "slug": "plain", "name": "plain" }
+    },
+    { 
+      "slug": "second", "name": "second", "image": "./IMG-0695.jpg",
+      "category": { "slug": "plain", "name": "plain" }
+    },
+    { 
+      "slug": "third", "name": "third", "image": "./IMG-0695.jpg",
+      "category": { "slug": "plain", "name": "plain" }
+    },
+    { 
+      "slug": "fourth", "name": "fourth", "image": "./IMG-0695.jpg",
+      "category": { "slug": "plain", "name": "plain" }
+    }
+  ],
+  "shopByCategory": [
+    { "slug": "plain", "name": "plain", "image": "categories/plain.jpg" },
+    { "slug": "simple", "name": "simple", "image": "categories/simple.jpg" },
+    { "slug": "generic", "name": "generic", "image": "categories/generic.jpg" }
+  ]
+}

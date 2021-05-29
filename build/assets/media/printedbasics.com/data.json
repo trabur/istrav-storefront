@@ -1,0 +1,64 @@
+{
+  "name": "PRINTEDBASICS",
+  "short": "PB",
+  "image": "clothing.jpg",
+  "about": "",
+  "shipping": "Vestibulum id mollis tortor. Sed nec fringilla nulla, id tincidunt nulla. Nam gravida quam nunc, vitae vestibulum augue mattis vitae. Sed et arcu eu elit faucibus luctus at eu risus. Etiam auctor felis eros, id euismod purus vehicula ac. Donec interdum arcu at libero elementum maximus. Pellentesque id lacus risus. Phasellus id mi sed orci pulvinar ullamcorper non quis sapien. Donec sagittis risus quam, vel ornare enim imperdiet non.\n\n\nVestibulum id mollis tortor. Sed nec fringilla nulla, id tincidunt nulla. Nam gravida quam nunc, vitae vestibulum augue mattis vitae. Sed et arcu eu elit faucibus luctus at eu risus. Etiam auctor felis eros, id euismod purus vehicula ac. Donec interdum arcu at libero elementum maximus. Pellentesque id lacus risus. Phasellus id mi sed orci pulvinar ullamcorper non quis sapien. Donec sagittis risus quam, vel ornare enim imperdiet non.",
+  "announce": {
+    "line1": "Final reduction",
+    "line2": "Up to 70% off sale",
+    "buttonName": "SHOP SALE",
+    "buttonUrl": "/category/my-category"
+  },
+  "menu": [
+    {
+      "name": "thing",
+      "url": "/category/thing",
+      "children": [
+        { "name": "one", "url": "/category/one" },
+        { "name": "two", "url": "/category/two" },
+        { "name": "three", "url": "/category/three" }
+      ]
+    }
+  ],
+  "footer": [
+    {
+      "name": "thing2",
+      "url": "/category/thing",
+      "children": [
+        { "name": "one2", "url": "/category/one" },
+        { "name": "two2", "url": "/category/two" },
+        { "name": "three2", "url": "/category/three" }
+      ]
+    }
+  ],
+  "socialLinks": {
+    "instagram": "https://instagram.com",
+    "facebook": "https://facebook.com",
+    "youtube": "https://youtube.com",
+    "twitter": "https://twitter.com"
+  },
+  "featured": [
+    { 
+      "slug": "first", "name": "first", "image": "./IMG-0695.jpg",
+      "category": { "slug": "plain", "name": "plain" }
+    },
+    { 
+      "slug": "second", "name": "second", "image": "./IMG-0695.jpg",
+      "category": { "slug": "plain", "name": "plain" }
+    },
+    { 
+      "slug": "third", "name": "third", "image": "./IMG-0695.jpg",
+      "category": { "slug": "plain", "name": "plain" }
+    },
+    { 
+      "slug": "fourth", "name": "fourth", "image": "./IMG-0695.jpg",
+      "category": { "slug": "plain", "name": "plain" }
+    }
+  ],
+  "shopByCategory": [
+    { "slug": "plain", "name": "plain", "image": "categories/plain.jpg" },
+    { "slug": "simple", "name": "simple", "image": "categories/simple.jpg" },
+    { "slug": "generic", "name": "generic", "image": "categories/generic.jpg" }
+  ]
+}

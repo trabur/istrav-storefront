@@ -1,0 +1,72 @@
+{
+  "name": "ISTRAV",
+  "short": "ISTRAV",
+  "image": "heic1901a.jpg",
+  "about": "",
+  "shipping": "Vestibulum id mollis tortor. Sed nec fringilla nulla, id tincidunt nulla. Nam gravida quam nunc, vitae vestibulum augue mattis vitae. Sed et arcu eu elit faucibus luctus at eu risus. Etiam auctor felis eros, id euismod purus vehicula ac. Donec interdum arcu at libero elementum maximus. Pellentesque id lacus risus. Phasellus id mi sed orci pulvinar ullamcorper non quis sapien. Donec sagittis risus quam, vel ornare enim imperdiet non.\n\n\nVestibulum id mollis tortor. Sed nec fringilla nulla, id tincidunt nulla. Nam gravida quam nunc, vitae vestibulum augue mattis vitae. Sed et arcu eu elit faucibus luctus at eu risus. Etiam auctor felis eros, id euismod purus vehicula ac. Donec interdum arcu at libero elementum maximus. Pellentesque id lacus risus. Phasellus id mi sed orci pulvinar ullamcorper non quis sapien. Donec sagittis risus quam, vel ornare enim imperdiet non.",
+  "announce": {
+    "line1": "physical & digital",
+    "line2": "web services",
+    "buttonName": "GET STARTED",
+    "buttonUrl": "https://docs.istrav.com"
+  },
+  "menu": [
+    {
+      "name": "storefronts",
+      "url": "/categories/storefronts",
+      "children": [
+        { "name": "oldneckties.com", "url": "/products/oldneckties.com" },
+        { "name": "printedbasics.com", "url": "/products/printedbasics.com" },
+        { "name": "istrav.com", "url": "/products/istrav.com" }
+      ]
+    },
+    {
+      "name": "headless",
+      "url": "/categories/headless",
+      "children": [
+        { "name": "admin", "url": "/products/admin.istrav.com" },
+        { "name": "api", "url": "/products/api.istrav.com" },
+        { "name": "channels", "url": "/products/channels.istrav.com" }
+      ]
+    },
+    {
+      "name": "docs",
+      "url": "https://docs.istrav.com",
+      "children": []
+    }
+  ],
+  "footer": [
+    {
+      "name": "storefronts",
+      "url": "/categories/storefronts",
+      "children": [
+        { "name": "oldneckties.com", "url": "/products/oldneckties.com" },
+        { "name": "printedbasics.com", "url": "/products/printedbasics.com" },
+        { "name": "istrav.com", "url": "/products/istrav.com" }
+      ]
+    }
+  ],
+  "socialLinks": {
+    "instagram": "https://instagram.com",
+    "facebook": "https://facebook.com",
+    "youtube": "https://youtube.com",
+    "twitter": "https://twitter.com"
+  },
+  "featured": [
+    { 
+      "slug": "istrav.com", "name": "istrav.com", "image": "./IMG-0695.jpg",
+      "category": { "slug": "storefronts", "name": "storefronts" }
+    },
+    { 
+      "slug": "printedbasics.com", "name": "printedbasics.com", "image": "./IMG-0695.jpg",
+      "category": { "slug": "storefronts", "name": "storefronts" }
+    },
+    { 
+      "slug": "oldneckties.com", "name": "oldneckties.com", "image": "./IMG-0695.jpg",
+      "category": { "slug": "storefronts", "name": "storefronts" }
+    }
+  ],
+  "shopByCategory": [
+    { "slug": "storefronts", "name": "storefronts", "image": "categories/storefronts.jpg" }
+  ]
+}

@@ -1,0 +1,235 @@
+{
+  ".svelte-kit/build/runtime/internal/start.js": {
+    "file": "start-74a09945.js",
+    "src": ".svelte-kit/build/runtime/internal/start.js",
+    "isEntry": true,
+    "imports": [
+      "_vendor-ebfb1990.js"
+    ],
+    "dynamicImports": [
+      "src/routes/__layout.svelte",
+      ".svelte-kit/build/components/error.svelte",
+      "src/routes/index.svelte",
+      "src/routes/collections/[id].svelte",
+      "src/routes/categories/[id].svelte",
+      "src/routes/checkout/success.svelte",
+      "src/routes/checkout/cancel.svelte",
+      "src/routes/checkout.svelte",
+      "src/routes/products/[id].svelte",
+      "src/routes/register.svelte",
+      "src/routes/account.svelte",
+      "src/routes/logout.svelte",
+      "src/routes/login.svelte",
+      "src/routes/cart.svelte"
+    ],
+    "css": [
+      "assets/start-a8cd1609.css"
+    ]
+  },
+  "src/routes/__layout.svelte": {
+    "file": "pages/__layout.svelte-d479031b.js",
+    "src": "src/routes/__layout.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-ebfb1990.js",
+      "_api-3c9fd495.js"
+    ]
+  },
+  ".svelte-kit/build/components/error.svelte": {
+    "file": "error.svelte-e3ab324e.js",
+    "src": ".svelte-kit/build/components/error.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-ebfb1990.js"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "pages/index.svelte-02aa4c75.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-ebfb1990.js",
+      "_api-3c9fd495.js",
+      "_BigBackFooter-73416400.js"
+    ],
+    "css": [
+      "assets/pages/index.svelte-302ae6e1.css"
+    ]
+  },
+  "src/routes/collections/[id].svelte": {
+    "file": "pages/collections/[id].svelte-e9c59cdb.js",
+    "src": "src/routes/collections/[id].svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-ebfb1990.js",
+      "_api-3c9fd495.js",
+      "_BigBackFooter-73416400.js",
+      "_stores-aa9bd5bf.js"
+    ],
+    "css": [
+      "assets/pages/collections/[id].svelte-d8809c88.css"
+    ]
+  },
+  "src/routes/categories/[id].svelte": {
+    "file": "pages/categories/[id].svelte-09dab9f6.js",
+    "src": "src/routes/categories/[id].svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-ebfb1990.js",
+      "_api-3c9fd495.js",
+      "_BigBackFooter-73416400.js",
+      "_stores-aa9bd5bf.js"
+    ],
+    "css": [
+      "assets/pages/collections/[id].svelte-d8809c88.css"
+    ]
+  },
+  "src/routes/checkout/success.svelte": {
+    "file": "pages/checkout/success.svelte-de7a4d3d.js",
+    "src": "src/routes/checkout/success.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-ebfb1990.js",
+      "_api-3c9fd495.js"
+    ],
+    "css": [
+      "assets/pages/checkout/success.svelte-6d16b603.css"
+    ]
+  },
+  "src/routes/checkout/cancel.svelte": {
+    "file": "pages/checkout/cancel.svelte-77a05da4.js",
+    "src": "src/routes/checkout/cancel.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-ebfb1990.js"
+    ],
+    "css": [
+      "assets/pages/checkout/success.svelte-6d16b603.css"
+    ]
+  },
+  "src/routes/checkout.svelte": {
+    "file": "pages/checkout.svelte-f35bf511.js",
+    "src": "src/routes/checkout.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-ebfb1990.js",
+      "_api-3c9fd495.js"
+    ],
+    "css": [
+      "assets/pages/checkout/success.svelte-6d16b603.css"
+    ]
+  },
+  "src/routes/products/[id].svelte": {
+    "file": "pages/products/[id].svelte-13220f6f.js",
+    "src": "src/routes/products/[id].svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-ebfb1990.js",
+      "_api-3c9fd495.js",
+      "_BigBackFooter-73416400.js",
+      "_stores-aa9bd5bf.js"
+    ],
+    "css": [
+      "assets/pages/products/[id].svelte-1e1ccba0.css"
+    ]
+  },
+  "src/routes/register.svelte": {
+    "file": "pages/register.svelte-953a4b1e.js",
+    "src": "src/routes/register.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-ebfb1990.js",
+      "_api-3c9fd495.js",
+      "_BigBackFooter-73416400.js"
+    ],
+    "css": [
+      "assets/pages/register.svelte-9ffed927.css"
+    ]
+  },
+  "src/routes/account.svelte": {
+    "file": "pages/account.svelte-bc37771e.js",
+    "src": "src/routes/account.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-ebfb1990.js",
+      "_api-3c9fd495.js",
+      "_BigBackFooter-73416400.js"
+    ],
+    "css": [
+      "assets/pages/account.svelte-f6ba07f1.css"
+    ]
+  },
+  "src/routes/logout.svelte": {
+    "file": "pages/logout.svelte-d39a1046.js",
+    "src": "src/routes/logout.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-ebfb1990.js"
+    ]
+  },
+  "src/routes/login.svelte": {
+    "file": "pages/login.svelte-205f556f.js",
+    "src": "src/routes/login.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-ebfb1990.js",
+      "_api-3c9fd495.js",
+      "_BigBackFooter-73416400.js"
+    ],
+    "css": [
+      "assets/pages/register.svelte-9ffed927.css"
+    ]
+  },
+  "src/routes/cart.svelte": {
+    "file": "pages/cart.svelte-7e1b4050.js",
+    "src": "src/routes/cart.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-ebfb1990.js",
+      "_api-3c9fd495.js",
+      "_BigBackFooter-73416400.js"
+    ],
+    "css": [
+      "assets/pages/cart.svelte-f807c940.css"
+    ]
+  },
+  "_vendor-ebfb1990.js": {
+    "file": "chunks/vendor-ebfb1990.js"
+  },
+  "_api-3c9fd495.js": {
+    "file": "chunks/api-3c9fd495.js",
+    "imports": [
+      "_vendor-ebfb1990.js"
+    ]
+  },
+  "_BigBackFooter-73416400.js": {
+    "file": "chunks/BigBackFooter-73416400.js",
+    "imports": [
+      "_vendor-ebfb1990.js",
+      "_api-3c9fd495.js"
+    ],
+    "css": [
+      "assets/BigBackFooter-a6ec8e56.css"
+    ]
+  },
+  "_stores-aa9bd5bf.js": {
+    "file": "chunks/stores-aa9bd5bf.js",
+    "imports": [
+      "_vendor-ebfb1990.js"
+    ]
+  }
+}
